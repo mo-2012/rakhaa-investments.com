@@ -15,17 +15,17 @@
         }
 
         :root {
-            --primary: #0c2d5e;        /* أزرق داكن – مطابق للصور */
-            --primary-light: #1a4a8f;   /* درجة أفتح للخلفيات */
-            --secondary: #c9a96e;       /* ذهبي – لون التمييز الأساسي */
-            --secondary-dark: #a8864e;  /* ذهبي داكن */
-            --accent: #00d4ff;          /* أزرق فاتح – للّمسات */
-            --dark: #071426;             /* خلفية داكنة للفوتر */
-            --light: #f8f9fa;            /* خلفيات فاتحة */
-            --gray: #6c757d;             /* رمادي للنصوص الثانوية */
+            --primary: #0c2d5e;
+            --primary-light: #1a4a8f;
+            --secondary: #c9a96e;
+            --secondary-dark: #a8864e;
+            --accent: #00d4ff;
+            --dark: #071426;
+            --light: #f8f9fa;
+            --gray: #6c757d;
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
-            --transition: all 0.4s ease;
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --fast-transition: all 0.3s ease;
         }
 
@@ -52,7 +52,7 @@
             padding: 0 20px;
         }
 
-        /* ===== الهيدر – خلفية صلبة بدون تدرج ===== */
+        /* ===== الهيدر الزجاجي ===== */
         header {
             position: fixed;
             top: 0;
@@ -61,15 +61,16 @@
             z-index: 10000;
             padding: 15px 0;
             transition: var(--fast-transition);
-            background-color: var(--primary);  /* خلفية صلبة */
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+            background: rgba(12, 45, 94, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.3);
         }
 
         header.scrolled {
             padding: 10px 0;
-            background-color: var(--primary);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(7, 20, 38, 0.95);
+            backdrop-filter: blur(15px);
         }
 
         .navbar {
@@ -96,6 +97,7 @@
 
         .logo:hover {
             opacity: 0.9;
+            transform: scale(1.02);
         }
 
         .logo span {
@@ -107,7 +109,6 @@
             color: var(--secondary);
         }
 
-        /* ===== قائمة سطح المكتب – بسيطة ===== */
         .nav-links {
             display: flex;
             gap: 5px;
@@ -126,7 +127,7 @@
         }
 
         .nav-links a:hover {
-            background-color: rgba(201, 169, 110, 0.15);
+            background: rgba(201, 169, 110, 0.2);
             color: var(--secondary);
         }
 
@@ -138,15 +139,14 @@
             transform: translateX(50%);
             width: 0;
             height: 2px;
-            background-color: var(--secondary);
-            transition: var(--fast-transition);
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            transition: width 0.4s ease;
         }
 
         .nav-links a:hover::after {
             width: 30px;
         }
 
-        /* ===== زر القائمة المتنقلة ===== */
         .mobile-toggle {
             display: none;
             background: none;
@@ -161,7 +161,7 @@
         }
 
         .mobile-toggle:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .mobile-toggle.active i {
@@ -169,16 +169,16 @@
             transform: rotate(90deg);
         }
 
-        /* ===== لوحة القائمة المتنقلة ===== */
         .mobile-menu-panel {
             position: fixed;
             top: 0;
             right: -100%;
             width: 100%;
             height: 100vh;
-            background-color: var(--primary);
+            background: rgba(12, 45, 94, 0.98);
+            backdrop-filter: blur(20px);
             z-index: 9999;
-            transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: right 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -205,7 +205,7 @@
             font-weight: 700;
             padding: 15px 25px;
             border-radius: 50px;
-            background-color: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(201, 169, 110, 0.2);
             transition: var(--fast-transition);
             display: flex;
@@ -214,7 +214,7 @@
         }
 
         .mobile-menu-links a:hover {
-            background-color: var(--secondary);
+            background: var(--secondary);
             color: var(--primary);
             border-color: var(--secondary);
         }
@@ -227,36 +227,89 @@
             color: var(--primary);
         }
 
-        /* ===== قسم الهيرو – خلفية الصورة الجديدة ===== */
+        /* ===== تأثير الجزيئات (Particles) في الخلفية ===== */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ===== قسم الهيرو مع المعرض ===== */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(12, 45, 94, 0.85), rgba(7, 20, 38, 0.9)), url('https://i.ibb.co/TD6RJzJS/wmremove-transformed-2.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
             color: white;
             display: flex;
             align-items: center;
+            background: linear-gradient(135deg, #0c2d5e 0%, #071426 100%);
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(12,45,94,0.7) 0%, rgba(7,20,38,0.9) 100%);
+            z-index: 2;
+        }
+
+        .hero .container {
             position: relative;
+            z-index: 3;
         }
 
         .hero-content {
             max-width: 800px;
             padding-top: 100px;
+            animation: floatIn 1.2s ease-out;
+        }
+
+        @keyframes floatIn {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.2rem;
             margin-bottom: 25px;
             color: white;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            line-height: 1.3;
         }
 
-        .hero p {
-            font-size: 1.3rem;
+        .hero .dynamic-text {
+            font-size: 1.4rem;
             margin-bottom: 35px;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255,255,255,0.95);
             max-width: 650px;
+            min-height: 120px;
+            border-right: 4px solid var(--secondary);
+            padding-right: 25px;
+            background: linear-gradient(90deg, rgba(201,169,110,0.1), transparent);
+            border-radius: 0 10px 10px 0;
         }
 
         .hero-btns {
@@ -265,7 +318,6 @@
             margin-top: 50px;
         }
 
-        /* ===== الأزرار – تصميم مسطح مع ذهبي ===== */
         .btn {
             padding: 16px 40px;
             border-radius: 50px;
@@ -279,44 +331,121 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background-color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
             color: var(--primary);
-            box-shadow: 0 5px 15px rgba(201, 169, 110, 0.3);
+            box-shadow: 0 8px 20px rgba(201, 169, 110, 0.4);
         }
 
         .btn-primary:hover {
-            background-color: var(--secondary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(201, 169, 110, 0.5);
         }
 
         .btn-outline {
             background: transparent;
             color: white;
             border: 2px solid var(--secondary);
+            backdrop-filter: blur(5px);
         }
 
         .btn-outline:hover {
-            background-color: var(--secondary);
+            background: var(--secondary);
             color: var(--primary);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
 
-        /* ===== عناوين الأقسام – خط ذهبي سفلي ===== */
+        /* أزرار التنقل في المعرض */
+        .gallery-controls {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            z-index: 4;
+        }
+
+        .gallery-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--fast-transition);
+            font-size: 22px;
+        }
+
+        .gallery-arrow:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+        }
+
+        .gallery-dots {
+            display: flex;
+            gap: 14px;
+        }
+
+        .gallery-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--fast-transition);
+        }
+
+        .gallery-dot.active {
+            background: var(--secondary);
+            border-color: white;
+            transform: scale(1.3);
+        }
+
+        /* ===== عناوين الأقسام ===== */
         .section-title {
             text-align: center;
             margin-bottom: 70px;
+            position: relative;
         }
 
         .section-title h2 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--primary);
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.05);
         }
 
         .section-title h2:after {
@@ -325,9 +454,10 @@
             bottom: -15px;
             right: 50%;
             transform: translateX(50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            border-radius: 2px;
         }
 
         .section-title p {
@@ -337,44 +467,55 @@
             font-size: 1.1rem;
         }
 
-        /* ===== قسم الخدمات – كرت بسيط ===== */
+        /* ===== قسم الخدمات (بطاقات ثلاثية الأبعاد) ===== */
         .services {
             padding: 100px 0;
-            background-color: #ffffff;
+            background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            perspective: 1000px;
         }
 
         .service-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 30px;
             padding: 40px 30px;
-            transition: var(--fast-transition);
-            border: 1px solid #eef2f6;
-            box-shadow: 0 5px 20px rgba(12, 45, 94, 0.05);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            box-shadow: 0 15px 35px rgba(12, 45, 94, 0.1);
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+            backdrop-filter: blur(5px);
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            cursor: pointer;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 30px 45px rgba(12, 45, 94, 0.2);
             border-color: var(--secondary);
-            box-shadow: 0 15px 30px rgba(12, 45, 94, 0.1);
         }
 
         .service-card i {
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--secondary);
             margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover i {
+            transform: scale(1.15) rotate(5deg);
         }
 
         .service-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 20px;
             color: var(--primary);
             position: relative;
@@ -386,9 +527,14 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), transparent);
+            transition: width 0.4s;
+        }
+
+        .service-card:hover h3:after {
+            width: 100px;
         }
 
         .service-card p {
@@ -396,16 +542,30 @@
             line-height: 1.8;
         }
 
-        /* ===== قسم من نحن – مع صورة المبنى الطويل ===== */
+        /* ===== قسم من نحن (تصميم شلال) ===== */
         .about {
             padding: 100px 0;
-            background-color: #ffffff;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .about-waterfall {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            background: repeating-linear-gradient(45deg, var(--secondary) 0px, var(--secondary) 2px, transparent 2px, transparent 20px);
         }
 
         .about-content {
             display: flex;
             align-items: center;
             gap: 60px;
+            position: relative;
+            z-index: 2;
         }
 
         .about-text {
@@ -413,9 +573,10 @@
         }
 
         .about-text h2 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--primary);
             margin-bottom: 30px;
+            position: relative;
         }
 
         .about-text p {
@@ -427,81 +588,153 @@
 
         .stats {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             margin-top: 50px;
             flex-wrap: wrap;
-            justify-content: flex-start;
         }
 
         .stat-item {
             text-align: center;
-            padding: 20px 30px;
-            background-color: #f8fafc;
-            border-radius: 12px;
-            min-width: 140px;
-            border: 1px solid #eef2f6;
-            transition: var(--fast-transition);
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #ffffff, #f0f4f8);
+            border-radius: 30px;
+            min-width: 150px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(201,169,110,0.3);
+            transition: all 0.3s;
         }
 
         .stat-item:hover {
-            border-color: var(--secondary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(201,169,110,0.2);
+        }
+
+        .circular-progress {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #e0e7ef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .circular-progress::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 900;
             color: var(--secondary);
             display: block;
             line-height: 1;
             margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
         }
 
         .stat-label {
             color: var(--primary);
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .about-visual {
             flex: 1;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(12, 45, 94, 0.15);
-            background-image: url('https://i.ibb.co/5WJT0GBM/Screenshot-2026-02-13-205948.png');
-            background-size: cover;
-            background-position: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            height: 550px;
         }
 
-        /* ===== قسم الاتصال – خلفية زرقاء داكنة ===== */
+        .waterfall-item {
+            border-radius: 30px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+            filter: grayscale(20%);
+        }
+
+        .waterfall-item:hover {
+            transform: scale(1.02);
+            filter: grayscale(0%);
+            box-shadow: 0 25px 40px rgba(201,169,110,0.3);
+        }
+
+        .waterfall-item:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80');
+            grid-row: span 2;
+            height: 100%;
+        }
+        .waterfall-item:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2011&q=80');
+            height: 200px;
+        }
+        .waterfall-item:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-4.0.3&auto=format&fit=crop&w=2010&q=80');
+            height: 250px;
+        }
+        .waterfall-item:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2011&q=80');
+            grid-column: span 2;
+            height: 180px;
+        }
+
+        /* ===== قسم الاتصال بتصميم حديث ===== */
         .contact {
             padding: 100px 0;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #0a1a30 100%);
             color: white;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBkPSJNMjAgMjBhMjAgMjAgMCAwIDEgMjAgMjAgMjAgMjAgMCAwIDEtNDAgMCAyMCAyMCAwIDAgMSAyMC0yMHoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=');
+            opacity: 0.2;
         }
 
         .contact .section-title h2 {
             color: white;
+            -webkit-text-fill-color: white;
         }
 
         .contact .section-title h2:after {
-            background-color: var(--secondary);
+            background: linear-gradient(90deg, transparent, white, transparent);
         }
 
         .contact .section-title p {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255,255,255,0.8);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 50px;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-info h3 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 20px;
             color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .contact-info p {
@@ -514,42 +747,45 @@
             align-items: center;
             gap: 20px;
             margin-bottom: 25px;
-            padding: 15px 20px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 50px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 60px;
             border: 1px solid rgba(201, 169, 110, 0.2);
             transition: var(--fast-transition);
+            backdrop-filter: blur(5px);
         }
 
         .contact-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             border-color: var(--secondary);
+            transform: translateX(-5px);
         }
 
         .contact-item i {
             color: var(--secondary);
-            font-size: 1.2rem;
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.1);
+            font-size: 1.3rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: 0.3s;
         }
 
         .contact-item:hover i {
-            background-color: var(--secondary);
+            background: var(--secondary);
             color: var(--primary);
         }
 
-        /* ===== نموذج الاتصال – خلفية شفافة ===== */
         .contact-form {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 45px;
+            border-radius: 40px;
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(201, 169, 110, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
         .form-group {
@@ -565,10 +801,10 @@
 
         .form-control {
             width: 100%;
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
             color: white;
             font-family: 'Cairo', sans-serif;
             transition: var(--fast-transition);
@@ -577,29 +813,63 @@
         .form-control:focus {
             outline: none;
             border-color: var(--secondary);
-            background-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.15);
         }
 
         .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255,255,255,0.6);
         }
 
         select.form-control option {
-            background-color: var(--primary);
+            background: var(--primary);
             color: white;
         }
 
         textarea.form-control {
-            border-radius: 20px;
+            border-radius: 30px;
             resize: vertical;
         }
 
-        /* ===== الفوتر – خلفية داكنة ===== */
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid #28a745;
+            display: block;
+        }
+
+        .form-message.error {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border: 1px solid #dc3545;
+            display: block;
+        }
+
+        /* ===== الفوتر العصري ===== */
         footer {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, #071426 0%, #0c1a2f 100%);
             color: white;
             padding: 80px 0 30px;
-            border-top: 3px solid var(--secondary);
+            border-top: 4px solid var(--secondary);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
         }
 
         .footer-content {
@@ -610,16 +880,15 @@
         }
 
         .footer-logo {
-            font-size: 30px;
+            font-size: 32px;
             font-weight: 900;
             color: white;
             text-decoration: none;
             display: inline-block;
             margin-bottom: 20px;
-        }
-
-        .footer-logo span {
-            color: var(--secondary);
+            background: linear-gradient(135deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .footer-about p {
@@ -637,24 +906,26 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.05);
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.05);
             border-radius: 50%;
             color: white;
             text-decoration: none;
             transition: var(--fast-transition);
-            border: 1px solid rgba(201, 169, 110, 0.2);
+            border: 1px solid rgba(201,169,110,0.3);
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
-            background-color: var(--secondary);
+            background: var(--secondary);
             color: var(--dark);
             border-color: var(--secondary);
+            transform: translateY(-5px);
         }
 
         .footer-heading {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 25px;
             color: white;
             position: relative;
@@ -666,9 +937,9 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), transparent);
         }
 
         .footer-links {
@@ -680,7 +951,7 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
             transition: var(--fast-transition);
             display: flex;
@@ -701,60 +972,127 @@
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
             font-size: 0.9rem;
         }
 
-        /* ===== التجاوب مع الشاشات الصغيرة ===== */
+        /* ===== زر العائم الذكي ===== */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 5px 20px rgba(201,169,110,0.5);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .float-tooltip {
+            position: absolute;
+            left: 70px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 1px solid var(--secondary);
+        }
+
+        .float-btn:hover .float-tooltip {
+            opacity: 1;
+            left: 80px;
+        }
+
+        .back-to-top {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            border: 2px solid var(--secondary);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* ===== تأثيرات الظهور ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== التجاوب ===== */
         @media (max-width: 992px) {
-            .nav-links {
-                display: none;
-            }
-            .mobile-toggle {
-                display: block;
-            }
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-            .about-content {
-                flex-direction: column;
-            }
-            .about-visual {
-                width: 100%;
-                height: 350px;
-            }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 3.2rem; }
+            .about-content { flex-direction: column; }
+            .about-visual { width: 100%; height: 400px; }
+            .hero-btns { flex-direction: column; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-btns {
-                flex-direction: column;
-            }
-            .stats {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .btn {
-                padding: 14px 30px;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            .section-title h2 { font-size: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stats { justify-content: center; }
+            .floating-actions { bottom: 20px; left: 20px; }
+            .gallery-controls { bottom: 20px; }
         }
     </style>
 </head>
 <body>
+    <!-- Canvas للجزيئات -->
+    <canvas id="particles-canvas"></canvas>
+
     <header id="header">
         <div class="container">
             <nav class="navbar">
@@ -789,72 +1127,80 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Gallery -->
     <section class="hero" id="home">
+        <!-- Slides -->
+        <div class="hero-slide active" style="background-image: url('https://i.ibb.co/TD6RJzJS/wmremove-transformed-2.png');"></div>
+        <div class="hero-slide" style="background-image: url('https://i.ibb.co/5WJT0GBM/Screenshot-2026-02-13-205948.png');"></div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80');"></div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2011&q=80');"></div>
+        
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <h1>استثمارات استراتيجية واستشارات مالية واقتصادية متخصصة</h1>
-                <p>تقدم رخاء حلول استثمارية شاملة واستشارات اقتصادية واستراتيجيات مالية لمساعدة الشركات والأفراد على تحقيق نمو مستدام والحفاظ على الثروة في اقتصاد عالمي ديناميكي.</p>
+                <div class="dynamic-text" id="dynamicText">
+                    تقدم رخاء حلول استثمارية شاملة واستشارات اقتصادية واستراتيجيات مالية لمساعدة الشركات والأفراد على تحقيق نمو مستدام والحفاظ على الثروة في اقتصاد عالمي ديناميكي.
+                </div>
                 <div class="hero-btns">
                     <a href="#contact" class="btn btn-primary"><i class="fas fa-headset"></i> طلب استشارة</a>
                     <a href="#services" class="btn btn-outline"><i class="fas fa-rocket"></i> خدماتنا</a>
                 </div>
             </div>
         </div>
+
+        <!-- Gallery Controls -->
+        <div class="gallery-controls">
+            <div class="gallery-arrow" id="prevSlide"><i class="fas fa-chevron-right"></i></div>
+            <div class="gallery-dots" id="galleryDots"></div>
+            <div class="gallery-arrow" id="nextSlide"><i class="fas fa-chevron-left"></i></div>
+        </div>
     </section>
 
     <!-- Services Section (8 cards) -->
     <section class="services" id="services">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2>خدماتنا المتخصصة</h2>
                 <p>نقدم مجموعة شاملة من خدمات الاستثمار والاستشارات المالية المصممة خصيصًا لتلبية احتياجاتك الخاصة.</p>
             </div>
             <div class="services-grid">
-                <!-- 1. إدارة المحافظ الاستثمارية -->
-                <a href="service-1.html" class="service-card">
+                <a href="service-1.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-chart-pie"></i>
                     <h3>إدارة المحافظ الاستثمارية</h3>
                     <p>تصميم وإدارة محافظ استثمارية متنوعة لتحقيق أقصى عائد مع إدارة المخاطر وفق أهدافك المالية.</p>
                 </a>
-                <!-- 2. تقييم المخاطر -->
-                <a href="service-3.html" class="service-card">
+                <a href="service-3.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-balance-scale"></i>
                     <h3>تقييم المخاطر</h3>
                     <p>تحقق خيارات استثمار آمنة وتقويم استراتيجيات التكيف، وتحقيق أمن وسهولة الاستخدام.</p>
                 </a>
-                <!-- 3. عمليات الدمج والاستحواذ -->
-                <a href="service-6.html" class="service-card">
+                <a href="service-6.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-handshake"></i>
                     <h3>عمليات الدمج والاستحواذ</h3>
                     <p>توفير خدمات الدعم والمساعدة على استعدادهم للخطر. إدارة المخاطر في وقت مناسب.</p>
                 </a>
-                <!-- 4. إدارة الثروات -->
-                <a href="service-5.html" class="service-card">
+                <a href="service-5.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-briefcase"></i>
                     <h3>إدارة الثروات</h3>
                     <p>تعزيز قدرة الشركات على الإنتاج والتجارة. تحقيق أهداف الشركة.</p>
                 </a>
-                <!-- 5. التحسين الضريبي -->
-                <a href="service-4.html" class="service-card">
+                <a href="service-4.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-calculator"></i>
                     <h3>التحسين الضريبي</h3>
                     <p>تنمية خبرات سليمة لتقديم المنتجات. تطوير منتجات جديدة. تقديم خدمات إضافية.</p>
                 </a>
-                <!-- 6. تحليل الأسواق العالمية -->
-                <a href="service-7.html" class="service-card">
+                <a href="service-7.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-globe"></i>
                     <h3>تحليل الأسواق العالمية</h3>
                     <p>إعداد بيانات أسعار المنتجات. تحليل اتجاهات السوق. تقديم تقارير دورية دقيقة.</p>
                 </a>
-                <!-- 7. الخدمات المحاسبية والمالية -->
-                <a href="service-2.html" class="service-card">
+                <a href="service-2.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-chart-pie"></i>
                     <h3>الخدمات المحاسبية والمالية</h3>
                     <p>تحليل مستويات مخاطر السوق. إعداد التقارير المالية. إمساك الدفاتر والسجلات.</p>
                 </a>
-                <!-- 8. خدمة رجال الأعمال -->
-                <a href="service-8.html" class="service-card">
+                <a href="service-8.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-user-tie"></i>
                     <h3>خدمات رجال الأعمال</h3>
                     <p>استشارات متكاملة لأصحاب الأعمال: تخطيط استراتيجي، تطوير أعمال، وإدارة المشاريع.</p>
@@ -863,30 +1209,42 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section with Waterfall Effect -->
     <section class="about" id="about">
+        <div class="about-waterfall"></div>
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text fade-in">
                     <h2>عن رخاء للإستثمارات</h2>
                     <p>تأسست رخاء برؤية لإعادة تعريف الاستشارات المالية، وقد رسخت نفسها كشريك موثوق للشركات والأفراد ذوي الملاءة المالية العالية الذين يبحثون عن توجيه استثماري استراتيجي وبصيرة اقتصادية.</p>
                     <p>يجمع فريقنا من الخبراء الماليين والاقتصاديين والإستراتيجيين الاستثماريين ذوي الخبرة عقودًا من الخبرة مع نهج مبتكر لتقديم نتائج استثنائية في المشهد المالي المعقد اليوم.</p>
                     <div class="stats">
                         <div class="stat-item">
-                            <span class="stat-number" data-count="98">0</span>
+                            <div class="circular-progress" style="background: conic-gradient(var(--secondary) 0deg 352deg, #e0e7ef 352deg 360deg);">
+                                <span class="stat-number" data-count="98">0</span>
+                            </div>
                             <span class="stat-label">استمرارية العملاء</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number" data-count="240">0</span>
+                            <div class="circular-progress" style="background: conic-gradient(var(--secondary) 0deg 320deg, #e0e7ef 320deg 360deg);">
+                                <span class="stat-number" data-count="240">0</span>
+                            </div>
                             <span class="stat-label">عميل حول العالم</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number" data-count="26">0</span>
+                            <div class="circular-progress" style="background: conic-gradient(var(--secondary) 0deg 300deg, #e0e7ef 300deg 360deg);">
+                                <span class="stat-number" data-count="26">0</span>
+                            </div>
                             <span class="stat-label">سنوات خبرة</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-visual"></div>
+                <div class="about-visual fade-in">
+                    <div class="waterfall-item"></div>
+                    <div class="waterfall-item"></div>
+                    <div class="waterfall-item"></div>
+                    <div class="waterfall-item"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -894,12 +1252,12 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2 style="color: white;">اتصل بنا</h2>
                 <p style="color: rgba(255,255,255,0.9);">تواصل مع فريق خبرائنا لمناقشة أهدافك المالية وكيف يمكننا مساعدتك في تحقيقها.</p>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info fade-in">
                     <h3>لنبدأ محادثة</h3>
                     <p>فريقنا جاهز لتقديم استشارة مخصصة ووضع خطة استراتيجية مصممة خصيصًا لحالتك المالية الفريدة وأهدافك.</p>
                     <div class="contact-details">
@@ -908,7 +1266,7 @@
                         <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>البريد الإلكتروني</h4><p>rakhaa.investments@gmail.com</p></div></div>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form fade-in">
                     <form id="consultationForm">
                         <input type="hidden" name="_language" value="ar" />
                         <input type="hidden" name="_subject" value="طلب استشارة جديد - رخاء للإستثمارات" />
@@ -944,52 +1302,64 @@
 
     <!-- Footer -->
     <footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-about">
-                <a href="index.html" class="footer-logo">رخاء<span> للإستثمارات</span></a>
-                <p>تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهًا استراتيجيًا وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.</p>
-                <div class="social-links">
-                    <a href="http://www.linkedin.com/in/rakhaa-investments-505b533ab"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/investment38143"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/Rakhaa.1999/directory_contact_info?_rdc=2&_rdr#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/rakhaa.investments/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://api.whatsapp.com/send/?phone=201224561951&text&type=phone_number&app_absent=0"><i class="fab fa-whatsapp"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about fade-in">
+                    <a href="index.html" class="footer-logo">رخاء<span> للإستثمارات</span></a>
+                    <p>تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهًا استراتيجيًا وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.</p>
+                    <div class="social-links">
+                        <a href="http://www.linkedin.com/in/rakhaa-investments-505b533ab"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/investment38143"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Rakhaa.1999/directory_contact_info?_rdc=2&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/rakhaa.investments/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send/?phone=201224561951&text&type=phone_number&app_absent=0"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-services fade-in">
+                    <h3 class="footer-heading">خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="service-1.html"><i class="fas fa-chevron-left"></i> إدارة المحافظ الاستثمارية</a></li>
+                        <li><a href="service-3.html"><i class="fas fa-chevron-left"></i> تقييم المخاطر</a></li>
+                        <li><a href="service-6.html"><i class="fas fa-chevron-left"></i> عمليات الدمج والاستحواذ</a></li>
+                        <li><a href="service-5.html"><i class="fas fa-chevron-left"></i> إدارة الثروات</a></li>
+                        <li><a href="service-4.html"><i class="fas fa-chevron-left"></i>التحسين الضريبي</a></li>
+                        <li><a href="service-7.html"><i class="fas fa-chevron-left"></i> تحليل الأسواق العالمية</a></li>
+                        <li><a href="service-2.html"><i class="fas fa-chevron-left"></i> الخدمات المحاسبية والمالية</a></li>
+                        <li><a href="service-8.html"><i class="fas fa-chevron-left"></i> خدمات رجال الأعمال</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-section fade-in">
+                    <h3 class="footer-heading">روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.egx.com.eg/" target="_blank"><i class="fas fa-chevron-left"></i> البورصة المصرية</a></li>
+                        <li><a href="https://eta.gov.eg/ar/home" target="_blank"><i class="fas fa-chevron-left"></i> مصلحة الضرائب المصرية</a></li>
+                        <li><a href="https://digital.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> منصة مصر الرقمية</a></li>
+                        <li><a href="https://www.cbe.org.eg/" target="_blank"><i class="fas fa-chevron-left"></i> البنك المركزي المصري</a></li>
+                        <li><a href="https://invoicing.eta.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> بوابة الفواتير الإلكترونية</a></li>
+                        <li><a href="https://www.investinegypt.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> الهيئة العامة للاستثمار</a></li>
+                        <li><a href="https://www.nafeza.gov.eg/ar" target="_blank"><i class="fas fa-chevron-left"></i> نافذة</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-services">
-                <h3 class="footer-heading">خدماتنا</h3>
-                <ul class="footer-links">
-                    <li><a href="service-1.html"><i class="fas fa-chevron-left"></i> إدارة المحافظ الاستثمارية</a></li>
-                    <li><a href="service-3.html"><i class="fas fa-chevron-left"></i> تقييم المخاطر</a></li>
-                    <li><a href="service-6.html"><i class="fas fa-chevron-left"></i> عمليات الدمج والاستحواذ</a></li>
-                    <li><a href="service-5.html"><i class="fas fa-chevron-left"></i> إدارة الثروات</a></li>
-                    <li><a href="service-4.html"><i class="fas fa-chevron-left"></i>التحسين الضريبي</a></li>
-                    <li><a href="service-7.html"><i class="fas fa-chevron-left"></i> تحليل الأسواق العالمية</a></li>
-                    <li><a href="service-2.html"><i class="fas fa-chevron-left"></i> الخدمات المحاسبية والمالية</a></li>
-                    <li><a href="service-8.html"><i class="fas fa-chevron-left"></i> خدمات رجال الأعمال</a></li>
-                </ul>
-            </div>
-            <div class="footer-links-section">
-                <h3 class="footer-heading">روابط مهمة</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.egx.com.eg/" target="_blank"><i class="fas fa-chevron-left"></i> البورصة المصرية</a></li>
-                    <li><a href="https://eta.gov.eg/ar/home" target="_blank"><i class="fas fa-chevron-left"></i> مصلحة الضرائب المصرية</a></li>
-                    <li><a href="https://digital.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> منصة مصر الرقمية</a></li>
-                    <li><a href="https://www.cbe.org.eg/" target="_blank"><i class="fas fa-chevron-left"></i> البنك المركزي المصري</a></li>
-                    <li><a href="https://invoicing.eta.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> بوابة الفواتير الإلكترونية</a></li>
-                    <li><a href="https://www.investinegypt.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> الهيئة العامة للاستثمار</a></li>
-                    <li><a href="https://www.nafeza.gov.eg/ar" target="_blank"><i class="fas fa-chevron-left"></i> نافذة</a></li>
-                </ul>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة © <span id="currentYear"></span> رخاء للاستثمارات والاستشارات المالية والاقتصادية.</p>
             </div>
         </div>
-        <div class="copyright">
-            <p>جميع الحقوق محفوظة © 2026 رخاء للاستثمارات والاستشارات المالية والاقتصادية.</p>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <div class="float-btn" id="quickContact">
+            <i class="fas fa-headset"></i>
+            <span class="float-tooltip">تواصل سريع</span>
+        </div>
+        <div class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
         </div>
     </div>
-</footer>
 
     <script>
+        // Mobile Menu Toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         mobileToggle.addEventListener('click', function() {
@@ -1017,58 +1387,161 @@
             });
         });
 
+        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             header.classList.toggle('scrolled', window.scrollY > 100);
         });
 
-        // عداد الإحصائيات
-        function animateCounter() {
-            document.querySelectorAll('.stat-number').forEach(counter => {
-                const target = +counter.getAttribute('data-count');
-                const count = +counter.innerText;
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + target/200);
-                    setTimeout(animateCounter, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            });
+        // Dynamic Text Cycling (Waterfall of ideas)
+        const texts = [
+            "تقدم رخاء حلول استثمارية شاملة واستشارات اقتصادية واستراتيجيات مالية لمساعدة الشركات والأفراد على تحقيق نمو مستدام والحفاظ على الثروة في اقتصاد عالمي ديناميكي.",
+            "نصيحة استثمارية: التنويع في المحافظ يقلل المخاطر ويزيد العوائد على المدى الطويل. فريق رخاء يساعدك في بناء محفظة متوازنة.",
+            "التحليل الاقتصادي الدقيق يمكن أن يكشف عن فرص استثمارية واعدة قبل أن تصبح سائدة. خبراؤنا يقدمون تقارير دورية عن الأسواق.",
+            "التخطيط الضريبي الفعال جزء أساسي من إدارة الثروة. رخاء تقدم استشارات ضريبية متخصصة لتحسين كفاءة استثماراتك.",
+            "استثمر في مستقبلك اليوم مع رخاء، شريكك الموثوق في عالم المال والأعمال."
+        ];
+        const dynamicElement = document.getElementById('dynamicText');
+        let textIndex = 0;
+        setInterval(() => {
+            textIndex = (textIndex + 1) % texts.length;
+            dynamicElement.style.opacity = '0';
+            setTimeout(() => {
+                dynamicElement.textContent = texts[textIndex];
+                dynamicElement.style.opacity = '1';
+            }, 300);
+        }, 5000);
+
+        // Particles Effect
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function initParticles() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    color: `rgba(201, 169, 110, ${Math.random() * 0.5 + 0.2})`
+                });
+            }
         }
 
-        const aboutObserver = new IntersectionObserver((entries) => {
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                p.x += p.speedX;
+                p.y += p.speedY;
+                if (p.x < 0 || p.x > width) p.speedX *= -1;
+                if (p.y < 0 || p.y > height) p.speedY *= -1;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+
+        window.addEventListener('resize', () => {
+            initParticles();
+        });
+        initParticles();
+        drawParticles();
+
+        // Counter Animation with circular progress
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const step = () => {
+                current += increment;
+                if (current < target) {
+                    element.innerText = Math.ceil(current);
+                    requestAnimationFrame(step);
+                } else {
+                    element.innerText = target;
+                }
+            };
+            requestAnimationFrame(step);
+        }
+
+        // Intersection Observer for fade-in and counters
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCounter();
-                    aboutObserver.unobserve(entry.target);
+                    entry.target.classList.add('show');
+                    if (entry.target.querySelector('.stat-number')) {
+                        const counters = entry.target.querySelectorAll('.stat-number');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-count');
+                            animateCounter(counter, target);
+                        });
+                    }
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.3 });
-        aboutObserver.observe(document.querySelector('.about'));
+        }, { threshold: 0.2 });
 
-        // نموذج الاتصال
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Quick Contact Float
+        document.getElementById('quickContact').addEventListener('click', () => {
+            window.location.href = '#contact';
+        });
+
+        // Update copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Form submission
         document.getElementById('consultationForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
+            const formMessage = document.getElementById('formMessage');
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
             submitBtn.disabled = true;
+            formMessage.className = 'form-message';
             fetch('https://formspree.io/f/mlgwdajk', {
                 method: 'POST',
                 body: new FormData(this),
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    alert('تم الإرسال بنجاح! سنتواصل معك قريباً.');
+                    formMessage.textContent = 'تم الإرسال بنجاح! سنتواصل معك قريباً.';
+                    formMessage.classList.add('success');
                     this.reset();
                 } else throw new Error();
-            }).catch(() => alert('حدث خطأ، حاول مرة أخرى.')).finally(() => {
+            }).catch(() => {
+                formMessage.textContent = 'حدث خطأ، حاول مرة أخرى.';
+                formMessage.classList.add('error');
+            }).finally(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             });
         });
 
-        // تجانس التمرير
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1081,6 +1554,94 @@
                     document.body.style.overflow = 'auto';
                 }
             });
+        });
+
+        // Simple 3D Tilt effect for cards
+        document.querySelectorAll('[data-tilt]').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+            });
+        });
+
+        // Gallery functionality
+        const slides = document.querySelectorAll('.hero-slide');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const dotsContainer = document.getElementById('galleryDots');
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Create dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('gallery-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.gallery-dot');
+
+        function updateSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            // Also update dynamic text based on slide index (optional)
+            // if you want to sync with the text array, you can do:
+            // dynamicElement.textContent = texts[index % texts.length];
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide(currentSlide);
+        }
+
+        // Event listeners for arrows
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+
+        // Auto slide every 5 seconds
+        function startInterval() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+        startInterval();
+
+        // Stop auto slide when interacting with dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', resetInterval);
         });
     </script>
 </body>
