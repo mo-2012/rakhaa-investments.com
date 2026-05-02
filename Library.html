@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المكتبة القانونية - رخاء للاستثمار | Rakhaa Investments</title>
+    <title>المكتبة القانونية - رخاء للاستثمار</title>
 
-    <!-- Google Fonts - Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* ألوان موقع رخاء للاستثمار الأصلية */
             --primary: #0c2d5e;
             --primary-light: #1a4a8f;
             --secondary: #c9a96e;
@@ -21,22 +19,19 @@
             --dark: #071426;
             --light: #f8f9fa;
             --gray: #6c757d;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --fast-transition: all 0.3s ease;
-
-            /* ألوان إضافية للتصميم */
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
             --white: #ffffff;
             --text-dark: #1a1a2e;
             --text-medium: #4a4a5a;
             --text-light: #8a8a9a;
-            --border-light: rgba(0, 0, 0, 0.06);
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.06);
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
-            --radius: 14px;
-            --radius-sm: 8px;
+            --border-light: rgba(0, 0, 0, 0.04);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -47,16 +42,15 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: var(--light);
+            background-color: #eef1f5;
             color: var(--text-dark);
             line-height: 1.8;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ==================== BACKGROUND PARTICLES / GRADIENT ==================== */
-        .bg-gradient {
+        /* خلفية ناعمة */
+        .bg-glow {
             position: fixed;
             top: 0;
             left: 0;
@@ -65,63 +59,26 @@
             pointer-events: none;
             z-index: -1;
             background:
-                radial-gradient(ellipse at 20% 20%, rgba(12, 45, 94, 0.03) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 60%, rgba(201, 169, 110, 0.04) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 90%, rgba(0, 212, 255, 0.02) 0%, transparent 50%);
+                radial-gradient(ellipse at 20% 20%, rgba(12, 45, 94, 0.025) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(201, 169, 110, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 90%, rgba(0, 212, 255, 0.015) 0%, transparent 50%);
         }
 
-        /* ==================== TOP BAR ==================== */
-        .top-bar {
-            background: var(--dark);
-            padding: 8px 0;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
-        .top-bar-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .top-bar a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: var(--fast-transition);
-        }
-        .top-bar a:hover {
-            color: var(--accent);
-        }
-        .top-bar .contact-row {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-        .top-bar .social-row {
-            display: flex;
-            gap: 10px;
-        }
-
-        /* ==================== HEADER ==================== */
+        /* ========== HEADER ========== */
         .header {
-            background: linear-gradient(180deg, rgba(12, 45, 94, 0.97) 0%, rgba(7, 20, 38, 0.98) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: linear-gradient(180deg, rgba(12, 45, 94, 0.95) 0%, rgba(7, 20, 38, 0.97) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
         .header-inner {
-            max-width: 1300px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 16px 28px;
+            padding: 18px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -135,108 +92,37 @@
             text-decoration: none;
         }
         .logo-icon {
-            width: 46px;
-            height: 46px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--dark);
             font-weight: 900;
-            box-shadow: 0 0 25px rgba(201, 169, 110, 0.3);
+            box-shadow: 0 8px 20px rgba(201, 169, 110, 0.3);
         }
         .logo-text h1 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--white);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
             line-height: 1.3;
         }
         .logo-text span {
             font-size: 0.65rem;
             color: var(--secondary);
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 2.5px;
             text-transform: uppercase;
         }
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .lang-btn {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--white);
-            padding: 9px 18px;
-            border-radius: 25px;
-            font-size: 0.82rem;
-            cursor: pointer;
-            transition: var(--fast-transition);
-            font-family: 'Cairo', sans-serif;
-            font-weight: 500;
-        }
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--secondary);
-            color: var(--secondary);
-        }
-        .badge-pill {
-            background: rgba(201, 169, 110, 0.15);
-            border: 1px solid rgba(201, 169, 110, 0.3);
-            color: var(--secondary);
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
 
-        /* ==================== NAVIGATION ==================== */
-        .nav-bar {
-            background: var(--white);
-            border-bottom: 1px solid var(--border-light);
-            position: sticky;
-            top: 78px;
-            z-index: 999;
-            box-shadow: var(--shadow-sm);
-        }
-        .nav-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 28px;
-            display: flex;
-            gap: 0;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .nav-link {
-            padding: 16px 18px;
-            text-decoration: none;
-            color: var(--text-medium);
-            font-weight: 500;
-            font-size: 0.88rem;
-            white-space: nowrap;
-            transition: var(--fast-transition);
-            border-bottom: 3px solid transparent;
-            position: relative;
-        }
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary);
-            border-bottom-color: var(--secondary);
-            font-weight: 700;
-        }
-        .nav-link.active {
-            color: var(--dark);
-            background: rgba(201, 169, 110, 0.06);
-        }
-
-        /* ==================== HERO ==================== */
+        /* ========== HERO ========== */
         .hero {
-            background: linear-gradient(160deg, var(--dark) 0%, #0a1e3d 30%, var(--primary) 60%, #0f3460 100%);
-            padding: 55px 20px 65px;
+            background: linear-gradient(165deg, #040e1a 0%, var(--dark) 25%, var(--primary) 55%, #0f3460 100%);
+            padding: 60px 20px 70px;
             text-align: center;
             color: var(--white);
             position: relative;
@@ -245,22 +131,33 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -40%;
-            right: -15%;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            top: -20%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.07) 0%, transparent 70%);
             border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
         }
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(201, 169, 110, 0.06) 0%, transparent 70%);
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.05) 0%, transparent 70%);
             border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
         .hero-content {
             position: relative;
@@ -273,87 +170,49 @@
             background: rgba(0, 212, 255, 0.1);
             border: 1px solid rgba(0, 212, 255, 0.3);
             color: var(--accent);
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 30px;
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 18px;
+            letter-spacing: 0.5px;
         }
         .hero h2 {
-            font-size: 2.4rem;
-            font-weight: 800;
+            font-size: 2.6rem;
+            font-weight: 900;
             margin-bottom: 14px;
             letter-spacing: 0.5px;
-            line-height: 1.4;
-            background: linear-gradient(135deg, var(--white) 0%, #d0d8e8 100%);
+            line-height: 1.35;
+            background: linear-gradient(135deg, #ffffff 0%, #c8d6e5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .hero .gold-line {
-            width: 70px;
+            width: 80px;
             height: 3px;
-            background: var(--secondary);
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
             margin: 18px auto;
             border-radius: 4px;
         }
         .hero p {
             font-size: 1.05rem;
-            color: #a0b0c8;
+            color: #95a5b8;
             max-width: 550px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
-        /* ==================== MAIN CONTAINER ==================== */
+        /* ========== CONTAINER ========== */
         .container {
-            max-width: 1280px;
-            margin: -30px auto 50px;
-            padding: 0 24px;
+            max-width: 1160px;
+            margin: -35px auto 40px;
+            padding: 0 20px;
             position: relative;
             z-index: 10;
         }
 
-        /* ==================== STATS ==================== */
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        .stat-card {
-            background: var(--white);
-            padding: 22px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-            min-width: 130px;
-            border: 1px solid var(--border-light);
-            transition: var(--fast-transition);
-        }
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-            border-color: var(--secondary);
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-        .stat-label {
-            font-size: 0.82rem;
-            color: var(--text-light);
-            margin-top: 6px;
-            font-weight: 500;
-        }
-
-        /* ==================== SECTION HEADER ==================== */
+        /* ========== SECTION HEADER ========== */
         .section-header {
             display: flex;
             align-items: center;
@@ -366,13 +225,13 @@
             font-size: 2rem;
         }
         .section-header h3 {
-            font-size: 1.45rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--primary);
-            letter-spacing: 0.2px;
+            letter-spacing: 0.3px;
         }
 
-        /* ==================== DOCUMENT GRID ==================== */
+        /* ========== DOCUMENT LIST ========== */
         .doc-list {
             display: flex;
             flex-direction: column;
@@ -382,20 +241,36 @@
             background: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
-            padding: 20px 24px;
+            padding: 22px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 18px;
-            transition: var(--fast-transition);
-            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            border: 1px solid transparent;
             flex-wrap: wrap;
-            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary), var(--accent));
+            border-radius: 0 4px 4px 0;
+            opacity: 0;
+            transition: var(--transition);
         }
         .doc-card:hover {
-            border-color: var(--secondary);
-            box-shadow: var(--shadow);
-            transform: translateY(-2px);
+            border-color: rgba(201, 169, 110, 0.3);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        .doc-card:hover::before {
+            opacity: 1;
         }
         .doc-left {
             display: flex;
@@ -405,20 +280,21 @@
             min-width: 240px;
         }
         .doc-icon-box {
-            width: 52px;
-            height: 52px;
-            min-width: 52px;
-            background: linear-gradient(135deg, rgba(201, 169, 110, 0.1), rgba(201, 169, 110, 0.05));
+            width: 54px;
+            height: 54px;
+            min-width: 54px;
+            background: linear-gradient(135deg, #fef9e7, #fdf3d0);
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7rem;
-            color: var(--secondary);
+            font-size: 1.6rem;
+            color: var(--secondary-dark);
             border: 1px solid rgba(201, 169, 110, 0.2);
+            box-shadow: 0 2px 8px rgba(201, 169, 110, 0.1);
         }
         .doc-info h4 {
-            font-size: 1rem;
+            font-size: 0.98rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 5px;
@@ -426,22 +302,18 @@
         }
         .doc-meta {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             flex-wrap: wrap;
-            font-size: 0.8rem;
+            font-size: 0.76rem;
             color: var(--text-light);
             align-items: center;
         }
-        .doc-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
         .lang-tag {
             padding: 3px 12px;
-            border-radius: 14px;
-            font-size: 0.73rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
             font-weight: 700;
+            letter-spacing: 0.3px;
         }
         .lang-tag.ar {
             background: #e8f5e9;
@@ -452,7 +324,7 @@
             color: #0d47a1;
         }
 
-        /* ==================== DOWNLOAD BUTTON ==================== */
+        /* ========== DOWNLOAD BUTTON ========== */
         .btn-dl {
             display: inline-flex;
             align-items: center;
@@ -460,35 +332,33 @@
             background: var(--primary);
             color: var(--white);
             padding: 13px 26px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: var(--fast-transition);
+            font-size: 0.88rem;
+            transition: var(--transition);
             white-space: nowrap;
             border: 2px solid transparent;
             letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(12, 45, 94, 0.2);
         }
         .btn-dl:hover {
             background: var(--secondary);
             color: var(--dark);
             border-color: var(--secondary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(201, 169, 110, 0.35);
-        }
-        .btn-dl .dl-icon {
-            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.4);
         }
 
-        /* ==================== FOOTER ==================== */
+        /* ========== FOOTER ========== */
         .footer {
-            background: linear-gradient(0deg, var(--dark) 0%, var(--primary) 100%);
-            color: #a0b0c0;
+            background: linear-gradient(0deg, #040e1a 0%, var(--dark) 50%, var(--primary) 100%);
+            color: #8a9bb5;
             text-align: center;
-            padding: 35px 20px 30px;
-            font-size: 0.85rem;
+            padding: 40px 20px 35px;
+            font-size: 0.84rem;
             margin-top: 60px;
-            border-top: 1px solid var(--glass-border);
+            border-top: 2px solid rgba(201, 169, 110, 0.25);
         }
         .footer .gold-name {
             color: var(--secondary);
@@ -497,14 +367,14 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 24px;
+            gap: 22px;
             flex-wrap: wrap;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
         .footer-links a {
-            color: #b0c0d0;
+            color: #a0b0c5;
             text-decoration: none;
-            transition: var(--fast-transition);
+            transition: var(--transition);
             font-size: 0.84rem;
             font-weight: 500;
         }
@@ -512,35 +382,24 @@
             color: var(--accent);
         }
         .footer-disclaimer {
-            margin-top: 10px;
-            font-size: 0.75rem;
-            color: #7080a0;
+            margin-top: 12px;
+            font-size: 0.72rem;
+            color: #5a6d85;
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
             .header-inner {
-                padding: 12px 16px;
                 flex-direction: column;
                 text-align: center;
-            }
-            .hero {
-                padding: 35px 16px 45px;
             }
             .hero h2 {
                 font-size: 1.6rem;
             }
-            .nav-inner {
-                padding: 0 10px;
-            }
-            .nav-link {
-                padding: 12px 14px;
-                font-size: 0.8rem;
-            }
             .doc-card {
                 padding: 16px;
-                gap: 12px;
                 flex-direction: column;
+                gap: 10px;
             }
             .doc-left {
                 flex-direction: column;
@@ -553,84 +412,209 @@
                 width: 100%;
                 justify-content: center;
             }
-            .stats-row {
-                gap: 10px;
-            }
-            .stat-card {
-                min-width: 80px;
-                padding: 14px 12px;
-            }
-            .stat-number {
-                font-size: 1.4rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h2 {
-                font-size: 1.3rem;
-            }
-            .logo-text h1 {
-                font-size: 1.2rem;
-            }
-            .section-header h3 {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ==================== BACKGROUND ==================== -->
-    <div class="bg-gradient"></div>
+    <div class="bg-glow"></div>
 
-    <!-- ==================== TOP BAR ==================== -->
-    <div class="top-bar">
-        <div class="top-bar-inner">
-            <div class="contact-row">
-                <span>📞 19555</span>
-                <span>✉️ info@rakhaa-investments.com</span>
-                <span>📍 القاهرة - مصر</span>
-            </div>
-            <div class="social-row">
-                <a href="#" title="Facebook">📘</a>
-                <a href="#" title="Twitter">𝕏</a>
-                <a href="#" title="LinkedIn">💼</a>
-                <a href="#" title="YouTube">▶️</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== HEADER ==================== -->
+    <!-- ========== HEADER ========== -->
     <header class="header">
         <div class="header-inner">
-            <a href="https://rakhaa-investments.com" class="logo-area">
+            <a href="index.html" class="logo-area">
                 <div class="logo-icon">⚖️</div>
                 <div class="logo-text">
                     <h1>رخاء للاستثمار</h1>
                     <span>RAKHAA INVESTMENTS</span>
                 </div>
             </a>
-            <div class="header-actions">
-                <button class="lang-btn">🌐 English</button>
-                <span class="badge-pill">🏛️ المكتبة القانونية</span>
-            </div>
         </div>
     </header>
 
-    <!-- ==================== NAVIGATION ==================== -->
-    <nav class="nav-bar">
-        <div class="nav-inner">
-            <a href="https://rakhaa-investments.com" class="nav-link">🏠 الرئيسية</a>
-            <a href="#" class="nav-link">📋 عن رخاء</a>
-            <a href="#" class="nav-link">💼 خدماتنا</a>
-            <a href="#" class="nav-link">🌍 الاستثمار في مصر</a>
-            <a href="#" class="nav-link">📊 المركز الإعلامي</a>
-            <a href="library.html" class="nav-link active">📚 المكتبة القانونية</a>
-            <a href="#" class="nav-link">📞 اتصل بنا</a>
-        </div>
-    </nav>
-
-    <!-- ==================== HERO ==================== -->
+    <!-- ========== HERO ========== -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">📖 مجموعة المستندات الرس
+            <div class="hero-badge">📖 المستندات الرسمية</div>
+            <h2>المكتبة القانونية</h2>
+            <div class="gold-line"></div>
+            <p>منصتكم الشاملة للاطلاع على أحدث القوانين والتشريعات المنظمة للاستثمار والأعمال في مصر</p>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="container">
+        <div class="section-header">
+            <span class="s-icon">📋</span>
+            <h3>قوانين وتشريعات الاستثمار والتجارة</h3>
+        </div>
+
+        <div class="doc-list">
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📕</div>
+                    <div class="doc-info">
+                        <h4>قانون التجارة المصري رقم ١٧ لسنة ١٩٩٩</h4>
+                        <div class="doc-meta">
+                            <span>📄 ٣٣٧ صفحة</span>
+                            <span class="lang-tag ar">العربية</span>
+                            <span>📅 ١٩٩٩</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576752701.pdf" download class="btn-dl">⬇️ تحميل</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📗</div>
+                    <div class="doc-info">
+                        <h4>قانون البنك المركزي والجهاز المصرفي والنقد رقم ٨٨ لسنة ٢٠٠٣</h4>
+                        <div class="doc-meta">
+                            <span>📄 وثيقة رسمية</span>
+                            <span class="lang-tag ar">العربية</span>
+                            <span>📅 ٢٠٠٣</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576753344.pdf" download class="btn-dl">⬇️ تحميل</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📘</div>
+                    <div class="doc-info">
+                        <h4>قانون التجارة المصري - Law No. 17/1999 (Commercial Code)</h4>
+                        <div class="doc-meta">
+                            <span>📄 337 صفحة</span>
+                            <span class="lang-tag en">English</span>
+                            <span>📅 1999</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576696104.pdf" download class="btn-dl">⬇️ Download</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📙</div>
+                    <div class="doc-info">
+                        <h4>قانون حماية حقوق الملكية الفكرية - Intellectual Property Law</h4>
+                        <div class="doc-meta">
+                            <span>📄 وثيقة رسمية</span>
+                            <span class="lang-tag en">English</span>
+                            <span>📅 إصدار رسمي</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576695615.pdf" download class="btn-dl">⬇️ Download</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📓</div>
+                    <div class="doc-info">
+                        <h4>اللائحة التنفيذية لقانون الاستثمار</h4>
+                        <div class="doc-meta">
+                            <span>📄 ١٥٤ صفحة</span>
+                            <span class="lang-tag ar">العربية</span>
+                            <span>📅 إصدار محدث</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576752189.pdf" download class="btn-dl">⬇️ تحميل</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📔</div>
+                    <div class="doc-info">
+                        <h4>قانون ضمانات وحوافز الاستثمار رقم ٨ لسنة ١٩٩٧</h4>
+                        <div class="doc-meta">
+                            <span>📄 وثيقة رسمية</span>
+                            <span class="lang-tag ar">العربية</span>
+                            <span>📅 ١٩٩٧</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576752607.pdf" download class="btn-dl">⬇️ تحميل</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📒</div>
+                    <div class="doc-info">
+                        <h4>قانون الإشراف والرقابة على التأمين في مصر</h4>
+                        <div class="doc-meta">
+                            <span>📄 ١٥٤ صفحة</span>
+                            <span class="lang-tag ar">العربية</span>
+                            <span>📅 إصدار رسمي</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576753124.pdf" download class="btn-dl">⬇️ تحميل</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📕</div>
+                    <div class="doc-info">
+                        <h4>قانون العمل المصري رقم ١٢ لسنة ٢٠٠٣</h4>
+                        <div class="doc-meta">
+                            <span>📄 ١٥٤ صفحة</span>
+                            <span class="lang-tag ar">العربية</span>
+                            <span>📅 ٢٠٠٣</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576751803.pdf" download class="btn-dl">⬇️ تحميل</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📗</div>
+                    <div class="doc-info">
+                        <h4>القانون المدني المصري - Egyptian Civil Code</h4>
+                        <div class="doc-meta">
+                            <span>📄 170 صفحة</span>
+                            <span class="lang-tag en">English</span>
+                            <span>📅 1948</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576695424.pdf" download class="btn-dl">⬇️ Download</a>
+            </div>
+
+            <div class="doc-card">
+                <div class="doc-left">
+                    <div class="doc-icon-box">📘</div>
+                    <div class="doc-info">
+                        <h4>قانون العمل المصري - Labour Law No. 12 of 2003</h4>
+                        <div class="doc-meta">
+                            <span>📄 71 صفحة</span>
+                            <span class="lang-tag en">English</span>
+                            <span>📅 2003</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="1576695976.pdf" download class="btn-dl">⬇️ Download</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="index.html">🏠 الرئيسية</a>
+            <a href="#">📖 عن المكتبة</a>
+            <a href="#">🔒 سياسة الخصوصية</a>
+            <a href="#">📞 اتصل بنا</a>
+        </div>
+        <p>© ٢٠٢٦ <span class="gold-name">رخاء للاستثمار</span> - جميع الحقوق محفوظة</p>
+        <p class="footer-disclaimer">هذه المستندات إصدارات رسمية منشورة في الجريدة الرسمية المصرية ومتاحة للأغراض المرجعية فقط.</p>
+    </footer>
+
+</body>
+</html>
