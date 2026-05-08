@@ -1,4 +1,4 @@
-#<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         :root {
             --primary: #0c2d5e;
             --primary-light: #1a4a8f;
@@ -28,7 +27,6 @@
             --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --fast-transition: all 0.3s ease;
         }
-
         body {
             font-family: 'Cairo', sans-serif;
             line-height: 1.8;
@@ -38,21 +36,53 @@
             direction: rtl;
             text-align: right;
         }
-
-        h1, h2, h3, h4, h5, .logo {
+        body.ltr {
+            direction: ltr;
+            text-align: left;
+        }
+        body.ltr .nav-links a::after {
+            right: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        body.ltr .service-card h3:after {
+            right: auto;
+            left: 0;
+        }
+        body.ltr .footer-heading:after {
+            right: auto;
+            left: 0;
+        }
+        body.ltr .footer-links a:hover {
+            transform: translateX(5px);
+        }
+        body.ltr .contact-item:hover {
+            transform: translateX(5px);
+        }
+        body.ltr .mobile-menu-panel {
+            right: auto;
+            left: -100%;
+        }
+        body.ltr .mobile-menu-panel.active {
+            right: auto;
+            left: 0;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .logo {
             font-family: 'Cairo', sans-serif;
             font-weight: 800;
             line-height: 1.4;
         }
-
         .container {
             width: 90%;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* ===== الهيدر الزجاجي ===== */
         header {
             position: fixed;
             top: 0;
@@ -66,24 +96,20 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             border-bottom: 1px solid rgba(201, 169, 110, 0.3);
         }
-
         header.scrolled {
             padding: 10px 0;
             background: rgba(7, 20, 38, 0.95);
             backdrop-filter: blur(15px);
         }
-
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo-container {
             display: flex;
             align-items: center;
         }
-
         .logo {
             font-size: 30px;
             font-weight: 900;
@@ -94,27 +120,22 @@
             gap: 10px;
             transition: var(--fast-transition);
         }
-
         .logo:hover {
             opacity: 0.9;
             transform: scale(1.02);
         }
-
         .logo span {
             color: var(--secondary);
         }
-
         .logo i {
             font-size: 28px;
             color: var(--secondary);
         }
-
         .nav-links {
             display: flex;
             gap: 5px;
             align-items: center;
         }
-
         .nav-links a {
             color: white;
             text-decoration: none;
@@ -125,12 +146,10 @@
             border-radius: 30px;
             position: relative;
         }
-
         .nav-links a:hover {
             background: rgba(201, 169, 110, 0.2);
             color: var(--secondary);
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -142,11 +161,31 @@
             background: linear-gradient(90deg, transparent, var(--secondary), transparent);
             transition: width 0.4s ease;
         }
-
         .nav-links a:hover::after {
             width: 30px;
         }
-
+        /* زر تبديل اللغة */
+        .lang-switch {
+            background: rgba(201, 169, 110, 0.2);
+            border: 1px solid rgba(201, 169, 110, 0.5);
+            color: var(--secondary);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            transition: var(--fast-transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .lang-switch:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+        }
         .mobile-toggle {
             display: none;
             background: none;
@@ -159,16 +198,13 @@
             border-radius: 50%;
             transition: var(--fast-transition);
         }
-
         .mobile-toggle:hover {
             background: rgba(255, 255, 255, 0.1);
         }
-
         .mobile-toggle.active i {
             color: var(--secondary);
             transform: rotate(90deg);
         }
-
         .mobile-menu-panel {
             position: fixed;
             top: 0;
@@ -185,11 +221,9 @@
             align-items: center;
             padding: 80px 20px 40px;
         }
-
         .mobile-menu-panel.active {
             right: 0;
         }
-
         .mobile-menu-links {
             display: flex;
             flex-direction: column;
@@ -197,7 +231,6 @@
             width: 100%;
             max-width: 400px;
         }
-
         .mobile-menu-links a {
             color: white;
             text-decoration: none;
@@ -212,22 +245,17 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .mobile-menu-links a:hover {
             background: var(--secondary);
             color: var(--primary);
             border-color: var(--secondary);
         }
-
         .mobile-menu-links i {
             color: var(--secondary);
         }
-
         .mobile-menu-links a:hover i {
             color: var(--primary);
         }
-
-        /* ===== تأثير الجزيئات (Particles) في الخلفية ===== */
         #particles-canvas {
             position: absolute;
             top: 0;
@@ -237,8 +265,6 @@
             z-index: 1;
             pointer-events: none;
         }
-
-        /* ===== قسم الهيرو مع المعرض ===== */
         .hero {
             min-height: 100vh;
             position: relative;
@@ -248,7 +274,6 @@
             background: linear-gradient(135deg, #0c2d5e 0%, #071426 100%);
             overflow: hidden;
         }
-
         .hero-slide {
             position: absolute;
             top: 0;
@@ -261,63 +286,68 @@
             transition: opacity 1.5s ease-in-out;
             z-index: 1;
         }
-
         .hero-slide.active {
             opacity: 1;
         }
-
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(12,45,94,0.7) 0%, rgba(7,20,38,0.9) 100%);
+            background: radial-gradient(circle at 20% 50%, rgba(12, 45, 94, 0.7) 0%, rgba(7, 20, 38, 0.9) 100%);
             z-index: 2;
         }
-
         .hero .container {
             position: relative;
             z-index: 3;
         }
-
         .hero-content {
             max-width: 800px;
             padding-top: 100px;
             animation: floatIn 1.2s ease-out;
         }
-
         @keyframes floatIn {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
         .hero h1 {
             font-size: 4.2rem;
             margin-bottom: 25px;
             color: white;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
             line-height: 1.3;
         }
-
         .hero .dynamic-text {
             font-size: 1.4rem;
             margin-bottom: 35px;
-            color: rgba(255,255,255,0.95);
+            color: rgba(255, 255, 255, 0.95);
             max-width: 650px;
             min-height: 120px;
             border-right: 4px solid var(--secondary);
             padding-right: 25px;
-            background: linear-gradient(90deg, rgba(201,169,110,0.1), transparent);
+            background: linear-gradient(90deg, rgba(201, 169, 110, 0.1), transparent);
             border-radius: 0 10px 10px 0;
         }
-
+        body.ltr .hero .dynamic-text {
+            border-right: none;
+            border-left: 4px solid var(--secondary);
+            padding-right: 0;
+            padding-left: 25px;
+            border-radius: 10px 0 0 10px;
+            background: linear-gradient(270deg, rgba(201, 169, 110, 0.1), transparent);
+        }
         .hero-btns {
             display: flex;
             gap: 25px;
             margin-top: 50px;
         }
-
         .btn {
             padding: 16px 40px;
             border-radius: 50px;
@@ -334,7 +364,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .btn::before {
             content: '';
             position: absolute;
@@ -342,39 +371,32 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
-
         .btn:hover::before {
             left: 100%;
         }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
             color: var(--primary);
             box-shadow: 0 8px 20px rgba(201, 169, 110, 0.4);
         }
-
         .btn-primary:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(201, 169, 110, 0.5);
         }
-
         .btn-outline {
             background: transparent;
             color: white;
             border: 2px solid var(--secondary);
             backdrop-filter: blur(5px);
         }
-
         .btn-outline:hover {
             background: var(--secondary);
             color: var(--primary);
             transform: translateY(-5px);
         }
-
-        /* أزرار التنقل في المعرض */
         .gallery-controls {
             position: absolute;
             bottom: 50px;
@@ -385,7 +407,6 @@
             align-items: center;
             z-index: 4;
         }
-
         .gallery-arrow {
             width: 50px;
             height: 50px;
@@ -401,18 +422,15 @@
             transition: var(--fast-transition);
             font-size: 22px;
         }
-
         .gallery-arrow:hover {
             background: var(--secondary);
             color: var(--primary);
             border-color: var(--secondary);
         }
-
         .gallery-dots {
             display: flex;
             gap: 14px;
         }
-
         .gallery-dot {
             width: 14px;
             height: 14px;
@@ -422,20 +440,16 @@
             cursor: pointer;
             transition: var(--fast-transition);
         }
-
         .gallery-dot.active {
             background: var(--secondary);
             border-color: white;
             transform: scale(1.3);
         }
-
-        /* ===== عناوين الأقسام ===== */
         .section-title {
             text-align: center;
             margin-bottom: 70px;
             position: relative;
         }
-
         .section-title h2 {
             font-size: 3.2rem;
             color: var(--primary);
@@ -445,9 +459,8 @@
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
         }
-
         .section-title h2:after {
             content: '';
             position: absolute;
@@ -459,27 +472,22 @@
             background: linear-gradient(90deg, transparent, var(--secondary), transparent);
             border-radius: 2px;
         }
-
         .section-title p {
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
         }
-
-        /* ===== قسم الخدمات (بطاقات ثلاثية الأبعاد) ===== */
         .services {
             padding: 100px 0;
             background: linear-gradient(180deg, #ffffff 0%, #f5f7fa 100%);
         }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             perspective: 1000px;
         }
-
         .service-card {
             background: white;
             border-radius: 30px;
@@ -496,24 +504,20 @@
             transform: rotateX(0deg) rotateY(0deg);
             cursor: pointer;
         }
-
         .service-card:hover {
             transform: translateY(-15px) rotateX(2deg) rotateY(2deg);
             box-shadow: 0 30px 45px rgba(12, 45, 94, 0.2);
             border-color: var(--secondary);
         }
-
         .service-card i {
             font-size: 3.2rem;
             color: var(--secondary);
             margin-bottom: 25px;
             transition: transform 0.3s;
         }
-
         .service-card:hover i {
             transform: scale(1.15) rotate(5deg);
         }
-
         .service-card h3 {
             font-size: 1.9rem;
             margin-bottom: 20px;
@@ -521,7 +525,6 @@
             position: relative;
             padding-bottom: 15px;
         }
-
         .service-card h3:after {
             content: '';
             position: absolute;
@@ -532,23 +535,18 @@
             background: linear-gradient(90deg, var(--secondary), transparent);
             transition: width 0.4s;
         }
-
         .service-card:hover h3:after {
             width: 100px;
         }
-
         .service-card p {
             color: var(--gray);
             line-height: 1.8;
         }
-
-        /* ===== قسم من نحن (تصميم شلال) ===== */
         .about {
             padding: 100px 0;
             background: #ffffff;
             position: relative;
         }
-
         .about-waterfall {
             position: absolute;
             top: 0;
@@ -559,7 +557,6 @@
             opacity: 0.1;
             background: repeating-linear-gradient(45deg, var(--secondary) 0px, var(--secondary) 2px, transparent 2px, transparent 20px);
         }
-
         .about-content {
             display: flex;
             align-items: center;
@@ -567,48 +564,41 @@
             position: relative;
             z-index: 2;
         }
-
         .about-text {
             flex: 1;
         }
-
         .about-text h2 {
             font-size: 3.2rem;
             color: var(--primary);
             margin-bottom: 30px;
             position: relative;
         }
-
         .about-text p {
             margin-bottom: 25px;
             color: var(--gray);
             font-size: 1.1rem;
             line-height: 1.9;
         }
-
         .stats {
             display: flex;
             gap: 30px;
             margin-top: 50px;
             flex-wrap: wrap;
         }
-
         .stat-item {
             text-align: center;
             padding: 25px 20px;
             background: linear-gradient(135deg, #ffffff, #f0f4f8);
             border-radius: 30px;
             min-width: 150px;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
-            border: 1px solid rgba(201,169,110,0.3);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(201, 169, 110, 0.3);
             transition: all 0.3s;
         }
-
         .stat-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 35px rgba(201,169,110,0.2);
+            box-shadow: 0 20px 35px rgba(201, 169, 110, 0.2);
         }
-
         .circular-progress {
             width: 100px;
             height: 100px;
@@ -619,9 +609,8 @@
             justify-content: center;
             margin: 0 auto 15px;
             position: relative;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         .circular-progress::before {
             content: '';
             position: absolute;
@@ -630,7 +619,6 @@
             border-radius: 50%;
             background: white;
         }
-
         .stat-number {
             font-size: 2.8rem;
             font-weight: 900;
@@ -641,13 +629,11 @@
             position: relative;
             z-index: 1;
         }
-
         .stat-label {
             color: var(--primary);
             font-size: 1rem;
             font-weight: 700;
         }
-
         .about-visual {
             flex: 1;
             display: grid;
@@ -655,22 +641,19 @@
             gap: 20px;
             height: 550px;
         }
-
         .waterfall-item {
             border-radius: 30px;
             background-size: cover;
             background-position: center;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
             transition: all 0.4s;
             filter: grayscale(20%);
         }
-
         .waterfall-item:hover {
             transform: scale(1.02);
             filter: grayscale(0%);
-            box-shadow: 0 25px 40px rgba(201,169,110,0.3);
+            box-shadow: 0 25px 40px rgba(201, 169, 110, 0.3);
         }
-
         .waterfall-item:nth-child(1) {
             background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80');
             grid-row: span 2;
@@ -689,15 +672,12 @@
             grid-column: span 2;
             height: 180px;
         }
-
-        /* ===== قسم الاتصال بتصميم حديث ===== */
         .contact {
             padding: 100px 0;
             background: linear-gradient(135deg, var(--primary) 0%, #0a1a30 100%);
             color: white;
             position: relative;
         }
-
         .contact::before {
             content: '';
             position: absolute;
@@ -708,20 +688,16 @@
             background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBkPSJNMjAgMjBhMjAgMjAgMCAwIDEgMjAgMjAgMjAgMjAgMCAwIDEtNDAgMCAyMCAyMCAwIDAgMSAyMC0yMHoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=');
             opacity: 0.2;
         }
-
         .contact .section-title h2 {
             color: white;
             -webkit-text-fill-color: white;
         }
-
         .contact .section-title h2:after {
             background: linear-gradient(90deg, transparent, white, transparent);
         }
-
         .contact .section-title p {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
         }
-
         .contact-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -729,19 +705,16 @@
             position: relative;
             z-index: 2;
         }
-
         .contact-info h3 {
             font-size: 2.4rem;
             margin-bottom: 20px;
             color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-
         .contact-info p {
             margin-bottom: 30px;
             opacity: 0.9;
         }
-
         .contact-item {
             display: flex;
             align-items: center;
@@ -754,82 +727,70 @@
             transition: var(--fast-transition);
             backdrop-filter: blur(5px);
         }
-
         .contact-item:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: var(--secondary);
             transform: translateX(-5px);
         }
-
         .contact-item i {
             color: var(--secondary);
             font-size: 1.3rem;
             width: 50px;
             height: 50px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: 0.3s;
         }
-
         .contact-item:hover i {
             background: var(--secondary);
             color: var(--primary);
         }
-
         .contact-form {
             background: rgba(255, 255, 255, 0.08);
             padding: 45px;
             border-radius: 40px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(201, 169, 110, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
-
         .form-group {
             margin-bottom: 25px;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: white;
         }
-
         .form-control {
             width: 100%;
             padding: 15px 25px;
             border-radius: 60px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
             font-family: 'Cairo', sans-serif;
             transition: var(--fast-transition);
         }
-
         .form-control:focus {
             outline: none;
             border-color: var(--secondary);
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
         }
-
         .form-control::placeholder {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
         }
-
         select.form-control option {
             background: var(--primary);
             color: white;
         }
-
         textarea.form-control {
             border-radius: 30px;
             resize: vertical;
         }
-
         .form-message {
             margin-top: 15px;
             padding: 12px;
@@ -838,22 +799,18 @@
             font-weight: 600;
             display: none;
         }
-
         .form-message.success {
             background: rgba(40, 167, 69, 0.2);
             color: #28a745;
             border: 1px solid #28a745;
             display: block;
         }
-
         .form-message.error {
             background: rgba(220, 53, 69, 0.2);
             color: #dc3545;
             border: 1px solid #dc3545;
             display: block;
         }
-
-        /* ===== الفوتر العصري ===== */
         footer {
             background: linear-gradient(135deg, #071426 0%, #0c1a2f 100%);
             color: white;
@@ -861,7 +818,6 @@
             border-top: 4px solid var(--secondary);
             position: relative;
         }
-
         footer::before {
             content: '';
             position: absolute;
@@ -871,14 +827,12 @@
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--secondary), transparent);
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 50px;
         }
-
         .footer-logo {
             font-size: 32px;
             font-weight: 900;
@@ -890,40 +844,35 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .footer-about p {
             opacity: 0.8;
             margin-bottom: 25px;
             line-height: 1.8;
         }
-
         .social-links {
             display: flex;
             gap: 15px;
         }
-
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 48px;
             height: 48px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 50%;
             color: white;
             text-decoration: none;
             transition: var(--fast-transition);
-            border: 1px solid rgba(201,169,110,0.3);
+            border: 1px solid rgba(201, 169, 110, 0.3);
             font-size: 1.2rem;
         }
-
         .social-links a:hover {
             background: var(--secondary);
             color: var(--dark);
             border-color: var(--secondary);
             transform: translateY(-5px);
         }
-
         .footer-heading {
             font-size: 1.5rem;
             margin-bottom: 25px;
@@ -931,7 +880,6 @@
             position: relative;
             padding-bottom: 10px;
         }
-
         .footer-heading:after {
             content: '';
             position: absolute;
@@ -941,43 +889,35 @@
             height: 3px;
             background: linear-gradient(90deg, var(--secondary), transparent);
         }
-
         .footer-links {
             list-style: none;
         }
-
         .footer-links li {
             margin-bottom: 15px;
         }
-
         .footer-links a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--fast-transition);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .footer-links a:hover {
             color: var(--secondary);
             transform: translateX(-5px);
         }
-
         .footer-links i {
             font-size: 0.8rem;
             color: var(--secondary);
         }
-
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
         }
-
-        /* ===== زر العائم الذكي ===== */
         .floating-actions {
             position: fixed;
             bottom: 30px;
@@ -987,7 +927,6 @@
             flex-direction: column;
             gap: 15px;
         }
-
         .float-btn {
             width: 60px;
             height: 60px;
@@ -1000,15 +939,13 @@
             font-size: 24px;
             cursor: pointer;
             border: none;
-            box-shadow: 0 5px 20px rgba(201,169,110,0.5);
+            box-shadow: 0 5px 20px rgba(201, 169, 110, 0.5);
             transition: all 0.3s;
             position: relative;
         }
-
         .float-btn:hover {
             transform: scale(1.1) rotate(10deg);
         }
-
         .float-tooltip {
             position: absolute;
             left: 70px;
@@ -1021,15 +958,13 @@
             opacity: 0;
             pointer-events: none;
             transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             border: 1px solid var(--secondary);
         }
-
         .float-btn:hover .float-tooltip {
             opacity: 1;
             left: 80px;
         }
-
         .back-to-top {
             width: 50px;
             height: 50px;
@@ -1046,51 +981,68 @@
             visibility: hidden;
             transition: 0.3s;
         }
-
         .back-to-top.show {
             opacity: 1;
             visibility: visible;
         }
-
         .back-to-top:hover {
             background: var(--secondary);
             color: var(--primary);
         }
-
-        /* ===== تأثيرات الظهور ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
-
         .fade-in.show {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* ===== التجاوب ===== */
         @media (max-width: 992px) {
-            .nav-links { display: none; }
-            .mobile-toggle { display: block; }
-            .hero h1 { font-size: 3.2rem; }
-            .about-content { flex-direction: column; }
-            .about-visual { width: 100%; height: 400px; }
-            .hero-btns { flex-direction: column; }
+            .nav-links {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-visual {
+                width: 100%;
+                height: 400px;
+            }
+            .hero-btns {
+                flex-direction: column;
+            }
         }
-
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .section-title h2 { font-size: 2.5rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .stats { justify-content: center; }
-            .floating-actions { bottom: 20px; left: 20px; }
-            .gallery-controls { bottom: 20px; }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats {
+                justify-content: center;
+            }
+            .floating-actions {
+                bottom: 20px;
+                left: 20px;
+            }
+            .gallery-controls {
+                bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Canvas للجزيئات -->
     <canvas id="particles-canvas"></canvas>
 
     <header id="header">
@@ -1099,57 +1051,54 @@
                 <div class="logo-container">
                     <a href="index.html" class="logo">
                         <i class="fas fa-chart-line"></i>
-                        رخاء<span>للإستثمارات</span>
+                        <span data-i18n="logo">رخاء<span> للاستثمارات</span></span>
                     </a>
                 </div>
-                
                 <ul class="nav-links">
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
+                    <li><a href="#home" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="#services" data-i18n="nav_services">خدماتنا</a></li>
+                    <li><a href="#about" data-i18n="nav_about">من نحن</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">اتصل بنا</a></li>
+                    <li><a href="Library.html" data-i18n="nav_library">المكتبة</a></li>
                 </ul>
-                
+                <button class="lang-switch" id="langSwitch" aria-label="تغيير اللغة">
+                    <i class="fas fa-globe"></i> <span id="langLabel">English</span>
+                </button>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-chevron-up"></i>
                 </button>
             </nav>
         </div>
-        
         <div class="mobile-menu-panel" id="mobileMenu">
             <div class="mobile-menu-links">
-                <a href="#home">الرئيسية <i class="fas fa-home"></i></a>
-                <a href="#services">خدماتنا <i class="fas fa-cogs"></i></a>
-                <a href="service-1.html">الخدمات المحاسبية <i class="fas fa-calculator"></i></a>
-                <a href="#about">من نحن <i class="fas fa-info-circle"></i></a>
-                <a href="#contact">اتصل بنا <i class="fas fa-phone-alt"></i></a>
+                <a href="#home" data-i18n="nav_home">الرئيسية <i class="fas fa-home"></i></a>
+                <a href="#services" data-i18n="nav_services">خدماتنا <i class="fas fa-cogs"></i></a>
+                <a href="service-1.html" data-i18n="service_portfolio">إدارة المحافظ الاستثمارية <i class="fas fa-chart-pie"></i></a>
+                <a href="#about" data-i18n="nav_about">من نحن <i class="fas fa-info-circle"></i></a>
+                <a href="#contact" data-i18n="nav_contact">اتصل بنا <i class="fas fa-phone-alt"></i></a>
+                <a href="Library.html" data-i18n="nav_library">المكتبة <i class="fas fa-book"></i></a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section with Gallery -->
     <section class="hero" id="home">
-        <!-- Slides -->
         <div class="hero-slide active" style="background-image: url('https://i.ibb.co/TD6RJzJS/wmremove-transformed-2.png');"></div>
         <div class="hero-slide" style="background-image: url('https://i.ibb.co/5WJT0GBM/Screenshot-2026-02-13-205948.png');"></div>
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80');"></div>
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2011&q=80');"></div>
-        
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1>استثمارات استراتيجية واستشارات مالية واقتصادية متخصصة</h1>
-                <div class="dynamic-text" id="dynamicText">
+                <h1 data-i18n="hero_title">استثمارات استراتيجية واستشارات مالية واقتصادية متخصصة</h1>
+                <div class="dynamic-text" id="dynamicText" data-i18n="hero_text">
                     تقدم رخاء حلول استثمارية شاملة واستشارات اقتصادية واستراتيجيات مالية لمساعدة الشركات والأفراد على تحقيق نمو مستدام والحفاظ على الثروة في اقتصاد عالمي ديناميكي.
                 </div>
                 <div class="hero-btns">
-                    <a href="#contact" class="btn btn-primary"><i class="fas fa-headset"></i> طلب استشارة</a>
-                    <a href="#services" class="btn btn-outline"><i class="fas fa-rocket"></i> خدماتنا</a>
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-headset"></i> <span data-i18n="btn_consultation">طلب استشارة</span></a>
+                    <a href="#services" class="btn btn-outline"><i class="fas fa-rocket"></i> <span data-i18n="btn_services">خدماتنا</span></a>
                 </div>
             </div>
         </div>
-
-        <!-- Gallery Controls -->
         <div class="gallery-controls">
             <div class="gallery-arrow" id="prevSlide"><i class="fas fa-chevron-right"></i></div>
             <div class="gallery-dots" id="galleryDots"></div>
@@ -1157,90 +1106,88 @@
         </div>
     </section>
 
-    <!-- Services Section (8 cards) -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>خدماتنا المتخصصة</h2>
-                <p>نقدم مجموعة شاملة من خدمات الاستثمار والاستشارات المالية المصممة خصيصًا لتلبية احتياجاتك الخاصة.</p>
+                <h2 data-i18n="services_title">خدماتنا المتخصصة</h2>
+                <p data-i18n="services_desc">نقدم مجموعة شاملة من خدمات الاستثمار والاستشارات المالية المصممة خصيصًا لتلبية احتياجاتك الخاصة.</p>
             </div>
             <div class="services-grid">
                 <a href="service-1.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-chart-pie"></i>
-                    <h3>إدارة المحافظ الاستثمارية</h3>
-                    <p>تصميم وإدارة محافظ استثمارية متنوعة لتحقيق أقصى عائد مع إدارة المخاطر وفق أهدافك المالية.</p>
+                    <h3 data-i18n="s1_title">إدارة المحافظ الاستثمارية</h3>
+                    <p data-i18n="s1_desc">تصميم وإدارة محافظ استثمارية متنوعة لتحقيق أقصى عائد مع إدارة المخاطر وفق أهدافك المالية.</p>
                 </a>
                 <a href="service-3.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-balance-scale"></i>
-                    <h3>تقييم المخاطر</h3>
-                    <p>تحقق خيارات استثمار آمنة وتقويم استراتيجيات التكيف، وتحقيق أمن وسهولة الاستخدام.</p>
+                    <h3 data-i18n="s2_title">تقييم المخاطر</h3>
+                    <p data-i18n="s2_desc">تحقق خيارات استثمار آمنة وتقويم استراتيجيات التكيف، وتحقيق أمن وسهولة الاستخدام.</p>
                 </a>
                 <a href="service-6.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-handshake"></i>
-                    <h3>عمليات الدمج والاستحواذ</h3>
-                    <p>توفير خدمات الدعم والمساعدة على استعدادهم للخطر. إدارة المخاطر في وقت مناسب.</p>
+                    <h3 data-i18n="s3_title">عمليات الدمج والاستحواذ</h3>
+                    <p data-i18n="s3_desc">توفير خدمات الدعم والمساعدة على استعدادهم للخطر. إدارة المخاطر في وقت مناسب.</p>
                 </a>
                 <a href="service-5.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-briefcase"></i>
-                    <h3>إدارة الثروات</h3>
-                    <p>تعزيز قدرة الشركات على الإنتاج والتجارة. تحقيق أهداف الشركة.</p>
+                    <h3 data-i18n="s4_title">إدارة الثروات</h3>
+                    <p data-i18n="s4_desc">تعزيز قدرة الشركات على الإنتاج والتجارة. تحقيق أهداف الشركة.</p>
                 </a>
                 <a href="service-4.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-calculator"></i>
-                    <h3>التحسين الضريبي</h3>
-                    <p>تنمية خبرات سليمة لتقديم المنتجات. تطوير منتجات جديدة. تقديم خدمات إضافية.</p>
+                    <h3 data-i18n="s5_title">التحسين الضريبي</h3>
+                    <p data-i18n="s5_desc">تنمية خبرات سليمة لتقديم المنتجات. تطوير منتجات جديدة. تقديم خدمات إضافية.</p>
                 </a>
                 <a href="service-7.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-globe"></i>
-                    <h3>تحليل الأسواق العالمية</h3>
-                    <p>إعداد بيانات أسعار المنتجات. تحليل اتجاهات السوق. تقديم تقارير دورية دقيقة.</p>
+                    <h3 data-i18n="s6_title">تحليل الأسواق العالمية</h3>
+                    <p data-i18n="s6_desc">إعداد بيانات أسعار المنتجات. تحليل اتجاهات السوق. تقديم تقارير دورية دقيقة.</p>
                 </a>
                 <a href="service-2.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-chart-pie"></i>
-                    <h3>الخدمات المحاسبية والمالية</h3>
-                    <p>تحليل مستويات مخاطر السوق. إعداد التقارير المالية. إمساك الدفاتر والسجلات.</p>
+                    <h3 data-i18n="s7_title">الخدمات المحاسبية والمالية</h3>
+                    <p data-i18n="s7_desc">تحليل مستويات مخاطر السوق. إعداد التقارير المالية. إمساك الدفاتر والسجلات.</p>
                 </a>
                 <a href="service-8.html" class="service-card fade-in" data-tilt>
                     <i class="fas fa-user-tie"></i>
-                    <h3>خدمات رجال الأعمال</h3>
-                    <p>استشارات متكاملة لأصحاب الأعمال: تخطيط استراتيجي، تطوير أعمال، وإدارة المشاريع.</p>
+                    <h3 data-i18n="s8_title">خدمات رجال الأعمال</h3>
+                    <p data-i18n="s8_desc">استشارات متكاملة لأصحاب الأعمال: تخطيط استراتيجي، تطوير أعمال، وإدارة المشاريع.</p>
                 </a>
-                 <a href="service-8.html" class="service-card fade-in" data-tilt>
-                    <i class="fas fa-user-tie"></i>
-                    <h3>المكتبة</h3>
-                    <p>أحدث القرارات والقوانين و المراجع العلمية في المحاسبة و الإقتصاد و الإستثمار و التنمية</p>
+                <a href="Library.html" class="service-card fade-in" data-tilt>
+                    <i class="fas fa-book"></i>
+                    <h3 data-i18n="s9_title">المكتبة</h3>
+                    <p data-i18n="s9_desc">أحدث القرارات والقوانين والمراجع العلمية في المحاسبة والاقتصاد والاستثمار والتنمية.</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section with Waterfall Effect -->
     <section class="about" id="about">
         <div class="about-waterfall"></div>
         <div class="container">
             <div class="about-content">
                 <div class="about-text fade-in">
-                    <h2>عن رخاء للإستثمارات</h2>
-                    <p>تأسست رخاء برؤية لإعادة تعريف الاستشارات المالية، وقد رسخت نفسها كشريك موثوق للشركات والأفراد ذوي الملاءة المالية العالية الذين يبحثون عن توجيه استثماري استراتيجي وبصيرة اقتصادية.</p>
-                    <p>يجمع فريقنا من الخبراء الماليين والاقتصاديين والإستراتيجيين الاستثماريين ذوي الخبرة عقودًا من الخبرة مع نهج مبتكر لتقديم نتائج استثنائية في المشهد المالي المعقد اليوم.</p>
+                    <h2 data-i18n="about_title">عن رخاء للإستثمارات</h2>
+                    <p data-i18n="about_p1">تأسست رخاء برؤية لإعادة تعريف الاستشارات المالية، وقد رسخت نفسها كشريك موثوق للشركات والأفراد ذوي الملاءة المالية العالية الذين يبحثون عن توجيه استثماري استراتيجي وبصيرة اقتصادية.</p>
+                    <p data-i18n="about_p2">يجمع فريقنا من الخبراء الماليين والاقتصاديين والإستراتيجيين الاستثماريين ذوي الخبرة عقودًا من الخبرة مع نهج مبتكر لتقديم نتائج استثنائية في المشهد المالي المعقد اليوم.</p>
                     <div class="stats">
                         <div class="stat-item">
                             <div class="circular-progress" style="background: conic-gradient(var(--secondary) 0deg 352deg, #e0e7ef 352deg 360deg);">
                                 <span class="stat-number" data-count="98">0</span>
                             </div>
-                            <span class="stat-label">استمرارية العملاء</span>
+                            <span class="stat-label" data-i18n="stat1">استمرارية العملاء</span>
                         </div>
                         <div class="stat-item">
                             <div class="circular-progress" style="background: conic-gradient(var(--secondary) 0deg 320deg, #e0e7ef 320deg 360deg);">
                                 <span class="stat-number" data-count="240">0</span>
                             </div>
-                            <span class="stat-label">عميل حول العالم</span>
+                            <span class="stat-label" data-i18n="stat2">عميل حول العالم</span>
                         </div>
                         <div class="stat-item">
                             <div class="circular-progress" style="background: conic-gradient(var(--secondary) 0deg 300deg, #e0e7ef 300deg 360deg);">
                                 <span class="stat-number" data-count="26">0</span>
                             </div>
-                            <span class="stat-label">سنوات خبرة</span>
+                            <span class="stat-label" data-i18n="stat3">سنوات خبرة</span>
                         </div>
                     </div>
                 </div>
@@ -1254,21 +1201,20 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title fade-in">
-                <h2 style="color: white;">اتصل بنا</h2>
-                <p style="color: rgba(255,255,255,0.9);">تواصل مع فريق خبرائنا لمناقشة أهدافك المالية وكيف يمكننا مساعدتك في تحقيقها.</p>
+                <h2 data-i18n="contact_title">اتصل بنا</h2>
+                <p data-i18n="contact_desc">تواصل مع فريق خبرائنا لمناقشة أهدافك المالية وكيف يمكننا مساعدتك في تحقيقها.</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info fade-in">
-                    <h3>لنبدأ محادثة</h3>
-                    <p>فريقنا جاهز لتقديم استشارة مخصصة ووضع خطة استراتيجية مصممة خصيصًا لحالتك المالية الفريدة وأهدافك.</p>
+                    <h3 data-i18n="contact_heading">لنبدأ محادثة</h3>
+                    <p data-i18n="contact_sub">فريقنا جاهز لتقديم استشارة مخصصة ووضع خطة استراتيجية مصممة خصيصًا لحالتك المالية الفريدة وأهدافك.</p>
                     <div class="contact-details">
-                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4>موقع المكتب</h4><p>Sky Degla , 10th of Ramdan , Egypt</p></div></div>
-                        <div class="contact-item"><i class="fas fa-phone"></i><div><h4>رقم الهاتف</h4><p>01214269207 - 01214269209 - 01275556608</p></div></div>
-                        <div class="contact-item"><i class="fas fa-envelope"></i><div><h4>البريد الإلكتروني</h4><p>rakhaa.investments@gmail.com</p></div></div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4 data-i18n="office_location">موقع المكتب</h4><p>Sky Degla, 10th of Ramadan, Egypt</p></div></div>
+                        <div class="contact-item"><i class="fas fa-phone"></i><div><h4 data-i18n="phone_number">رقم الهاتف</h4><p>01214269207 - 01214269209 - 01275556608</p></div></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><div><h4 data-i18n="email_address">البريد الإلكتروني</h4><p>rakhaa.investments@gmail.com</p></div></div>
                     </div>
                 </div>
                 <div class="contact-form fade-in">
@@ -1276,28 +1222,24 @@
                         <input type="hidden" name="_language" value="ar" />
                         <input type="hidden" name="_subject" value="طلب استشارة جديد - رخاء للإستثمارات" />
                         <input type="text" name="_gotcha" style="display:none" />
-                        <div class="form-group"><label for="name">الاسم الكامل</label><input type="text" id="name" name="name" class="form-control" placeholder="اسمك" required></div>
-                        <div class="form-group"><label for="email">البريد الإلكتروني</label><input type="email" id="email" name="email" class="form-control" placeholder="بريدك الإلكتروني" required></div>
-                        <div class="form-group"><label for="phone">رقم الهاتف</label><input type="tel" id="phone" name="phone" class="form-control" placeholder="رقم هاتفك"></div>
-                        <div class="form-group"><label for="service">الخدمة المطلوبة</label>
+                        <div class="form-group"><label for="name" data-i18n="form_name">الاسم الكامل</label><input type="text" id="name" name="name" class="form-control" data-i18n-placeholder="form_name_ph" placeholder="اسمك" required></div>
+                        <div class="form-group"><label for="email" data-i18n="form_email">البريد الإلكتروني</label><input type="email" id="email" name="email" class="form-control" data-i18n-placeholder="form_email_ph" placeholder="بريدك الإلكتروني" required></div>
+                        <div class="form-group"><label for="phone" data-i18n="form_phone">رقم الهاتف</label><input type="tel" id="phone" name="phone" class="form-control" data-i18n-placeholder="form_phone_ph" placeholder="رقم هاتفك"></div>
+                        <div class="form-group"><label for="service" data-i18n="form_service">الخدمة المطلوبة</label>
                             <select id="service" name="service" class="form-control" required>
-                                <option value="">اختر خدمة</option>
-                                <option value="portfolio">إدارة المحافظ الاستثمارية</option>
-                                <option value="mergers">عمليات الدمج والاستحواذ</option>
-                                <option value="risk">تقييم المخاطر</option>
-                                <option value="accounting">الخدمات المحاسبية والمالية</option>
-                                <option value="audit">المراجعة المالية</option>
-                                <option value="financial-statements">إعداد القوائم المالية</option>
-                                <option value="bookkeeping">إمساك الدفاتر</option>
-                                <option value="analysis">التحليل المالي</option>
-                                <option value="tax">التحسين الضريبي</option>
-                                <option value="wealth">إدارة الثروات</option>
-                                <option value="business">خدمة رجال الأعمال</option>
+                                <option value="" data-i18n="form_service_default">اختر خدمة</option>
+                                <option value="portfolio" data-i18n="opt_portfolio">إدارة المحافظ الاستثمارية</option>
+                                <option value="mergers" data-i18n="opt_mergers">عمليات الدمج والاستحواذ</option>
+                                <option value="risk" data-i18n="opt_risk">تقييم المخاطر</option>
+                                <option value="accounting" data-i18n="opt_accounting">الخدمات المحاسبية والمالية</option>
+                                <option value="tax" data-i18n="opt_tax">التحسين الضريبي</option>
+                                <option value="wealth" data-i18n="opt_wealth">إدارة الثروات</option>
+                                <option value="business" data-i18n="opt_business">خدمة رجال الأعمال</option>
                             </select>
                         </div>
-                        <div class="form-group"><label for="company">اسم الشركة (اختياري)</label><input type="text" id="company" name="company" class="form-control" placeholder="اسم شركتك"></div>
-                        <div class="form-group"><label for="message">الرسالة</label><textarea id="message" name="message" class="form-control" rows="5" placeholder="أخبرنا عن أهدافك المالية ومتطلباتك" required></textarea></div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitBtn"><i class="fas fa-paper-plane"></i> طلب استشارة</button>
+                        <div class="form-group"><label for="company" data-i18n="form_company">اسم الشركة (اختياري)</label><input type="text" id="company" name="company" class="form-control" data-i18n-placeholder="form_company_ph" placeholder="اسم شركتك"></div>
+                        <div class="form-group"><label for="message" data-i18n="form_message_label">الرسالة</label><textarea id="message" name="message" class="form-control" rows="5" data-i18n-placeholder="form_message_ph" placeholder="أخبرنا عن أهدافك المالية ومتطلباتك" required></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" id="submitBtn"><i class="fas fa-paper-plane"></i> <span data-i18n="form_submit">طلب استشارة</span></button>
                         <div id="formMessage" class="form-message"></div>
                     </form>
                 </div>
@@ -1305,13 +1247,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about fade-in">
-                    <a href="index.html" class="footer-logo">رخاء<span> للإستثمارات</span></a>
-                    <p>تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهًا استراتيجيًا وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.</p>
+                    <a href="index.html" class="footer-logo"><span data-i18n="footer_logo">رخاء<span> للاستثمارات</span></span></a>
+                    <p data-i18n="footer_desc">تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهًا استراتيجيًا وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.</p>
                     <div class="social-links">
                         <a href="http://www.linkedin.com/in/rakhaa-investments-505b533ab"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://x.com/investment38143"><i class="fab fa-twitter"></i></a>
@@ -1321,43 +1262,38 @@
                     </div>
                 </div>
                 <div class="footer-services fade-in">
-                    <h3 class="footer-heading">خدماتنا</h3>
+                    <h3 class="footer-heading" data-i18n="footer_services_heading">خدماتنا</h3>
                     <ul class="footer-links">
-                        <li><a href="service-1.html"><i class="fas fa-chevron-left"></i> إدارة المحافظ الاستثمارية</a></li>
-                        <li><a href="service-3.html"><i class="fas fa-chevron-left"></i> تقييم المخاطر</a></li>
-                        <li><a href="service-6.html"><i class="fas fa-chevron-left"></i> عمليات الدمج والاستحواذ</a></li>
-                        <li><a href="service-5.html"><i class="fas fa-chevron-left"></i> إدارة الثروات</a></li>
-                        <li><a href="service-4.html"><i class="fas fa-chevron-left"></i>التحسين الضريبي</a></li>
-                        <li><a href="service-7.html"><i class="fas fa-chevron-left"></i> تحليل الأسواق العالمية</a></li>
-                        <li><a href="service-2.html"><i class="fas fa-chevron-left"></i> الخدمات المحاسبية والمالية</a></li>
-                        <li><a href="service-8.html"><i class="fas fa-chevron-left"></i> خدمات رجال الأعمال</a></li>
-                        <li><a href="Library.html"><i class="fas fa-chevron-left"></i>المكتبة</a></li>
+                        <li><a href="service-1.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs1">إدارة المحافظ الاستثمارية</span></a></li>
+                        <li><a href="service-3.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs2">تقييم المخاطر</span></a></li>
+                        <li><a href="service-6.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs3">عمليات الدمج والاستحواذ</span></a></li>
+                        <li><a href="service-5.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs4">إدارة الثروات</span></a></li>
+                        <li><a href="service-4.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs5">التحسين الضريبي</span></a></li>
+                        <li><a href="service-7.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs6">تحليل الأسواق العالمية</span></a></li>
+                        <li><a href="service-2.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs7">الخدمات المحاسبية والمالية</span></a></li>
+                        <li><a href="service-8.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs8">خدمات رجال الأعمال</span></a></li>
+                        <li><a href="Library.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs9">المكتبة</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-links-section fade-in">
-                    <h3 class="footer-heading">روابط مهمة</h3>
+                    <h3 class="footer-heading" data-i18n="footer_links_heading">روابط مهمة</h3>
                     <ul class="footer-links">
-                        <li><a href="https://www.egx.com.eg/" target="_blank"><i class="fas fa-chevron-left"></i> البورصة المصرية</a></li>
-                        <li><a href="https://eta.gov.eg/ar/home" target="_blank"><i class="fas fa-chevron-left"></i> مصلحة الضرائب المصرية</a></li>
-                        <li><a href="https://digital.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> منصة مصر الرقمية</a></li>
-                        <li><a href="https://www.cbe.org.eg/" target="_blank"><i class="fas fa-chevron-left"></i> البنك المركزي المصري</a></li>
-                        <li><a href="https://invoicing.eta.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> بوابة الفواتير الإلكترونية</a></li>
-                        <li><a href="https://www.investinegypt.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> الهيئة العامة للاستثمار</a></li>
-                        <li><a href="https://www.nafeza.gov.eg/ar" target="_blank"><i class="fas fa-chevron-left"></i> نافذة</a></li>
+                        <li><a href="https://www.egx.com.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl1">البورصة المصرية</span></a></li>
+                        <li><a href="https://www.cbe.org.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl2">البنك المركزي المصري</span></a></li>
+                        <li><a href="https://www.investinegypt.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl3">الهيئة العامة للاستثمار</span></a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>جميع الحقوق محفوظة © <span id="currentYear"></span> رخاء للاستثمارات والاستشارات المالية والاقتصادية.</p>
+                <p data-i18n="copyright">جميع الحقوق محفوظة © <span id="currentYear"></span> رخاء للاستثمارات والاستشارات المالية والاقتصادية.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Actions -->
     <div class="floating-actions">
         <div class="float-btn" id="quickContact">
             <i class="fas fa-headset"></i>
-            <span class="float-tooltip">تواصل سريع</span>
+            <span class="float-tooltip" data-i18n="quick_contact">تواصل سريع</span>
         </div>
         <div class="back-to-top" id="backToTop">
             <i class="fas fa-arrow-up"></i>
@@ -1365,7 +1301,264 @@
     </div>
 
     <script>
-        // Mobile Menu Toggle
+        // ========== نظام الترجمة ==========
+        const translations = {
+            ar: {
+                logo: 'رخاء<span> للاستثمارات</span>',
+                nav_home: 'الرئيسية',
+                nav_services: 'خدماتنا',
+                nav_about: 'من نحن',
+                nav_contact: 'اتصل بنا',
+                nav_library: 'المكتبة',
+                hero_title: 'استثمارات استراتيجية واستشارات مالية واقتصادية متخصصة',
+                hero_text: 'تقدم رخاء حلول استثمارية شاملة واستشارات اقتصادية واستراتيجيات مالية لمساعدة الشركات والأفراد على تحقيق نمو مستدام والحفاظ على الثروة في اقتصاد عالمي ديناميكي.',
+                btn_consultation: 'طلب استشارة',
+                btn_services: 'خدماتنا',
+                services_title: 'خدماتنا المتخصصة',
+                services_desc: 'نقدم مجموعة شاملة من خدمات الاستثمار والاستشارات المالية المصممة خصيصًا لتلبية احتياجاتك الخاصة.',
+                s1_title: 'إدارة المحافظ الاستثمارية',
+                s1_desc: 'تصميم وإدارة محافظ استثمارية متنوعة لتحقيق أقصى عائد مع إدارة المخاطر وفق أهدافك المالية.',
+                s2_title: 'تقييم المخاطر',
+                s2_desc: 'تحقق خيارات استثمار آمنة وتقويم استراتيجيات التكيف، وتحقيق أمن وسهولة الاستخدام.',
+                s3_title: 'عمليات الدمج والاستحواذ',
+                s3_desc: 'توفير خدمات الدعم والمساعدة على استعدادهم للخطر. إدارة المخاطر في وقت مناسب.',
+                s4_title: 'إدارة الثروات',
+                s4_desc: 'تعزيز قدرة الشركات على الإنتاج والتجارة. تحقيق أهداف الشركة.',
+                s5_title: 'التحسين الضريبي',
+                s5_desc: 'تنمية خبرات سليمة لتقديم المنتجات. تطوير منتجات جديدة. تقديم خدمات إضافية.',
+                s6_title: 'تحليل الأسواق العالمية',
+                s6_desc: 'إعداد بيانات أسعار المنتجات. تحليل اتجاهات السوق. تقديم تقارير دورية دقيقة.',
+                s7_title: 'الخدمات المحاسبية والمالية',
+                s7_desc: 'تحليل مستويات مخاطر السوق. إعداد التقارير المالية. إمساك الدفاتر والسجلات.',
+                s8_title: 'خدمات رجال الأعمال',
+                s8_desc: 'استشارات متكاملة لأصحاب الأعمال: تخطيط استراتيجي، تطوير أعمال، وإدارة المشاريع.',
+                s9_title: 'المكتبة',
+                s9_desc: 'أحدث القرارات والقوانين والمراجع العلمية في المحاسبة والاقتصاد والاستثمار والتنمية.',
+                about_title: 'عن رخاء للإستثمارات',
+                about_p1: 'تأسست رخاء برؤية لإعادة تعريف الاستشارات المالية، وقد رسخت نفسها كشريك موثوق للشركات والأفراد ذوي الملاءة المالية العالية الذين يبحثون عن توجيه استثماري استراتيجي وبصيرة اقتصادية.',
+                about_p2: 'يجمع فريقنا من الخبراء الماليين والاقتصاديين والإستراتيجيين الاستثماريين ذوي الخبرة عقودًا من الخبرة مع نهج مبتكر لتقديم نتائج استثنائية في المشهد المالي المعقد اليوم.',
+                stat1: 'استمرارية العملاء',
+                stat2: 'عميل حول العالم',
+                stat3: 'سنوات خبرة',
+                contact_title: 'اتصل بنا',
+                contact_desc: 'تواصل مع فريق خبرائنا لمناقشة أهدافك المالية وكيف يمكننا مساعدتك في تحقيقها.',
+                contact_heading: 'لنبدأ محادثة',
+                contact_sub: 'فريقنا جاهز لتقديم استشارة مخصصة ووضع خطة استراتيجية مصممة خصيصًا لحالتك المالية الفريدة وأهدافك.',
+                office_location: 'موقع المكتب',
+                phone_number: 'رقم الهاتف',
+                email_address: 'البريد الإلكتروني',
+                form_name: 'الاسم الكامل',
+                form_name_ph: 'اسمك',
+                form_email: 'البريد الإلكتروني',
+                form_email_ph: 'بريدك الإلكتروني',
+                form_phone: 'رقم الهاتف',
+                form_phone_ph: 'رقم هاتفك',
+                form_service: 'الخدمة المطلوبة',
+                form_service_default: 'اختر خدمة',
+                opt_portfolio: 'إدارة المحافظ الاستثمارية',
+                opt_mergers: 'عمليات الدمج والاستحواذ',
+                opt_risk: 'تقييم المخاطر',
+                opt_accounting: 'الخدمات المحاسبية والمالية',
+                opt_tax: 'التحسين الضريبي',
+                opt_wealth: 'إدارة الثروات',
+                opt_business: 'خدمة رجال الأعمال',
+                form_company: 'اسم الشركة (اختياري)',
+                form_company_ph: 'اسم شركتك',
+                form_message_label: 'الرسالة',
+                form_message_ph: 'أخبرنا عن أهدافك المالية ومتطلباتك',
+                form_submit: 'طلب استشارة',
+                footer_logo: 'رخاء<span> للاستثمارات</span>',
+                footer_desc: 'تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهًا استراتيجيًا وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.',
+                footer_services_heading: 'خدماتنا',
+                fs1: 'إدارة المحافظ الاستثمارية',
+                fs2: 'تقييم المخاطر',
+                fs3: 'عمليات الدمج والاستحواذ',
+                fs4: 'إدارة الثروات',
+                fs5: 'التحسين الضريبي',
+                fs6: 'تحليل الأسواق العالمية',
+                fs7: 'الخدمات المحاسبية والمالية',
+                fs8: 'خدمات رجال الأعمال',
+                fs9: 'المكتبة',
+                footer_links_heading: 'روابط مهمة',
+                fl1: 'البورصة المصرية',
+                fl2: 'البنك المركزي المصري',
+                fl3: 'الهيئة العامة للاستثمار',
+                copyright: 'جميع الحقوق محفوظة © ',
+                quick_contact: 'تواصل سريع',
+                service_portfolio: 'إدارة المحافظ الاستثمارية',
+                form_success: 'تم الإرسال بنجاح! سنتواصل معك قريباً.',
+                form_error: 'حدث خطأ، حاول مرة أخرى.',
+                sending: 'جاري الإرسال...',
+                hero_slide_texts: [
+                    'تقدم رخاء حلول استثمارية شاملة واستشارات اقتصادية واستراتيجيات مالية لمساعدة الشركات والأفراد على تحقيق نمو مستدام والحفاظ على الثروة في اقتصاد عالمي ديناميكي.',
+                    'نصيحة استثمارية: التنويع في المحافظ يقلل المخاطر ويزيد العوائد على المدى الطويل. فريق رخاء يساعدك في بناء محفظة متوازنة.',
+                    'التحليل الاقتصادي الدقيق يمكن أن يكشف عن فرص استثمارية واعدة قبل أن تصبح سائدة. خبراؤنا يقدمون تقارير دورية عن الأسواق.',
+                    'التخطيط الضريبي الفعال جزء أساسي من إدارة الثروة. رخاء تقدم استشارات ضريبية متخصصة لتحسين كفاءة استثماراتك.',
+                    'استثمر في مستقبلك اليوم مع رخاء، شريكك الموثوق في عالم المال والأعمال.'
+                ]
+            },
+            en: {
+                logo: 'Rakhaa<span> Investments</span>',
+                nav_home: 'Home',
+                nav_services: 'Services',
+                nav_about: 'About Us',
+                nav_contact: 'Contact',
+                nav_library: 'Library',
+                hero_title: 'Strategic Investments & Specialized Financial Consulting',
+                hero_text: 'Rakhaa offers comprehensive investment solutions, economic consulting, and financial strategies to help companies and individuals achieve sustainable growth and preserve wealth in a dynamic global economy.',
+                btn_consultation: 'Request Consultation',
+                btn_services: 'Our Services',
+                services_title: 'Our Specialized Services',
+                services_desc: 'We offer a comprehensive range of investment and financial consulting services tailored to meet your specific needs.',
+                s1_title: 'Portfolio Management',
+                s1_desc: 'Design and management of diversified investment portfolios to achieve maximum returns while managing risks according to your financial goals.',
+                s2_title: 'Risk Assessment',
+                s2_desc: 'Secure investment options and adaptation strategy evaluation, achieving security and ease of use.',
+                s3_title: 'Mergers & Acquisitions',
+                s3_desc: 'Providing support services and readiness assistance. Timely risk management.',
+                s4_title: 'Wealth Management',
+                s4_desc: 'Enhancing corporate production and trade capabilities. Achieving company goals.',
+                s5_title: 'Tax Optimization',
+                s5_desc: 'Developing sound expertise for product delivery. New product development. Additional services.',
+                s6_title: 'Global Market Analysis',
+                s6_desc: 'Preparing product price data. Market trend analysis. Providing accurate periodic reports.',
+                s7_title: 'Accounting & Financial Services',
+                s7_desc: 'Market risk level analysis. Financial report preparation. Bookkeeping and records.',
+                s8_title: 'Business Services',
+                s8_desc: 'Integrated consulting for business owners: strategic planning, business development, and project management.',
+                s9_title: 'Library',
+                s9_desc: 'Latest decrees, laws, and scientific references in accounting, economics, investment, and development.',
+                about_title: 'About Rakhaa Investments',
+                about_p1: 'Founded with a vision to redefine financial consulting, Rakhaa has established itself as a trusted partner for corporations and high-net-worth individuals seeking strategic investment guidance and economic insight.',
+                about_p2: 'Our team of experienced financial experts, economists, and investment strategists combines decades of expertise with an innovative approach to deliver exceptional results in today\'s complex financial landscape.',
+                stat1: 'Client Retention Rate',
+                stat2: 'Clients Worldwide',
+                stat3: 'Years of Experience',
+                contact_title: 'Contact Us',
+                contact_desc: 'Reach out to our team of experts to discuss your financial goals and how we can help you achieve them.',
+                contact_heading: 'Let\'s Start a Conversation',
+                contact_sub: 'Our team is ready to provide a personalized consultation and develop a strategic plan tailored to your unique financial situation and goals.',
+                office_location: 'Office Location',
+                phone_number: 'Phone Number',
+                email_address: 'Email Address',
+                form_name: 'Full Name',
+                form_name_ph: 'Your Name',
+                form_email: 'Email',
+                form_email_ph: 'Your Email',
+                form_phone: 'Phone Number',
+                form_phone_ph: 'Your Phone',
+                form_service: 'Required Service',
+                form_service_default: 'Select a Service',
+                opt_portfolio: 'Portfolio Management',
+                opt_mergers: 'Mergers & Acquisitions',
+                opt_risk: 'Risk Assessment',
+                opt_accounting: 'Accounting & Financial Services',
+                opt_tax: 'Tax Optimization',
+                opt_wealth: 'Wealth Management',
+                opt_business: 'Business Services',
+                form_company: 'Company Name (Optional)',
+                form_company_ph: 'Your Company',
+                form_message_label: 'Message',
+                form_message_ph: 'Tell us about your financial goals and requirements',
+                form_submit: 'Submit Request',
+                footer_logo: 'Rakhaa<span> Investments</span>',
+                footer_desc: 'Rakhaa Investments & Financial Consulting provides strategic guidance and investment solutions for companies and individuals seeking sustainable growth and financial security.',
+                footer_services_heading: 'Our Services',
+                fs1: 'Portfolio Management',
+                fs2: 'Risk Assessment',
+                fs3: 'Mergers & Acquisitions',
+                fs4: 'Wealth Management',
+                fs5: 'Tax Optimization',
+                fs6: 'Global Market Analysis',
+                fs7: 'Accounting & Financial Services',
+                fs8: 'Business Services',
+                fs9: 'Library',
+                footer_links_heading: 'Important Links',
+                fl1: 'Egyptian Stock Exchange',
+                fl2: 'Central Bank of Egypt',
+                fl3: 'General Authority for Investment',
+                copyright: 'All Rights Reserved © ',
+                quick_contact: 'Quick Contact',
+                service_portfolio: 'Portfolio Management',
+                form_success: 'Sent successfully! We will contact you soon.',
+                form_error: 'An error occurred. Please try again.',
+                sending: 'Sending...',
+                hero_slide_texts: [
+                    'Rakhaa offers comprehensive investment solutions, economic consulting, and financial strategies to help companies and individuals achieve sustainable growth and preserve wealth in a dynamic global economy.',
+                    'Investment tip: Portfolio diversification reduces risk and increases long-term returns. Rakhaa\'s team helps you build a balanced portfolio.',
+                    'Accurate economic analysis can reveal promising investment opportunities before they become mainstream. Our experts provide periodic market reports.',
+                    'Effective tax planning is an essential part of wealth management. Rakhaa offers specialized tax consulting to optimize your investment efficiency.',
+                    'Invest in your future today with Rakhaa, your trusted partner in the world of finance and business.'
+                ]
+            }
+        };
+
+        let currentLang = localStorage.getItem('rakhaa_lang') || 'ar';
+        const htmlElement = document.documentElement;
+        const bodyElement = document.body;
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('rakhaa_lang', lang);
+
+            htmlElement.lang = lang;
+            htmlElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            bodyElement.classList.toggle('ltr', lang === 'en');
+
+            const langLabel = document.getElementById('langLabel');
+            if (langLabel) {
+                langLabel.textContent = lang === 'ar' ? 'English' : 'العربية';
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (key === 'logo' || key === 'footer_logo') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            const formSubject = document.querySelector('input[name="_subject"]');
+            if (formSubject) {
+                formSubject.value = lang === 'ar' ? 'طلب استشارة جديد - رخاء للإستثمارات' : 'New Consultation Request - Rakhaa Investments';
+            }
+            const formLang = document.querySelector('input[name="_language"]');
+            if (formLang) {
+                formLang.value = lang;
+            }
+
+            updateDynamicTexts();
+        }
+
+        function updateDynamicTexts() {
+            const dynamicEl = document.getElementById('dynamicText');
+            if (dynamicEl && translations[currentLang] && translations[currentLang].hero_slide_texts) {
+                dynamicEl.textContent = translations[currentLang].hero_slide_texts[0];
+                window._heroTexts = translations[currentLang].hero_slide_texts;
+                window._heroTextIndex = 0;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage(currentLang);
+
+            document.getElementById('langSwitch').addEventListener('click', () => {
+                const newLang = currentLang === 'ar' ? 'en' : 'ar';
+                applyLanguage(newLang);
+            });
+        });
+
+        // ========== باقي السكريبتات ==========
         const mobileToggle = document.getElementById('mobileToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         mobileToggle.addEventListener('click', function() {
@@ -1382,7 +1575,6 @@
                 document.body.style.overflow = 'auto';
             }
         });
-
         document.querySelectorAll('.mobile-menu-links a').forEach(link => {
             link.addEventListener('click', function() {
                 mobileToggle.classList.remove('active');
@@ -1392,38 +1584,37 @@
                 document.body.style.overflow = 'auto';
             });
         });
-
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             header.classList.toggle('scrolled', window.scrollY > 100);
         });
 
-        // Dynamic Text Cycling (Waterfall of ideas)
-        const texts = [
-            "تقدم رخاء حلول استثمارية شاملة واستشارات اقتصادية واستراتيجيات مالية لمساعدة الشركات والأفراد على تحقيق نمو مستدام والحفاظ على الثروة في اقتصاد عالمي ديناميكي.",
-            "نصيحة استثمارية: التنويع في المحافظ يقلل المخاطر ويزيد العوائد على المدى الطويل. فريق رخاء يساعدك في بناء محفظة متوازنة.",
-            "التحليل الاقتصادي الدقيق يمكن أن يكشف عن فرص استثمارية واعدة قبل أن تصبح سائدة. خبراؤنا يقدمون تقارير دورية عن الأسواق.",
-            "التخطيط الضريبي الفعال جزء أساسي من إدارة الثروة. رخاء تقدم استشارات ضريبية متخصصة لتحسين كفاءة استثماراتك.",
-            "استثمر في مستقبلك اليوم مع رخاء، شريكك الموثوق في عالم المال والأعمال."
-        ];
+        // Dynamic Text Cycling
+        let heroTextIndex = 0;
         const dynamicElement = document.getElementById('dynamicText');
-        let textIndex = 0;
+        function setupHeroTexts() {
+            if (translations[currentLang] && translations[currentLang].hero_slide_texts) {
+                window._heroTexts = translations[currentLang].hero_slide_texts;
+                window._heroTextIndex = 0;
+            }
+        }
+        setupHeroTexts();
         setInterval(() => {
-            textIndex = (textIndex + 1) % texts.length;
+            const texts = window._heroTexts || translations[currentLang].hero_slide_texts;
+            if (!texts) return;
+            window._heroTextIndex = ((window._heroTextIndex || 0) + 1) % texts.length;
             dynamicElement.style.opacity = '0';
             setTimeout(() => {
-                dynamicElement.textContent = texts[textIndex];
+                dynamicElement.textContent = texts[window._heroTextIndex];
                 dynamicElement.style.opacity = '1';
             }, 300);
         }, 5000);
 
-        // Particles Effect
+        // Particles
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
         let particles = [];
-
         function initParticles() {
             width = window.innerWidth;
             height = window.innerHeight;
@@ -1441,7 +1632,6 @@
                 });
             }
         }
-
         function drawParticles() {
             ctx.clearRect(0, 0, width, height);
             particles.forEach(p => {
@@ -1456,14 +1646,11 @@
             });
             requestAnimationFrame(drawParticles);
         }
-
-        window.addEventListener('resize', () => {
-            initParticles();
-        });
+        window.addEventListener('resize', initParticles);
         initParticles();
         drawParticles();
 
-        // Counter Animation with circular progress
+        // Counter Animation
         function animateCounter(element, target) {
             let current = 0;
             const increment = target / 100;
@@ -1478,8 +1665,6 @@
             };
             requestAnimationFrame(step);
         }
-
-        // Intersection Observer for fade-in and counters
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1495,28 +1680,19 @@
                 }
             });
         }, { threshold: 0.2 });
-
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Back to Top Button
+        // Back to Top
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
+            backToTop.classList.toggle('show', window.scrollY > 500);
         });
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        // Quick Contact Float
         document.getElementById('quickContact').addEventListener('click', () => {
             window.location.href = '#contact';
         });
-
-        // Update copyright year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         // Form submission
@@ -1525,7 +1701,8 @@
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             const formMessage = document.getElementById('formMessage');
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            const t = translations[currentLang] || translations['ar'];
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + (t.sending || 'جاري الإرسال...');
             submitBtn.disabled = true;
             formMessage.className = 'form-message';
             fetch('https://formspree.io/f/mlgwdajk', {
@@ -1534,12 +1711,12 @@
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    formMessage.textContent = 'تم الإرسال بنجاح! سنتواصل معك قريباً.';
+                    formMessage.textContent = t.form_success;
                     formMessage.classList.add('success');
                     this.reset();
                 } else throw new Error();
             }).catch(() => {
-                formMessage.textContent = 'حدث خطأ، حاول مرة أخرى.';
+                formMessage.textContent = t.form_error;
                 formMessage.classList.add('error');
             }).finally(() => {
                 submitBtn.innerHTML = originalText;
@@ -1562,7 +1739,7 @@
             });
         });
 
-        // Simple 3D Tilt effect for cards
+        // Tilt effect
         document.querySelectorAll('[data-tilt]').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -1579,15 +1756,13 @@
             });
         });
 
-        // Gallery functionality
+        // Gallery
         const slides = document.querySelectorAll('.hero-slide');
         const prevBtn = document.getElementById('prevSlide');
         const nextBtn = document.getElementById('nextSlide');
         const dotsContainer = document.getElementById('galleryDots');
         let currentSlide = 0;
         let slideInterval;
-
-        // Create dots
         slides.forEach((_, index) => {
             const dot = document.createElement('span');
             dot.classList.add('gallery-dot');
@@ -1595,60 +1770,32 @@
             dot.addEventListener('click', () => goToSlide(index));
             dotsContainer.appendChild(dot);
         });
-
         const dots = document.querySelectorAll('.gallery-dot');
-
         function updateSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            // Also update dynamic text based on slide index (optional)
-            // if you want to sync with the text array, you can do:
-            // dynamicElement.textContent = texts[index % texts.length];
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
-
         function nextSlide() {
             currentSlide = (currentSlide + 1) % slides.length;
             updateSlide(currentSlide);
         }
-
         function prevSlide() {
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             updateSlide(currentSlide);
         }
-
         function goToSlide(index) {
             currentSlide = index;
             updateSlide(currentSlide);
         }
-
-        // Event listeners for arrows
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetInterval();
-        });
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetInterval();
-        });
-
-        // Auto slide every 5 seconds
-        function startInterval() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-        function resetInterval() {
-            clearInterval(slideInterval);
-            startInterval();
-        }
+        prevBtn.addEventListener('click', () => { prevSlide();
+            resetInterval(); });
+        nextBtn.addEventListener('click', () => { nextSlide();
+            resetInterval(); });
+        function startInterval() { slideInterval = setInterval(nextSlide, 5000); }
+        function resetInterval() { clearInterval(slideInterval);
+            startInterval(); }
         startInterval();
-
-        // Stop auto slide when interacting with dots
-        dots.forEach(dot => {
-            dot.addEventListener('click', resetInterval);
-        });
+        dots.forEach(dot => dot.addEventListener('click', resetInterval));
     </script>
 </body>
 </html>
