@@ -1,461 +1,134 @@
+<!-- Library.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المكتبة القانونية - رخاء للاستثمار</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>المكتبة الإلكترونية - رخاء للإستثمارات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link rel="icon" type="image/jpeg" href="icon.jpg">
     <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
         :root {
-            --primary: #0c2d5e;
-            --primary-light: #1a4a8f;
-            --secondary: #c9a96e;
-            --secondary-dark: #a8864e;
-            --accent: #00d4ff;
-            --dark: #071426;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --white: #ffffff;
-            --text-dark: #1a1a2e;
-            --text-medium: #4a4a5a;
-            --text-light: #8a8a9a;
-            --border-light: rgba(0, 0, 0, 0.04);
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
-            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
-            --radius: 16px;
-            --radius-sm: 10px;
-            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #0c2d5e; --primary-light: #1a4a8f; --secondary: #c9a96e; --secondary-dark: #a8864e;
+            --accent: #00d4ff; --dark: #071426; --light: #f8f9fa; --gray: #6c757d;
+            --glass-bg: rgba(255,255,255,0.05); --glass-border: rgba(255,255,255,0.1);
+            --transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94); --fast-transition: all 0.3s ease;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #eef1f5;
-            color: var(--text-dark);
-            line-height: 1.8;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* خلفية ناعمة */
-        .bg-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(12, 45, 94, 0.025) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 70%, rgba(201, 169, 110, 0.03) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 90%, rgba(0, 212, 255, 0.015) 0%, transparent 50%);
-        }
-
-        /* ========== HEADER ========== */
-        .header {
-            background: linear-gradient(180deg, rgba(12, 45, 94, 0.95) 0%, rgba(7, 20, 38, 0.97) 100%);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-        .header-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 18px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--dark);
-            font-weight: 900;
-            box-shadow: 0 8px 20px rgba(201, 169, 110, 0.3);
-        }
-        .logo-text h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--white);
-            letter-spacing: 0.4px;
-            line-height: 1.3;
-        }
-        .logo-text span {
-            font-size: 0.65rem;
-            color: var(--secondary);
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            background: linear-gradient(165deg, #040e1a 0%, var(--dark) 25%, var(--primary) 55%, #0f3460 100%);
-            padding: 60px 20px 70px;
-            text-align: center;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.07) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(201, 169, 110, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 750px;
-            margin: 0 auto;
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            color: var(--accent);
-            padding: 8px 22px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 18px;
-            letter-spacing: 0.5px;
-        }
-        .hero h2 {
-            font-size: 2.6rem;
-            font-weight: 900;
-            margin-bottom: 14px;
-            letter-spacing: 0.5px;
-            line-height: 1.35;
-            background: linear-gradient(135deg, #ffffff 0%, #c8d6e5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero .gold-line {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            margin: 18px auto;
-            border-radius: 4px;
-        }
-        .hero p {
-            font-size: 1.05rem;
-            color: #95a5b8;
-            max-width: 550px;
-            margin: 0 auto;
-            line-height: 1.9;
-        }
-
-        /* ========== CONTAINER ========== */
-        .container {
-            max-width: 1160px;
-            margin: -35px auto 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* ========== SECTION HEADER ========== */
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 28px;
-            padding-bottom: 14px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        .section-header .s-icon {
-            font-size: 2rem;
-        }
-        .section-header h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 0.3px;
-        }
-
-        /* ========== DOCUMENT LIST ========== */
-        .doc-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .doc-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            padding: 22px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 18px;
-            transition: var(--transition);
-            border: 1px solid transparent;
-            flex-wrap: wrap;
-            position: relative;
-            overflow: hidden;
-        }
-        .doc-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--secondary), var(--accent));
-            border-radius: 0 4px 4px 0;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .doc-card:hover {
-            border-color: rgba(201, 169, 110, 0.3);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-3px);
-        }
-        .doc-card:hover::before {
-            opacity: 1;
-        }
-        .doc-left {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex: 1;
-            min-width: 240px;
-        }
-        .doc-icon-box {
-            width: 54px;
-            height: 54px;
-            min-width: 54px;
-            background: linear-gradient(135deg, #fef9e7, #fdf3d0);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            color: var(--secondary-dark);
-            border: 1px solid rgba(201, 169, 110, 0.2);
-            box-shadow: 0 2px 8px rgba(201, 169, 110, 0.1);
-        }
-        .doc-info h4 {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 5px;
-            line-height: 1.4;
-        }
-        .doc-meta {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            font-size: 0.76rem;
-            color: var(--text-light);
-            align-items: center;
-        }
-        .lang-tag {
-            padding: 3px 12px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-        }
-        .lang-tag.ar {
-            background: #e8f5e9;
-            color: #1b5e20;
-        }
-        .lang-tag.en {
-            background: #e3f2fd;
-            color: #0d47a1;
-        }
-
-        /* ========== DOWNLOAD BUTTON ========== */
-        .btn-dl {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary);
-            color: var(--white);
-            padding: 13px 26px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.88rem;
-            transition: var(--transition);
-            white-space: nowrap;
-            border: 2px solid transparent;
-            letter-spacing: 0.3px;
-            box-shadow: 0 4px 12px rgba(12, 45, 94, 0.2);
-        }
-        .btn-dl:hover {
-            background: var(--secondary);
-            color: var(--dark);
-            border-color: var(--secondary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(201, 169, 110, 0.4);
-        }
-
-        /* ========== FOOTER ========== */
-        .footer {
-            background: linear-gradient(0deg, #040e1a 0%, var(--dark) 50%, var(--primary) 100%);
-            color: #8a9bb5;
-            text-align: center;
-            padding: 40px 20px 35px;
-            font-size: 0.84rem;
-            margin-top: 60px;
-            border-top: 2px solid rgba(201, 169, 110, 0.25);
-        }
-        .footer .gold-name {
-            color: var(--secondary);
-            font-weight: 700;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 22px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-        .footer-links a {
-            color: #a0b0c5;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.84rem;
-            font-weight: 500;
-        }
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        .footer-disclaimer {
-            margin-top: 12px;
-            font-size: 0.72rem;
-            color: #5a6d85;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .header-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero h2 {
-                font-size: 1.6rem;
-            }
-            .doc-card {
-                padding: 16px;
-                flex-direction: column;
-                gap: 10px;
-            }
-            .doc-left {
-                flex-direction: column;
-                text-align: center;
-            }
-            .doc-meta {
-                justify-content: center;
-            }
-            .btn-dl {
-                width: 100%;
-                justify-content: center;
-            }
-        }
+        body { font-family:'Cairo',sans-serif; line-height:1.8; color:#333; background:var(--light); overflow-x:hidden; direction:rtl; text-align:right; }
+        body.ltr { direction:ltr; text-align:left; }
+        h1,h2,h3,h4,h5,.logo { font-weight:900; line-height:1.4; }
+        .container { width:90%; max-width:1400px; margin:0 auto; padding:0 20px; }
+        header { position:fixed; top:0; right:0; width:100%; z-index:10000; padding:15px 0; transition:var(--fast-transition); background:rgba(12,45,94,0.9); backdrop-filter:blur(10px); box-shadow:0 4px 30px rgba(0,0,0,0.1); border-bottom:1px solid rgba(201,169,110,0.3); }
+        header.scrolled { padding:10px 0; background:rgba(7,20,38,0.95); backdrop-filter:blur(15px); }
+        .navbar { display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-size:30px; font-weight:900; color:white; text-decoration:none; display:flex; align-items:center; gap:10px; }
+        .logo span { color:var(--secondary); }
+        .nav-links { display:flex; gap:5px; align-items:center; }
+        .nav-links a { color:white; text-decoration:none; font-weight:600; font-size:16px; padding:10px 18px; border-radius:30px; transition:var(--fast-transition); }
+        .nav-links a:hover { background:rgba(201,169,110,0.2); color:var(--secondary); }
+        .lang-switch { background:rgba(201,169,110,0.2); border:1px solid rgba(201,169,110,0.5); color:var(--secondary); padding:8px 16px; border-radius:30px; cursor:pointer; font-weight:700; font-size:14px; display:flex; align-items:center; gap:6px; white-space:nowrap; transition:var(--fast-transition); }
+        .lang-switch:hover { background:var(--secondary); color:var(--primary); }
+        .mobile-toggle { display:none; background:none; border:none; color:white; font-size:28px; cursor:pointer; width:50px; height:50px; border-radius:50%; }
+        .mobile-menu-panel { position:fixed; top:0; right:-100%; width:100%; height:100vh; background:rgba(12,45,94,0.98); backdrop-filter:blur(20px); z-index:9999; transition:right 0.6s cubic-bezier(0.23,1,0.32,1); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:80px 20px 40px; }
+        .mobile-menu-panel.active { right:0; }
+        .mobile-menu-links a { color:white; text-decoration:none; font-size:24px; font-weight:700; padding:15px 25px; border-radius:50px; background:rgba(255,255,255,0.05); border:1px solid rgba(201,169,110,0.2); display:flex; align-items:center; justify-content:space-between; transition:var(--fast-transition); }
+        .mobile-menu-links a:hover { background:var(--secondary); color:var(--primary); }
+        .hero { min-height:60vh; display:flex; align-items:center; background:linear-gradient(135deg,#0c2d5e,#071426); position:relative; overflow:hidden; color:white; }
+        .hero-content { max-width:800px; padding-top:100px; z-index:2; }
+        .hero h1 { font-size:3.5rem; margin-bottom:20px; }
+        .hero p { font-size:1.3rem; color:rgba(255,255,255,0.9); margin-bottom:30px; }
+        .btn { padding:16px 35px; border-radius:50px; font-weight:700; font-size:17px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:var(--fast-transition); border:none; cursor:pointer; background:linear-gradient(135deg,var(--secondary),var(--secondary-dark)); color:var(--primary); box-shadow:0 8px 20px rgba(201,169,110,0.4); }
+        .btn:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(201,169,110,0.5); }
+        .section-title { text-align:center; margin-bottom:60px; }
+        .section-title h2 { font-size:2.8rem; color:var(--primary); margin-bottom:15px; }
+        .section-title p { color:var(--gray); max-width:700px; margin:0 auto; }
+        .doc-list { display:flex; flex-direction:column; gap:20px; padding:80px 0; }
+        .doc-card { background:white; border-radius:20px; padding:25px 30px; display:flex; align-items:center; justify-content:space-between; gap:20px; box-shadow:0 10px 30px rgba(12,45,94,0.08); border:1px solid rgba(201,169,110,0.2); transition:var(--fast-transition); }
+        .doc-card:hover { transform:translateY(-5px); box-shadow:0 20px 40px rgba(12,45,94,0.15); border-color:var(--secondary); }
+        .doc-left { display:flex; align-items:center; gap:20px; flex:1; }
+        .doc-icon { font-size:2.5rem; color:var(--secondary); width:60px; height:60px; background:rgba(201,169,110,0.1); border-radius:15px; display:flex; align-items:center; justify-content:center; }
+        .doc-info h4 { font-size:1.2rem; color:var(--primary); margin-bottom:5px; }
+        .doc-meta { display:flex; gap:15px; flex-wrap:wrap; font-size:0.85rem; color:var(--gray); align-items:center; }
+        .lang-tag { padding:3px 12px; border-radius:12px; font-size:0.7rem; font-weight:700; }
+        .lang-tag.ar { background:#e8f5e9; color:#1b5e20; }
+        .lang-tag.en { background:#e3f2fd; color:#0d47a1; }
+        .btn-dl { background:var(--primary); color:white; padding:12px 25px; border-radius:10px; text-decoration:none; font-weight:700; font-size:0.9rem; display:inline-flex; align-items:center; gap:8px; transition:var(--fast-transition); white-space:nowrap; border:2px solid transparent; }
+        .btn-dl:hover { background:var(--secondary); color:var(--dark); border-color:var(--secondary-dark); transform:translateY(-2px); }
+        .contact { padding:100px 0; background:linear-gradient(135deg,var(--primary),#0a1a30); color:white; text-align:center; }
+        .contact h3 { font-size:2.4rem; margin-bottom:20px; }
+        .contact .btn { background:white; color:var(--primary); font-weight:900; padding:18px 45px; display:inline-block; }
+        footer { background:linear-gradient(135deg,#071426,#0c1a2f); color:white; padding:80px 0 30px; border-top:4px solid var(--secondary); }
+        .footer-content { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; margin-bottom:50px; }
+        .footer-logo { font-size:32px; font-weight:900; color:white; text-decoration:none; }
+        .footer-logo span { color:var(--secondary); }
+        .footer-about p { opacity:0.8; margin-bottom:25px; }
+        .social-links { display:flex; gap:15px; }
+        .social-links a { width:45px; height:45px; background:rgba(255,255,255,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; transition:var(--fast-transition); }
+        .social-links a:hover { background:var(--accent); transform:translateY(-5px); color:var(--dark); }
+        .footer-heading { font-size:1.5rem; margin-bottom:25px; position:relative; padding-bottom:10px; }
+        .footer-heading:after { content:''; position:absolute; bottom:0; right:0; width:50px; height:2px; background:var(--secondary); }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:15px; }
+        .footer-links a { color:rgba(255,255,255,0.9); text-decoration:none; display:flex; align-items:center; gap:10px; transition:var(--fast-transition); }
+        .footer-links a:hover { color:white; transform:translateX(-5px); }
+        .copyright { text-align:center; padding-top:30px; border-top:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.7); }
+        .floating-elements { position:absolute; width:100%; height:100%; pointer-events:none; }
+        .floating-element { position:absolute; background:radial-gradient(circle,var(--secondary),transparent); border-radius:50%; animation:float 8s ease-in-out infinite; filter:blur(10px); opacity:0.15; }
+        .floating-element:nth-child(1) { width:100px; height:100px; top:10%; right:5%; }
+        .floating-element:nth-child(2) { width:150px; height:150px; top:25%; left:10%; animation-delay:1s; }
+        .floating-element:nth-child(3) { width:80px; height:80px; bottom:20%; right:15%; animation-delay:2s; }
+        @keyframes float { 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-20px) rotate(5deg); } }
+        @media(max-width:992px){ .nav-links{display:none;} .mobile-toggle{display:block;} .hero h1{font-size:2.5rem;} .doc-card{flex-direction:column; text-align:center;} .doc-left{flex-direction:column;} }
+        @media(max-width:768px){ .hero h1{font-size:2rem;} .section-title h2{font-size:2rem;} }
     </style>
 </head>
 <body>
-
-    <div class="bg-glow"></div>
-
-    <!-- ========== HEADER ========== -->
-    <header class="header">
-        <div class="header-inner">
-            <a href="index.html" class="logo-area">
-                <div class="logo-icon">R</div>
-                <div class="logo-text">
-                    <h1>رخاء للاستثمار</h1>
-                    <span>RAKHAA INVESTMENTS</span>
-                </div>
-            </a>
+    <header id="header"><div class="container"><nav class="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-chart-line"></i> <span data-i18n="logo">رخاء<span> للاستثمارات</span></span></a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+            <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
+            <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+            <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
+            <a href="Library.html" data-i18n="nav_library">المكتبة</a>
         </div>
-    </header>
+        <button class="lang-switch" id="langSwitch"><i class="fas fa-globe"></i> <span id="langLabel">English</span></button>
+        <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+    </nav></div>
+    <div class="mobile-menu-panel" id="mobileMenu"><div class="mobile-menu-links">
+        <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+        <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
+        <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+        <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
+        <a href="Library.html" data-i18n="nav_library">المكتبة</a>
+    </div></div></header>
 
-    <!-- ========== HERO ========== -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">📖 المستندات الرسمية</div>
-            <h2>المكتبة القانونية</h2>
-            <div class="gold-line"></div>
-            <p>منصتكم الشاملة للاطلاع على أحدث القوانين والتشريعات المنظمة للاستثمار والأعمال في مصر</p>
+        <div class="container"><div class="hero-content">
+            <h1 data-i18n="hero_title">المكتبة الإلكترونية</h1>
+            <p data-i18n="hero_desc">منصتكم الشاملة للاطلاع على أحدث القوانين والتشريعات والمراجع العلمية في المحاسبة والاقتصاد والاستثمار والتنمية.</p>
+            <a href="#docs" class="btn"><i class="fas fa-arrow-down"></i> <span data-i18n="btn_browse">تصفح المكتبة</span></a>
+        </div></div>
+        <div class="floating-elements">
+            <div class="floating-element"></div><div class="floating-element"></div><div class="floating-element"></div>
         </div>
     </section>
 
-    <!-- ========== MAIN CONTENT ========== -->
-    <div class="container">
-        <div class="section-header">
-            <span class="s-icon">📋</span>
-            <h3>قوانين وتشريعات الاستثمار والتجارة</h3>
+    <div class="container" id="docs">
+        <div class="section-title" style="padding-top:60px;">
+            <h2 data-i18n="docs_title">قوانين وتشريعات الاستثمار والتجارة</h2>
+            <p data-i18n="docs_desc">مجموعة مختارة من أهم الوثائق الرسمية والمراجع العلمية</p>
         </div>
 
         <div class="doc-list">
-
+            <!-- Document 1 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📕</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون التجارة المصري رقم ١٧ لسنة ١٩٩٩</h4>
+                        <h4 data-i18n="d1_title">قانون التجارة المصري رقم ١٧ لسنة ١٩٩٩</h4>
                         <div class="doc-meta">
                             <span>📄 ٣٣٧ صفحة</span>
                             <span class="lang-tag ar">العربية</span>
@@ -463,104 +136,104 @@
                         </div>
                     </div>
                 </div>
-                <a href="1576752701.pdf" download class="btn-dl">⬇️ تحميل</a>
+                <a href="1576752701.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_ar">تحميل</span></a>
             </div>
-
+            <!-- Document 2 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📗</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون البنك المركزي والجهاز المصرفي والنقد رقم ٨٨ لسنة ٢٠٠٣</h4>
+                        <h4 data-i18n="d2_title">قانون البنك المركزي والجهاز المصرفي والنقد رقم ٨٨ لسنة ٢٠٠٣</h4>
                         <div class="doc-meta">
-                            <span>📄 وثيقة رسمية</span>
+                            <span data-i18n="d2_meta">وثيقة رسمية</span>
                             <span class="lang-tag ar">العربية</span>
                             <span>📅 ٢٠٠٣</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576753344.pdf" download class="btn-dl">⬇️ تحميل</a>
+                <a href="1576753344.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_ar">تحميل</span></a>
             </div>
-
+            <!-- Document 3 (English) -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📘</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون التجارة المصري - Law No. 17/1999 (Commercial Code)</h4>
+                        <h4 data-i18n="d3_title">قانون التجارة المصري - Law No. 17/1999 (Commercial Code)</h4>
                         <div class="doc-meta">
-                            <span>📄 337 صفحة</span>
+                            <span data-i18n="d3_meta">337 صفحة</span>
                             <span class="lang-tag en">English</span>
                             <span>📅 1999</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576696104.pdf" download class="btn-dl">⬇️ Download</a>
+                <a href="1576696104.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_en">Download</span></a>
             </div>
-
+            <!-- Document 4 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📙</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون حماية حقوق الملكية الفكرية - Intellectual Property Law</h4>
+                        <h4 data-i18n="d4_title">قانون حماية حقوق الملكية الفكرية - Intellectual Property Law</h4>
                         <div class="doc-meta">
-                            <span>📄 وثيقة رسمية</span>
+                            <span data-i18n="d4_meta">وثيقة رسمية</span>
                             <span class="lang-tag en">English</span>
-                            <span>📅 إصدار رسمي</span>
+                            <span data-i18n="d4_date">إصدار رسمي</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576695615.pdf" download class="btn-dl">⬇️ Download</a>
+                <a href="1576695615.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_en">Download</span></a>
             </div>
-
+            <!-- Document 5 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📓</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>اللائحة التنفيذية لقانون الاستثمار</h4>
+                        <h4 data-i18n="d5_title">اللائحة التنفيذية لقانون الاستثمار</h4>
                         <div class="doc-meta">
                             <span>📄 ١٥٤ صفحة</span>
                             <span class="lang-tag ar">العربية</span>
-                            <span>📅 إصدار محدث</span>
+                            <span data-i18n="d5_date">إصدار محدث</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576752189.pdf" download class="btn-dl">⬇️ تحميل</a>
+                <a href="1576752189.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_ar">تحميل</span></a>
             </div>
-
+            <!-- Document 6 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📔</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون ضمانات وحوافز الاستثمار رقم ٨ لسنة ١٩٩٧</h4>
+                        <h4 data-i18n="d6_title">قانون ضمانات وحوافز الاستثمار رقم ٨ لسنة ١٩٩٧</h4>
                         <div class="doc-meta">
-                            <span>📄 وثيقة رسمية</span>
+                            <span data-i18n="d6_meta">وثيقة رسمية</span>
                             <span class="lang-tag ar">العربية</span>
                             <span>📅 ١٩٩٧</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576752607.pdf" download class="btn-dl">⬇️ تحميل</a>
+                <a href="1576752607.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_ar">تحميل</span></a>
             </div>
-
+            <!-- Document 7 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📒</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون الإشراف والرقابة على التأمين في مصر</h4>
+                        <h4 data-i18n="d7_title">قانون الإشراف والرقابة على التأمين في مصر</h4>
                         <div class="doc-meta">
                             <span>📄 ١٥٤ صفحة</span>
                             <span class="lang-tag ar">العربية</span>
-                            <span>📅 إصدار رسمي</span>
+                            <span data-i18n="d7_date">إصدار رسمي</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576753124.pdf" download class="btn-dl">⬇️ تحميل</a>
+                <a href="1576753124.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_ar">تحميل</span></a>
             </div>
-
+            <!-- Document 8 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📕</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون العمل المصري رقم ١٢ لسنة ٢٠٠٣</h4>
+                        <h4 data-i18n="d8_title">قانون العمل المصري رقم ١٢ لسنة ٢٠٠٣</h4>
                         <div class="doc-meta">
                             <span>📄 ١٥٤ صفحة</span>
                             <span class="lang-tag ar">العربية</span>
@@ -568,53 +241,197 @@
                         </div>
                     </div>
                 </div>
-                <a href="1576751803.pdf" download class="btn-dl">⬇️ تحميل</a>
+                <a href="1576751803.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_ar">تحميل</span></a>
             </div>
-
+            <!-- Document 9 (English) -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📗</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>القانون المدني المصري - Egyptian Civil Code</h4>
+                        <h4 data-i18n="d9_title">القانون المدني المصري - Egyptian Civil Code</h4>
                         <div class="doc-meta">
-                            <span>📄 170 صفحة</span>
+                            <span data-i18n="d9_meta">170 صفحة</span>
                             <span class="lang-tag en">English</span>
                             <span>📅 1948</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576695424.pdf" download class="btn-dl">⬇️ Download</a>
+                <a href="1576695424.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_en">Download</span></a>
             </div>
-
+            <!-- Document 10 -->
             <div class="doc-card">
                 <div class="doc-left">
-                    <div class="doc-icon-box">📘</div>
+                    <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
                     <div class="doc-info">
-                        <h4>قانون العمل المصري - Labour Law No. 12 of 2003</h4>
+                        <h4 data-i18n="d10_title">قانون العمل المصري - Labour Law No. 12 of 2003</h4>
                         <div class="doc-meta">
-                            <span>📄 71 صفحة</span>
+                            <span data-i18n="d10_meta">71 صفحة</span>
                             <span class="lang-tag en">English</span>
                             <span>📅 2003</span>
                         </div>
                     </div>
                 </div>
-                <a href="1576695976.pdf" download class="btn-dl">⬇️ Download</a>
+                <a href="1576695976.pdf" download class="btn-dl"><i class="fas fa-download"></i> <span data-i18n="download_en">Download</span></a>
             </div>
-
         </div>
     </div>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="index.html">🏠 الرئيسية</a>
-            <a href="#">📖 عن المكتبة</a>
-            <a href="#">🔒 سياسة الخصوصية</a>
-            <a href="#">📞 اتصل بنا</a>
+    <section class="contact"><div class="container">
+        <h3 data-i18n="cta_title">تحتاج استشارة متخصصة؟</h3>
+        <p data-i18n="cta_desc">فريقنا من الخبراء جاهز لمساعدتك في تفسير القوانين وتطبيقها على أعمالك.</p>
+        <a href="index.html#contact" class="btn"><i class="fas fa-headset"></i> <span data-i18n="cta_btn">تواصل معنا</span></a>
+    </div></section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about fade-in">
+                    <a href="index.html" class="footer-logo"><span data-i18n="footer_logo">رخاء<span> للاستثمارات</span></span></a>
+                    <p data-i18n="footer_desc">تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهاً استراتيجياً وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.</p>
+                    <div class="social-links">
+                        <a href="http://www.linkedin.com/in/rakhaa-investments-505b533ab"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/investment38143"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Rakhaa.1999"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/rakhaa.investments/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send/?phone=201224561951&text&type=phone_number&app_absent=0"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-services fade-in">
+                    <h3 class="footer-heading" data-i18n="footer_services_heading">خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="service-1.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs1">إدارة المحافظ الاستثمارية</span></a></li>
+                        <li><a href="service-3.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs2">تقييم المخاطر</span></a></li>
+                        <li><a href="service-6.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs3">عمليات الدمج والاستحواذ</span></a></li>
+                        <li><a href="service-5.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs4">إدارة الثروات</span></a></li>
+                        <li><a href="service-4.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs5">التحسين الضريبي</span></a></li>
+                        <li><a href="service-7.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs6">تحليل الأسواق العالمية</span></a></li>
+                        <li><a href="service-2.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs7">الخدمات المحاسبية والمالية</span></a></li>
+                        <li><a href="service-8.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs8">خدمات رجال الأعمال</span></a></li>
+                        <li><a href="Library.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs9">المكتبة الإلكترونية</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-section fade-in">
+                    <h3 class="footer-heading" data-i18n="footer_links_heading">روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.egx.com.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl1">البورصة المصرية</span></a></li>
+                        <li><a href="https://eta.gov.eg/ar/home" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl2">مصلحة الضرائب المصرية</span></a></li>
+                        <li><a href="https://digital.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl3">منصة مصر الرقمية</span></a></li>
+                        <li><a href="https://www.cbe.org.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl4">البنك المركزي المصري</span></a></li>
+                        <li><a href="https://invoicing.eta.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl5">بوابة الفواتير الإلكترونية</span></a></li>
+                        <li><a href="https://www.investinegypt.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl6">الهيئة العامة للاستثمار</span></a></li>
+                        <li><a href="https://www.nafeza.gov.eg/ar" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl7">نافذة</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p><span data-i18n="copyright">جميع الحقوق محفوظة © 2026 رخاء للاستثمارات والاستشارات المالية والاقتصادية.</span></p>
+            </div>
         </div>
-        <p>© ٢٠٢٦ <span class="gold-name">رخاء للاستثمار</span> - جميع الحقوق محفوظة</p>
-        <p class="footer-disclaimer">هذه المستندات إصدارات رسمية منشورة في الجريدة الرسمية المصرية ومتاحة للأغراض المرجعية فقط.</p>
     </footer>
 
+    <script>
+        const translations = {
+            ar: {
+                logo:'رخاء<span> للاستثمارات</span>',
+                nav_home:'الرئيسية', nav_services:'خدماتنا', nav_about:'من نحن', nav_contact:'اتصل بنا', nav_library:'المكتبة',
+                hero_title:'المكتبة الإلكترونية',
+                hero_desc:'منصتكم الشاملة للاطلاع على أحدث القوانين والتشريعات والمراجع العلمية في المحاسبة والاقتصاد والاستثمار والتنمية.',
+                btn_browse:'تصفح المكتبة',
+                docs_title:'قوانين وتشريعات الاستثمار والتجارة',
+                docs_desc:'مجموعة مختارة من أهم الوثائق الرسمية والمراجع العلمية',
+                d1_title:'قانون التجارة المصري رقم ١٧ لسنة ١٩٩٩',
+                d2_title:'قانون البنك المركزي والجهاز المصرفي والنقد رقم ٨٨ لسنة ٢٠٠٣', d2_meta:'وثيقة رسمية',
+                d3_title:'قانون التجارة المصري - Law No. 17/1999 (Commercial Code)', d3_meta:'337 صفحة',
+                d4_title:'قانون حماية حقوق الملكية الفكرية - Intellectual Property Law', d4_meta:'وثيقة رسمية', d4_date:'إصدار رسمي',
+                d5_title:'اللائحة التنفيذية لقانون الاستثمار', d5_date:'إصدار محدث',
+                d6_title:'قانون ضمانات وحوافز الاستثمار رقم ٨ لسنة ١٩٩٧', d6_meta:'وثيقة رسمية',
+                d7_title:'قانون الإشراف والرقابة على التأمين في مصر', d7_date:'إصدار رسمي',
+                d8_title:'قانون العمل المصري رقم ١٢ لسنة ٢٠٠٣',
+                d9_title:'القانون المدني المصري - Egyptian Civil Code', d9_meta:'170 صفحة',
+                d10_title:'قانون العمل المصري - Labour Law No. 12 of 2003', d10_meta:'71 صفحة',
+                download_ar:'تحميل', download_en:'Download',
+                cta_title:'تحتاج استشارة متخصصة؟',
+                cta_desc:'فريقنا من الخبراء جاهز لمساعدتك في تفسير القوانين وتطبيقها على أعمالك.',
+                cta_btn:'تواصل معنا',
+                footer_logo:'رخاء<span> للاستثمارات</span>',
+                footer_desc:'تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهاً استراتيجياً وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.',
+                footer_services_heading:'خدماتنا',
+                fs1:'إدارة المحافظ الاستثمارية', fs2:'تقييم المخاطر', fs3:'عمليات الدمج والاستحواذ', fs4:'إدارة الثروات', fs5:'التحسين الضريبي', fs6:'تحليل الأسواق العالمية', fs7:'الخدمات المحاسبية والمالية', fs8:'خدمات رجال الأعمال', fs9:'المكتبة الإلكترونية',
+                footer_links_heading:'روابط مهمة',
+                fl1:'البورصة المصرية', fl2:'مصلحة الضرائب المصرية', fl3:'منصة مصر الرقمية', fl4:'البنك المركزي المصري', fl5:'بوابة الفواتير الإلكترونية', fl6:'الهيئة العامة للاستثمار', fl7:'نافذة',
+                copyright:'جميع الحقوق محفوظة © 2026 رخاء للاستثمارات والاستشارات المالية والاقتصادية.'
+            },
+            en: {
+                logo:'Rakhaa<span> Investments</span>',
+                nav_home:'Home', nav_services:'Services', nav_about:'About', nav_contact:'Contact', nav_library:'Library',
+                hero_title:'Electronic Library',
+                hero_desc:'Your comprehensive platform to access the latest laws, regulations, and scientific references in accounting, economics, investment, and development.',
+                btn_browse:'Browse Library',
+                docs_title:'Investment & Trade Laws and Regulations',
+                docs_desc:'A curated selection of the most important official documents and scientific references',
+                d1_title:'Egyptian Commercial Law No. 17 of 1999',
+                d2_title:'Central Bank and Banking System Law No. 88 of 2003', d2_meta:'Official document',
+                d3_title:'Egyptian Commercial Code - Law No. 17/1999', d3_meta:'337 pages',
+                d4_title:'Intellectual Property Rights Protection Law', d4_meta:'Official document', d4_date:'Official release',
+                d5_title:'Executive Regulations of the Investment Law', d5_date:'Updated release',
+                d6_title:'Investment Guarantees and Incentives Law No. 8 of 1997', d6_meta:'Official document',
+                d7_title:'Insurance Supervision and Control Law in Egypt', d7_date:'Official release',
+                d8_title:'Egyptian Labor Law No. 12 of 2003',
+                d9_title:'Egyptian Civil Code', d9_meta:'170 pages',
+                d10_title:'Labour Law No. 12 of 2003', d10_meta:'71 pages',
+                download_ar:'تحميل', download_en:'Download',
+                cta_title:'Need Specialized Consultation?',
+                cta_desc:'Our team of experts is ready to help you interpret laws and apply them to your business.',
+                cta_btn:'Contact Us',
+                footer_logo:'Rakhaa<span> Investments</span>',
+                footer_desc:'Rakhaa Investments & Financial Consulting provides strategic guidance and investment solutions for companies and individuals seeking sustainable growth and financial security.',
+                footer_services_heading:'Services',
+                fs1:'Portfolio Management', fs2:'Risk Assessment', fs3:'Mergers & Acquisitions', fs4:'Wealth Management', fs5:'Tax Optimization', fs6:'Global Market Analysis', fs7:'Accounting & Financial Services', fs8:'Business Services', fs9:'Electronic Library',
+                footer_links_heading:'Important Links',
+                fl1:'Egyptian Stock Exchange', fl2:'Egyptian Tax Authority', fl3:'Digital Egypt Platform', fl4:'Central Bank of Egypt', fl5:'E-Invoicing Portal', fl6:'General Authority for Investment', fl7:'Nafeza',
+                copyright:'All Rights Reserved © 2026 Rakhaa Investments & Financial Consulting.'
+            }
+        };
+
+        let currentLang = localStorage.getItem('rakhaa_lang') || 'ar';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('rakhaa_lang', lang);
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('ltr', lang === 'en');
+            document.getElementById('langLabel').textContent = lang === 'ar' ? 'English' : 'العربية';
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (key.includes('logo') || key.includes('detail')) {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // تحديث أزرار التحميل حسب السياق
+            document.querySelectorAll('.btn-dl').forEach(btn => {
+                const docCard = btn.closest('.doc-card');
+                const hasArabic = docCard.querySelector('.lang-tag.ar');
+                const hasEnglish = docCard.querySelector('.lang-tag.en');
+
+                if (hasArabic) {
+                    btn.innerHTML = `<i class="fas fa-download"></i> ${translations[lang].download_ar}`;
+                } else if (hasEnglish) {
+                    btn.innerHTML = `<i class="fas fa-download"></i> ${translations[lang].download_en}`;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { applyLanguage(currentLang); });
+        document.getElementById('langSwitch').addEventListener('click', () => { applyLanguage(currentLang === 'ar' ? 'en' : 'ar'); });
+        document.getElementById('mobileToggle').addEventListener('click', function() { this.classList.toggle('active'); document.getElementById('mobileMenu').classList.toggle('active'); });
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 100); });
+    </script>
 </body>
 </html>
