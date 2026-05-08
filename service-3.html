@@ -1,4 +1,4 @@
-<!-- service-3.html (تقييم المخاطر) -->
+<!-- service-3.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,54 +9,202 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="icon.jpg">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}:root{--primary:#0c2d5e;--primary-light:#1a4a8f;--secondary:#c9a96e;--secondary-dark:#a8864e;--accent:#00d4ff;--dark:#071426;--light:#f8f9fa;--gray:#6c757d;--glass-bg:rgba(255,255,255,0.05);--glass-border:rgba(255,255,255,0.1);--transition:all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);--fast-transition:all 0.3s ease}body{font-family:'Cairo',sans-serif;line-height:1.8;color:#333;background:var(--light);overflow-x:hidden;direction:rtl;text-align:right}body.ltr{direction:ltr;text-align:left}.container{width:90%;max-width:1400px;margin:0 auto;padding:0 20px}header{position:fixed;top:0;right:0;width:100%;z-index:10000;padding:15px 0;background:rgba(12,45,94,0.9);backdrop-filter:blur(10px);box-shadow:0 4px 30px rgba(0,0,0,0.1);border-bottom:1px solid rgba(201,169,110,0.3)}.navbar{display:flex;justify-content:space-between;align-items:center}.logo{font-size:30px;font-weight:900;color:white;text-decoration:none;display:flex;align-items:center;gap:10px}.logo span{color:var(--secondary)}.nav-links{display:flex;gap:5px;align-items:center}.nav-links a{color:white;text-decoration:none;font-weight:600;font-size:16px;padding:10px 18px;border-radius:30px;transition:var(--fast-transition)}.nav-links a:hover{background:rgba(201,169,110,0.2);color:var(--secondary)}.lang-switch{background:rgba(201,169,110,0.2);border:1px solid rgba(201,169,110,0.5);color:var(--secondary);padding:8px 16px;border-radius:30px;cursor:pointer;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;white-space:nowrap}.mobile-toggle{display:none;background:none;border:none;color:white;font-size:28px;cursor:pointer;width:50px;height:50px;border-radius:50%}.mobile-menu-panel{position:fixed;top:0;right:-100%;width:100%;height:100vh;background:rgba(12,45,94,0.98);backdrop-filter:blur(20px);z-index:9999;transition:right 0.6s;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:80px 20px 40px}.mobile-menu-panel.active{right:0}.mobile-menu-links a{color:white;text-decoration:none;font-size:24px;font-weight:700;padding:15px 25px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid rgba(201,169,110,0.2);display:flex;align-items:center;justify-content:space-between}.hero{min-height:70vh;display:flex;align-items:center;background:linear-gradient(135deg,#0c2d5e,#071426);position:relative;overflow:hidden}.hero-content{max-width:800px;padding-top:100px;z-index:2}.hero h1{font-size:3.5rem;color:white;margin-bottom:20px}.hero p{font-size:1.3rem;color:rgba(255,255,255,0.9);margin-bottom:30px}.btn{padding:16px 35px;border-radius:50px;font-weight:700;font-size:17px;text-decoration:none;display:inline-flex;align-items:center;gap:10px}.btn-primary{background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));color:var(--primary);box-shadow:0 8px 20px rgba(201,169,110,0.4)}.section-title{text-align:center;margin-bottom:60px}.section-title h2{font-size:2.8rem;color:var(--primary);margin-bottom:15px}.services{padding:100px 0;background:linear-gradient(180deg,#fff,#f5f7fa)}.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}.service-card{background:white;border-radius:30px;padding:40px 30px;box-shadow:0 15px 35px rgba(12,45,94,0.1);border:1px solid rgba(201,169,110,0.2)}.service-card i{font-size:2.8rem;color:var(--secondary);margin-bottom:20px}.service-card h3{font-size:1.6rem;color:var(--primary);margin-bottom:15px}.service-card ul{list-style:none;padding:0}.service-card li{margin-bottom:8px;display:flex;align-items:center;gap:8px;color:var(--gray)}.about{padding:100px 0;background:white}.about-content{display:flex;align-items:center;gap:60px}.about-text{flex:1}.about-text h2{font-size:2.8rem;color:var(--primary);margin-bottom:25px}.about-visual{flex:1;height:450px;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(12,45,94,0.2)}.about-visual img{width:100%;height:100%;object-fit:cover}.contact{padding:100px 0;background:linear-gradient(135deg,var(--primary),#0a1a30);color:white;text-align:center}.contact .btn{background:white;color:var(--primary)}footer{background:linear-gradient(135deg,#071426,#0c1a2f);color:white;padding:80px 0 30px;border-top:4px solid var(--secondary)}.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px}.footer-logo{font-size:32px;font-weight:900;color:white}.footer-logo span{color:var(--secondary)}.social-links a{width:45px;height:45px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;margin-right:10px}.floating-elements{position:absolute;width:100%;height:100%;pointer-events:none}.floating-element{position:absolute;background:radial-gradient(circle,var(--secondary),transparent);border-radius:50%;animation:float 8s infinite;filter:blur(10px);opacity:0.15}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}@media(max-width:992px){.nav-links{display:none}.mobile-toggle{display:block}.about-content{flex-direction:column}}
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --primary: #0c2d5e; --primary-light: #1a4a8f; --secondary: #c9a96e; --secondary-dark: #a8864e;
+            --accent: #00d4ff; --dark: #071426; --light: #f8f9fa; --gray: #6c757d;
+            --glass-bg: rgba(255,255,255,0.05); --glass-border: rgba(255,255,255,0.1);
+            --transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94); --fast-transition: all 0.3s ease;
+        }
+        body { font-family:'Cairo',sans-serif; line-height:1.8; color:#333; background:var(--light); overflow-x:hidden; direction:rtl; text-align:right; }
+        body.ltr { direction:ltr; text-align:left; }
+        h1,h2,h3,h4,h5,.logo { font-weight:900; line-height:1.4; }
+        .container { width:90%; max-width:1400px; margin:0 auto; padding:0 20px; }
+        header { position:fixed; top:0; right:0; width:100%; z-index:10000; padding:15px 0; transition:var(--fast-transition); background:rgba(12,45,94,0.9); backdrop-filter:blur(10px); box-shadow:0 4px 30px rgba(0,0,0,0.1); border-bottom:1px solid rgba(201,169,110,0.3); }
+        header.scrolled { padding:10px 0; background:rgba(7,20,38,0.95); backdrop-filter:blur(15px); }
+        .navbar { display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-size:30px; font-weight:900; color:white; text-decoration:none; display:flex; align-items:center; gap:10px; }
+        .logo span { color:var(--secondary); }
+        .nav-links { display:flex; gap:5px; align-items:center; }
+        .nav-links a { color:white; text-decoration:none; font-weight:600; font-size:16px; padding:10px 18px; border-radius:30px; transition:var(--fast-transition); }
+        .nav-links a:hover { background:rgba(201,169,110,0.2); color:var(--secondary); }
+        .lang-switch { background:rgba(201,169,110,0.2); border:1px solid rgba(201,169,110,0.5); color:var(--secondary); padding:8px 16px; border-radius:30px; cursor:pointer; font-weight:700; font-size:14px; display:flex; align-items:center; gap:6px; white-space:nowrap; transition:var(--fast-transition); }
+        .lang-switch:hover { background:var(--secondary); color:var(--primary); }
+        .mobile-toggle { display:none; background:none; border:none; color:white; font-size:28px; cursor:pointer; width:50px; height:50px; border-radius:50%; }
+        .mobile-menu-panel { position:fixed; top:0; right:-100%; width:100%; height:100vh; background:rgba(12,45,94,0.98); backdrop-filter:blur(20px); z-index:9999; transition:right 0.6s cubic-bezier(0.23,1,0.32,1); display:flex; flex-direction:column; justify-content:center; align-items:center; padding:80px 20px 40px; }
+        .mobile-menu-panel.active { right:0; }
+        .mobile-menu-links a { color:white; text-decoration:none; font-size:24px; font-weight:700; padding:15px 25px; border-radius:50px; background:rgba(255,255,255,0.05); border:1px solid rgba(201,169,110,0.2); display:flex; align-items:center; justify-content:space-between; transition:var(--fast-transition); }
+        .mobile-menu-links a:hover { background:var(--secondary); color:var(--primary); }
+        .hero { min-height:70vh; display:flex; align-items:center; background:linear-gradient(135deg,#0c2d5e,#071426); position:relative; overflow:hidden; color:white; }
+        .hero-content { max-width:800px; padding-top:100px; z-index:2; }
+        .hero h1 { font-size:3.5rem; margin-bottom:20px; }
+        .hero p { font-size:1.3rem; color:rgba(255,255,255,0.9); margin-bottom:30px; }
+        .btn { padding:16px 35px; border-radius:50px; font-weight:700; font-size:17px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:var(--fast-transition); border:none; cursor:pointer; background:linear-gradient(135deg,var(--secondary),var(--secondary-dark)); color:var(--primary); box-shadow:0 8px 20px rgba(201,169,110,0.4); }
+        .btn:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(201,169,110,0.5); }
+        .section-title { text-align:center; margin-bottom:60px; }
+        .section-title h2 { font-size:2.8rem; color:var(--primary); margin-bottom:15px; }
+        .section-title p { color:var(--gray); max-width:700px; margin:0 auto; }
+        .services { padding:100px 0; background:linear-gradient(180deg,#fff,#f5f7fa); }
+        .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
+        .service-card { background:white; border-radius:30px; padding:40px 30px; box-shadow:0 15px 35px rgba(12,45,94,0.1); border:1px solid rgba(201,169,110,0.2); transition:var(--fast-transition); }
+        .service-card:hover { transform:translateY(-10px); box-shadow:0 25px 45px rgba(12,45,94,0.2); border-color:var(--secondary); }
+        .service-card i { font-size:2.8rem; color:var(--secondary); margin-bottom:20px; }
+        .service-card h3 { font-size:1.6rem; color:var(--primary); margin-bottom:15px; }
+        .service-card ul { list-style:none; padding:0; }
+        .service-card li { margin-bottom:8px; display:flex; align-items:center; gap:8px; color:var(--gray); }
+        .service-card li i { font-size:1rem; margin:0; }
+        .about { padding:100px 0; background:white; }
+        .about-content { display:flex; align-items:center; gap:60px; }
+        .about-text { flex:1; }
+        .about-text h2 { font-size:2.8rem; color:var(--primary); margin-bottom:25px; }
+        .about-text p { margin-bottom:20px; color:var(--gray); }
+        .about-visual { flex:1; height:450px; border-radius:20px; overflow:hidden; box-shadow:0 30px 60px rgba(12,45,94,0.2); }
+        .about-visual img { width:100%; height:100%; object-fit:cover; }
+        .contact { padding:100px 0; background:linear-gradient(135deg,var(--primary),#0a1a30); color:white; text-align:center; }
+        .contact h3 { font-size:2.4rem; margin-bottom:20px; }
+        .contact .btn { background:white; color:var(--primary); font-weight:900; padding:18px 45px; display:inline-block; }
+        footer { background:linear-gradient(135deg,#071426,#0c1a2f); color:white; padding:80px 0 30px; border-top:4px solid var(--secondary); }
+        .footer-content { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; margin-bottom:50px; }
+        .footer-logo { font-size:32px; font-weight:900; color:white; text-decoration:none; }
+        .footer-logo span { color:var(--secondary); }
+        .footer-about p { opacity:0.8; margin-bottom:25px; }
+        .social-links { display:flex; gap:15px; }
+        .social-links a { width:45px; height:45px; background:rgba(255,255,255,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; transition:var(--fast-transition); }
+        .social-links a:hover { background:var(--accent); transform:translateY(-5px); color:var(--dark); }
+        .footer-heading { font-size:1.5rem; margin-bottom:25px; position:relative; padding-bottom:10px; }
+        .footer-heading:after { content:''; position:absolute; bottom:0; right:0; width:50px; height:2px; background:var(--secondary); }
+        .footer-links { list-style:none; }
+        .footer-links li { margin-bottom:15px; }
+        .footer-links a { color:rgba(255,255,255,0.9); text-decoration:none; display:flex; align-items:center; gap:10px; transition:var(--fast-transition); }
+        .footer-links a:hover { color:white; transform:translateX(-5px); }
+        .copyright { text-align:center; padding-top:30px; border-top:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.7); }
+        .floating-elements { position:absolute; width:100%; height:100%; pointer-events:none; }
+        .floating-element { position:absolute; background:radial-gradient(circle,var(--secondary),transparent); border-radius:50%; animation:float 8s ease-in-out infinite; filter:blur(10px); opacity:0.15; }
+        .floating-element:nth-child(1) { width:100px; height:100px; top:10%; right:5%; }
+        .floating-element:nth-child(2) { width:150px; height:150px; top:25%; left:10%; animation-delay:1s; }
+        .floating-element:nth-child(3) { width:80px; height:80px; bottom:20%; right:15%; animation-delay:2s; }
+        @keyframes float { 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-20px) rotate(5deg); } }
+        @media(max-width:992px){ .nav-links{display:none;} .mobile-toggle{display:block;} .about-content{flex-direction:column;} .hero h1{font-size:2.5rem;} }
+        @media(max-width:768px){ .hero h1{font-size:2rem;} .section-title h2{font-size:2rem;} .services-grid{grid-template-columns:1fr;} }
     </style>
 </head>
 <body>
-    <header><div class="container"><nav class="navbar">
+    <header id="header"><div class="container"><nav class="navbar">
         <a href="index.html" class="logo"><i class="fas fa-chart-line"></i> <span data-i18n="logo">رخاء<span> للاستثمارات</span></span></a>
-        <div class="nav-links"><a href="index.html" data-i18n="nav_home">الرئيسية</a><a href="index.html#services" data-i18n="nav_services">خدماتنا</a><a href="index.html#about" data-i18n="nav_about">من نحن</a><a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a></div>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+            <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
+            <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+            <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
+        </div>
         <button class="lang-switch" id="langSwitch"><i class="fas fa-globe"></i> <span id="langLabel">English</span></button>
         <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
-    </nav></div><div class="mobile-menu-panel" id="mobileMenu"><div class="mobile-menu-links">
-        <a href="index.html" data-i18n="nav_home">الرئيسية</a><a href="index.html#services" data-i18n="nav_services">خدماتنا</a><a href="index.html#about" data-i18n="nav_about">من نحن</a><a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
+    </nav></div>
+    <div class="mobile-menu-panel" id="mobileMenu"><div class="mobile-menu-links">
+        <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+        <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
+        <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+        <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
     </div></div></header>
 
-    <section class="hero"><div class="container"><div class="hero-content">
-        <h1 data-i18n="hero_title">تقييم المخاطر</h1>
-        <p data-i18n="hero_desc">نُبصر ما لا تراه العيون – نكشف عن المخاطر المالية والتشغيلية قبل وقوعها ونصمم دروعاً واقية لاستثماراتك.</p>
-        <a href="index.html#contact" class="btn btn-primary"><span data-i18n="btn_consult">احصل على تقييم</span></a>
-    </div></div><div class="floating-elements"><div class="floating-element" style="width:100px;height:100px;top:10%;right:5%"></div><div class="floating-element" style="width:150px;height:150px;top:25%;left:10%;animation-delay:1s"></div><div class="floating-element" style="width:80px;height:80px;bottom:20%;right:15%;animation-delay:2s"></div></div></section>
+    <section class="hero">
+        <div class="container"><div class="hero-content">
+            <h1 data-i18n="hero_title">تقييم المخاطر</h1>
+            <p data-i18n="hero_desc">نُبصر ما لا تراه العيون – نكشف عن المخاطر المالية والتشغيلية قبل وقوعها ونصمم دروعاً واقية لاستثماراتك.</p>
+            <a href="index.html#contact" class="btn"><span data-i18n="btn_consult">احصل على تقييم</span></a>
+        </div></div>
+        <div class="floating-elements">
+            <div class="floating-element"></div><div class="floating-element"></div><div class="floating-element"></div>
+        </div>
+    </section>
 
     <section class="about"><div class="container"><div class="about-content">
-        <div class="about-text"><h2 data-i18n="detail_title">تقييم المخاطر الشامل – رؤية استباقية</h2><p data-i18n="detail_p1">نستخدم أحدث المنهجيات العلمية ونماذج المحاكاة لتحليل المخاطر المالية، التشغيلية، السوقية، الائتمانية والقانونية.</p><p data-i18n="detail_p2">فريقنا من الخبراء يعمل معك خطوة بخطوة لتحديد المخاطر وتصميم خطط التخفيف والتحوط المخصصة.</p></div>
+        <div class="about-text">
+            <h2 data-i18n="detail_title">تقييم المخاطر الشامل – رؤية استباقية</h2>
+            <p data-i18n="detail_p1">في <strong>رخاء للإستثمارات</strong> نؤمن أن إدارة المخاطر الحقيقية تبدأ بالتقييم الدقيق. نستخدم أحدث المنهجيات العلمية ونماذج المحاكاة لتحليل المخاطر المالية، التشغيلية، السوقية، الائتمانية والقانونية.</p>
+            <p data-i18n="detail_p2">فريقنا من الخبراء في الرياضيات المالية وإدارة الأزمات يعمل معك خطوة بخطوة: بدءاً من ورش العمل لتحديد المخاطر، مروراً بالقياس الكمي، وانتهاءً بتصميم خطط التخفيف والتحوط المخصصة.</p>
+        </div>
         <div class="about-visual"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Risk Assessment"></div>
     </div></div></section>
 
-    <section class="services"><div class="container"><div class="section-title"><h2 data-i18n="services_title">خدمات تقييم المخاطر</h2></div>
-    <div class="services-grid">
-        <div class="service-card"><i class="fas fa-chart-bar"></i><h3 data-i18n="s1">مخاطر السوق</h3><ul><li data-i18n="s1_l1">تحليل حساسية أسعار الفائدة</li><li data-i18n="s1_l2">تقلبات أسعار السلع</li><li data-i18n="s1_l3">نماذج VaR</li></ul></div>
-        <div class="service-card"><i class="fas fa-industry"></i><h3 data-i18n="s2">مخاطر تشغيلية</h3><ul><li data-i18n="s2_l1">تقييم كفاءة العمليات</li><li data-i18n="s2_l2">أنظمة الرقابة الداخلية</li><li data-i18n="s2_l3">خطط استمرارية الأعمال</li></ul></div>
-        <div class="service-card"><i class="fas fa-gavel"></i><h3 data-i18n="s3">مخاطر قانونية</h3><ul><li data-i18n="s3_l1">مراجعة الالتزام بالتشريعات</li><li data-i18n="s3_l2">تحديد الثغرات التنظيمية</li><li data-i18n="s3_l3">الامتثال للقوانين الدولية</li></ul></div>
-        <div class="service-card"><i class="fas fa-coins"></i><h3 data-i18n="s4">مخاطر ائتمانية</h3><ul><li data-i18n="s4_l1">تقييم الجدارة الائتمانية</li><li data-i18n="s4_l2">تحليل مخاطر الموردين</li><li data-i18n="s4_l3">نماذج التصنيف الائتماني</li></ul></div>
-        <div class="service-card"><i class="fas fa-flag"></i><h3 data-i18n="s5">مخاطر استراتيجية</h3><ul><li data-i18n="s5_l1">تأثير القرارات الكبرى</li><li data-i18n="s5_l2">تحليل البيئة التنافسية</li><li data-i18n="s5_l3">مخاطر السمعة</li></ul></div>
-        <div class="service-card"><i class="fas fa-globe-asia"></i><h3 data-i18n="s6">مخاطر جغرافية</h3><ul><li data-i18n="s6_l1">دراسة الأسواق الناشئة</li><li data-i18n="s6_l2">تحليل التوترات الجيوسياسية</li><li data-i18n="s6_l3">مخاطر العملة</li></ul></div>
-    </div></div></section>
+    <section class="services"><div class="container">
+        <div class="section-title"><h2 data-i18n="services_title">خدمات تقييم المخاطر</h2></div>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-chart-bar"></i><h3 data-i18n="s1">مخاطر السوق</h3><ul><li data-i18n="s1_l1">تحليل حساسية أسعار الفائدة والصرف</li><li data-i18n="s1_l2">تقلبات أسعار السلع</li><li data-i18n="s1_l3">نماذج القيمة المعرضة للخطر (VaR)</li></ul></div>
+            <div class="service-card"><i class="fas fa-industry"></i><h3 data-i18n="s2">مخاطر تشغيلية</h3><ul><li data-i18n="s2_l1">تقييم كفاءة العمليات الداخلية</li><li data-i18n="s2_l2">أنظمة الرقابة وإدارة الأخطاء البشرية</li><li data-i18n="s2_l3">خطط استمرارية الأعمال</li></ul></div>
+            <div class="service-card"><i class="fas fa-gavel"></i><h3 data-i18n="s3">مخاطر قانونية</h3><ul><li data-i18n="s3_l1">مراجعة الالتزام بالتشريعات المصرية</li><li data-i18n="s3_l2">تحديد الثغرات التنظيمية</li><li data-i18n="s3_l3">الامتثال للقوانين الدولية</li></ul></div>
+            <div class="service-card"><i class="fas fa-coins"></i><h3 data-i18n="s4">مخاطر ائتمانية</h3><ul><li data-i18n="s4_l1">تقييم الجدارة الائتمانية للعملاء</li><li data-i18n="s4_l2">تحليل مخاطر الموردين</li><li data-i18n="s4_l3">نماذج التصنيف الائتماني</li></ul></div>
+            <div class="service-card"><i class="fas fa-flag"></i><h3 data-i18n="s5">مخاطر استراتيجية</h3><ul><li data-i18n="s5_l1">تأثير القرارات الكبرى على الأهداف</li><li data-i18n="s5_l2">تحليل البيئة التنافسية</li><li data-i18n="s5_l3">مخاطر السمعة</li></ul></div>
+            <div class="service-card"><i class="fas fa-globe-asia"></i><h3 data-i18n="s6">مخاطر جغرافية</h3><ul><li data-i18n="s6_l1">دراسة الأسواق الناشئة</li><li data-i18n="s6_l2">تحليل التوترات الجيوسياسية</li><li data-i18n="s6_l3">مخاطر العملة في الدول المختلفة</li></ul></div>
+        </div>
+    </div></section>
 
-    <section class="contact"><div class="container"><h3 data-i18n="cta_title">لا تترك مستقبلك للصدفة</h3><p data-i18n="cta_desc">احصل على تقييم مجاني لمخاطر محفظتك أو مشروعك.</p><a href="tel:+201214269207" class="btn" data-i18n="cta_btn">اتصل الآن</a></div></section>
+    <section class="contact"><div class="container">
+        <h3 data-i18n="cta_title">لا تترك مستقبلك للصدفة</h3>
+        <p data-i18n="cta_desc">احصل على تقييم مجاني لمخاطر محفظتك أو مشروعك.</p>
+        <a href="tel:+201214269207" class="btn" data-i18n="cta_btn">اتصل الآن</a>
+    </div></section>
 
     <footer><div class="container"><div class="footer-content">
-        <div class="footer-about"><a href="index.html" class="footer-logo"><span data-i18n="footer_logo">رخاء<span> للاستثمارات</span></span></a><p data-i18n="footer_desc">شركة رائدة في مجال الاستثمارات والاستشارات المالية.</p><div class="social-links"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
-        <div class="footer-services"><h3 class="footer-heading" data-i18n="footer_services_heading">خدماتنا</h3><ul class="footer-links"><li><a href="service-1.html"><span data-i18n="fs1">إدارة المحافظ</span></a></li><li><a href="service-2.html"><span data-i18n="fs2">المحاسبة</span></a></li></ul></div>
+        <div class="footer-about"><a href="index.html" class="footer-logo"><span data-i18n="footer_logo">رخاء<span> للاستثمارات</span></span></a><p data-i18n="footer_desc">شركة رائدة في مجال الاستثمارات والاستشارات المالية والاقتصادية.</p><div class="social-links"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a></div></div>
+        <div class="footer-services"><h3 class="footer-heading" data-i18n="footer_services_heading">خدماتنا</h3><ul class="footer-links"><li><a href="service-1.html"><span data-i18n="fs1">إدارة المحافظ</span></a></li><li><a href="service-2.html"><span data-i18n="fs2">المحاسبة</span></a></li><li><a href="service-3.html"><span data-i18n="fs3">تقييم المخاطر</span></a></li></ul></div>
+        <div class="footer-contact"><h3 class="footer-heading" data-i18n="footer_contact_heading">اتصل بنا</h3><ul class="footer-links"><li><a href="tel:+201214269207">01214269207</a></li><li><a href="mailto:rakhaa.investments@gmail.com">rakhaa.investments@gmail.com</a></li></ul></div>
     </div><div class="copyright"><p data-i18n="copyright">جميع الحقوق محفوظة © 2026 رخاء للاستثمارات</p></div></div></footer>
 
     <script>
-        const translations = { ar: { logo:'رخاء<span> للاستثمارات</span>', nav_home:'الرئيسية', nav_services:'خدماتنا', nav_about:'من نحن', nav_contact:'اتصل بنا', hero_title:'تقييم المخاطر', hero_desc:'نُبصر ما لا تراه العيون – نكشف عن المخاطر المالية والتشغيلية قبل وقوعها.', btn_consult:'احصل على تقييم', detail_title:'تقييم المخاطر الشامل', detail_p1:'نستخدم أحدث المنهجيات لتحليل المخاطر المالية والتشغيلية والسوقية.', detail_p2:'فريقنا يعمل معك لتحديد المخاطر وتصميم خطط التخفيف.', services_title:'خدمات تقييم المخاطر', s1:'مخاطر السوق', s1_l1:'تحليل حساسية أسعار الفائدة', s1_l2:'تقلبات أسعار السلع', s1_l3:'نماذج VaR', s2:'مخاطر تشغيلية', s2_l1:'تقييم كفاءة العمليات', s2_l2:'أنظمة الرقابة', s2_l3:'خطط استمرارية الأعمال', s3:'مخاطر قانونية', s3_l1:'مراجعة الالتزام بالتشريعات', s3_l2:'تحديد الثغرات', s3_l3:'الامتثال الدولي', s4:'مخاطر ائتمانية', s4_l1:'تقييم الجدارة الائتمانية', s4_l2:'تحليل الموردين', s4_l3:'نماذج التصنيف', s5:'مخاطر استراتيجية', s5_l1:'تأثير القرارات', s5_l2:'البيئة التنافسية', s5_l3:'مخاطر السمعة', s6:'مخاطر جغرافية', s6_l1:'الأسواق الناشئة', s6_l2:'التوترات الجيوسياسية', s6_l3:'مخاطر العملة', cta_title:'لا تترك مستقبلك للصدفة', cta_desc:'احصل على تقييم مجاني.', cta_btn:'اتصل الآن', footer_logo:'رخاء<span> للاستثمارات</span>', footer_desc:'شركة رائدة.', footer_services_heading:'خدماتنا', fs1:'إدارة المحافظ', fs2:'المحاسبة', copyright:'جميع الحقوق محفوظة © 2026' }, en: { logo:'Rakhaa<span> Investments</span>', nav_home:'Home', nav_services:'Services', nav_about:'About', nav_contact:'Contact', hero_title:'Risk Assessment', hero_desc:'We reveal financial and operational risks before they occur and design protective shields for your investments.', btn_consult:'Get Assessment', detail_title:'Comprehensive Risk Assessment', detail_p1:'We use the latest methodologies to analyze financial, operational, market, credit, and legal risks.', detail_p2:'Our team works with you step by step to identify risks and design customized mitigation and hedging plans.', services_title:'Risk Assessment Services', s1:'Market Risk', s1_l1:'Interest rate sensitivity', s1_l2:'Commodity price volatility', s1_l3:'VaR models', s2:'Operational Risk', s2_l1:'Process efficiency evaluation', s2_l2:'Internal control systems', s2_l3:'Business continuity plans', s3:'Legal Risk', s3_l1:'Regulatory compliance review', s3_l2:'Identify regulatory gaps', s3_l3:'International law compliance', s4:'Credit Risk', s4_l1:'Creditworthiness evaluation', s4_l2:'Supplier risk analysis', s4_l3:'Credit rating models', s5:'Strategic Risk', s5_l1:'Impact of major decisions', s5_l2:'Competitive environment analysis', s5_l3:'Reputation risk', s6:'Geopolitical Risk', s6_l1:'Emerging markets study', s6_l2:'Geopolitical tension analysis', s6_l3:'Currency risk', cta_title:'Don\'t Leave Your Future to Chance', cta_desc:'Get a free risk assessment for your portfolio or project.', cta_btn:'Call Now', footer_logo:'Rakhaa<span> Investments</span>', footer_desc:'Leading firm.', footer_services_heading:'Services', fs1:'Portfolio', fs2:'Accounting', copyright:'All Rights Reserved © 2026' } };
+        const translations = {
+            ar: {
+                logo:'رخاء<span> للاستثمارات</span>', nav_home:'الرئيسية', nav_services:'خدماتنا', nav_about:'من نحن', nav_contact:'اتصل بنا',
+                hero_title:'تقييم المخاطر', hero_desc:'نُبصر ما لا تراه العيون – نكشف عن المخاطر المالية والتشغيلية قبل وقوعها ونصمم دروعاً واقية لاستثماراتك.',
+                btn_consult:'احصل على تقييم', detail_title:'تقييم المخاطر الشامل – رؤية استباقية',
+                detail_p1:'في <strong>رخاء للإستثمارات</strong> نؤمن أن إدارة المخاطر الحقيقية تبدأ بالتقييم الدقيق. نستخدم أحدث المنهجيات العلمية ونماذج المحاكاة لتحليل المخاطر المالية، التشغيلية، السوقية، الائتمانية والقانونية.',
+                detail_p2:'فريقنا من الخبراء في الرياضيات المالية وإدارة الأزمات يعمل معك خطوة بخطوة: بدءاً من ورش العمل لتحديد المخاطر، مروراً بالقياس الكمي، وانتهاءً بتصميم خطط التخفيف والتحوط المخصصة.',
+                services_title:'خدمات تقييم المخاطر',
+                s1:'مخاطر السوق', s1_l1:'تحليل حساسية أسعار الفائدة والصرف', s1_l2:'تقلبات أسعار السلع', s1_l3:'نماذج القيمة المعرضة للخطر (VaR)',
+                s2:'مخاطر تشغيلية', s2_l1:'تقييم كفاءة العمليات الداخلية', s2_l2:'أنظمة الرقابة وإدارة الأخطاء البشرية', s2_l3:'خطط استمرارية الأعمال',
+                s3:'مخاطر قانونية', s3_l1:'مراجعة الالتزام بالتشريعات المصرية', s3_l2:'تحديد الثغرات التنظيمية', s3_l3:'الامتثال للقوانين الدولية',
+                s4:'مخاطر ائتمانية', s4_l1:'تقييم الجدارة الائتمانية للعملاء', s4_l2:'تحليل مخاطر الموردين', s4_l3:'نماذج التصنيف الائتماني',
+                s5:'مخاطر استراتيجية', s5_l1:'تأثير القرارات الكبرى على الأهداف', s5_l2:'تحليل البيئة التنافسية', s5_l3:'مخاطر السمعة',
+                s6:'مخاطر جغرافية', s6_l1:'دراسة الأسواق الناشئة', s6_l2:'تحليل التوترات الجيوسياسية', s6_l3:'مخاطر العملة في الدول المختلفة',
+                cta_title:'لا تترك مستقبلك للصدفة', cta_desc:'احصل على تقييم مجاني لمخاطر محفظتك أو مشروعك.', cta_btn:'اتصل الآن',
+                footer_logo:'رخاء<span> للاستثمارات</span>', footer_desc:'شركة رائدة في مجال الاستثمارات والاستشارات المالية والاقتصادية.',
+                footer_services_heading:'خدماتنا', fs1:'إدارة المحافظ', fs2:'المحاسبة', fs3:'تقييم المخاطر',
+                footer_contact_heading:'اتصل بنا', copyright:'جميع الحقوق محفوظة © 2026 رخاء للاستثمارات'
+            },
+            en: {
+                logo:'Rakhaa<span> Investments</span>', nav_home:'Home', nav_services:'Services', nav_about:'About', nav_contact:'Contact',
+                hero_title:'Risk Assessment', hero_desc:'We see what eyes cannot – we uncover financial and operational risks before they occur and design protective shields for your investments.',
+                btn_consult:'Get Assessment', detail_title:'Comprehensive Risk Assessment – Proactive Vision',
+                detail_p1:'At <strong>Rakhaa Investments</strong>, we believe true risk management begins with accurate assessment. We use the latest scientific methodologies and simulation models to analyze financial, operational, market, credit, and legal risks.',
+                detail_p2:'Our team of experts in financial mathematics and crisis management works with you step by step: from risk identification workshops, through quantitative measurement, to designing customized mitigation and hedging plans.',
+                services_title:'Risk Assessment Services',
+                s1:'Market Risk', s1_l1:'Interest and exchange rate sensitivity analysis', s1_l2:'Commodity price volatility', s1_l3:'Value at Risk (VaR) models',
+                s2:'Operational Risk', s2_l1:'Internal process efficiency evaluation', s2_l2:'Control systems and human error management', s2_l3:'Business continuity plans',
+                s3:'Legal Risk', s3_l1:'Review of compliance with Egyptian legislation', s3_l2:'Identifying regulatory gaps', s3_l3:'International law compliance',
+                s4:'Credit Risk', s4_l1:'Customer creditworthiness evaluation', s4_l2:'Supplier risk analysis', s4_l3:'Credit rating models',
+                s5:'Strategic Risk', s5_l1:'Impact of major decisions on objectives', s5_l2:'Competitive environment analysis', s5_l3:'Reputational risk',
+                s6:'Geopolitical Risk', s6_l1:'Emerging market study', s6_l2:'Geopolitical tension analysis', s6_l3:'Currency risk across different countries',
+                cta_title:'Don\'t Leave Your Future to Chance', cta_desc:'Get a free risk assessment for your portfolio or project.', cta_btn:'Call Now',
+                footer_logo:'Rakhaa<span> Investments</span>', footer_desc:'A leading firm in investment and financial consulting.',
+                footer_services_heading:'Services', fs1:'Portfolio', fs2:'Accounting', fs3:'Risk Assessment',
+                footer_contact_heading:'Contact Us', copyright:'All Rights Reserved © 2026 Rakhaa Investments'
+            }
+        };
         let currentLang = localStorage.getItem('rakhaa_lang') || 'ar';
-        function applyLanguage(lang) { currentLang = lang; localStorage.setItem('rakhaa_lang', lang); document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('ltr', lang === 'en'); document.getElementById('langLabel').textContent = lang === 'ar' ? 'English' : 'العربية'; document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key]; }); }
+        function applyLanguage(lang) {
+            currentLang = lang; localStorage.setItem('rakhaa_lang', lang);
+            document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('ltr', lang === 'en');
+            document.getElementById('langLabel').textContent = lang === 'ar' ? 'English' : 'العربية';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+        }
         document.addEventListener('DOMContentLoaded', () => { applyLanguage(currentLang); });
         document.getElementById('langSwitch').addEventListener('click', () => { applyLanguage(currentLang === 'ar' ? 'en' : 'ar'); });
         document.getElementById('mobileToggle').addEventListener('click', function() { this.classList.toggle('active'); document.getElementById('mobileMenu').classList.toggle('active'); });
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 100); });
     </script>
 </body>
 </html>
