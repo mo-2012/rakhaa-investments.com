@@ -1,4 +1,3 @@
-<!-- service-1.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -35,15 +34,12 @@
         .mobile-menu-panel.active { right:0; }
         .mobile-menu-links a { color:white; text-decoration:none; font-size:24px; font-weight:700; padding:15px 25px; border-radius:50px; background:rgba(255,255,255,0.05); border:1px solid rgba(201,169,110,0.2); display:flex; align-items:center; justify-content:space-between; transition:var(--fast-transition); }
         .mobile-menu-links a:hover { background:var(--secondary); color:var(--primary); }
-        .hero { min-height:70vh; display:flex; align-items:center; background:linear-gradient(135deg,#0c2d5e,#071426); position:relative; overflow:hidden; }
+        .hero { min-height:70vh; display:flex; align-items:center; background:linear-gradient(135deg,#0c2d5e,#071426); position:relative; overflow:hidden; color:white; }
         .hero-content { max-width:800px; padding-top:100px; z-index:2; }
-        .hero h1 { font-size:3.5rem; color:white; margin-bottom:20px; }
+        .hero h1 { font-size:3.5rem; margin-bottom:20px; }
         .hero p { font-size:1.3rem; color:rgba(255,255,255,0.9); margin-bottom:30px; }
-        .btn { padding:16px 35px; border-radius:50px; font-weight:700; font-size:17px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:var(--fast-transition); border:none; cursor:pointer; }
-        .btn-primary { background:linear-gradient(135deg,var(--secondary),var(--secondary-dark)); color:var(--primary); box-shadow:0 8px 20px rgba(201,169,110,0.4); }
-        .btn-primary:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(201,169,110,0.5); }
-        .btn-outline { background:transparent; color:white; border:2px solid var(--secondary); }
-        .btn-outline:hover { background:var(--secondary); color:var(--primary); transform:translateY(-5px); }
+        .btn { padding:16px 35px; border-radius:50px; font-weight:700; font-size:17px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:var(--fast-transition); border:none; cursor:pointer; background:linear-gradient(135deg,var(--secondary),var(--secondary-dark)); color:var(--primary); box-shadow:0 8px 20px rgba(201,169,110,0.4); }
+        .btn:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(201,169,110,0.5); }
         .section-title { text-align:center; margin-bottom:60px; }
         .section-title h2 { font-size:2.8rem; color:var(--primary); margin-bottom:15px; }
         .section-title p { color:var(--gray); max-width:700px; margin:0 auto; }
@@ -87,81 +83,113 @@
         .floating-element:nth-child(2) { width:150px; height:150px; top:25%; left:10%; animation-delay:1s; }
         .floating-element:nth-child(3) { width:80px; height:80px; bottom:20%; right:15%; animation-delay:2s; }
         @keyframes float { 0%,100%{ transform:translateY(0) rotate(0deg); } 50%{ transform:translateY(-20px) rotate(5deg); } }
-        @keyframes fadeUp { to{ opacity:1; transform:translateY(0); } }
         @media(max-width:992px){ .nav-links{display:none;} .mobile-toggle{display:block;} .about-content{flex-direction:column;} .hero h1{font-size:2.5rem;} }
         @media(max-width:768px){ .hero h1{font-size:2rem;} .section-title h2{font-size:2rem;} .services-grid{grid-template-columns:1fr;} }
     </style>
 </head>
 <body>
-    <header id="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo"><i class="fas fa-chart-line"></i> <span data-i18n="logo">رخاء<span> للاستثمارات</span></span></a>
-                <div class="nav-links">
-                    <a href="index.html" data-i18n="nav_home">الرئيسية</a>
-                    <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
-                    <a href="index.html#about" data-i18n="nav_about">من نحن</a>
-                    <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
-                </div>
-                <button class="lang-switch" id="langSwitch"><i class="fas fa-globe"></i> <span id="langLabel">English</span></button>
-                <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
-            </nav>
+    <header id="header"><div class="container"><nav class="navbar">
+        <a href="index.html" class="logo"><i class="fas fa-chart-line"></i> <span data-i18n="logo">رخاء<span> للاستثمارات</span></span></a>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+            <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
+            <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+            <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
         </div>
-        <div class="mobile-menu-panel" id="mobileMenu">
-            <div class="mobile-menu-links">
-                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
-                <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
-                <a href="index.html#about" data-i18n="nav_about">من نحن</a>
-                <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
-            </div>
-        </div>
-    </header>
+        <button class="lang-switch" id="langSwitch"><i class="fas fa-globe"></i> <span id="langLabel">English</span></button>
+        <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+    </nav></div>
+    <div class="mobile-menu-panel" id="mobileMenu"><div class="mobile-menu-links">
+        <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+        <a href="index.html#services" data-i18n="nav_services">خدماتنا</a>
+        <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+        <a href="index.html#contact" data-i18n="nav_contact">اتصل بنا</a>
+    </div></div></header>
 
     <section class="hero">
         <div class="container"><div class="hero-content">
             <h1 data-i18n="hero_title">إدارة المحافظ الاستثمارية</h1>
             <p data-i18n="hero_desc">إدارة احترافية للمحافظ الاستثمارية في السوق المصري – نصنع معك عوائد استثنائية بتوازن ذكي بين المخاطرة والعائد.</p>
-            <a href="index.html#contact" class="btn btn-primary"><span data-i18n="btn_consult">اطلب الخدمة الآن</span></a>
+            <a href="index.html#contact" class="btn"><span data-i18n="btn_consult">اطلب الخدمة الآن</span></a>
         </div></div>
-        <div class="floating-elements"><div class="floating-element"></div><div class="floating-element"></div><div class="floating-element"></div></div>
-    </section>
-
-    <section class="about" id="details">
-        <div class="container"><div class="about-content">
-            <div class="about-text">
-                <h2 data-i18n="detail_title">إدارة المحافظ الاستثمارية المتخصصة</h2>
-                <p data-i18n="detail_p1">تقدم <strong>رخاء للإستثمارات</strong> خدمة إدارة المحافظ الاستثمارية المصممة خصيصاً لتتناسب مع طبيعة السوق المصري. نعتمد على أحدث أدوات التحليل الكمي والنوعي لبناء محافظ تتسم بالتنوع والمرونة.</p>
-                <p data-i18n="detail_p2">فريقنا من المحللين الماليين يتابعون أداء المحافظ يومياً ويُجرون التعديلات التكتيكية الفورية انسجاماً مع متغيرات السوق.</p>
-            </div>
-            <div class="about-visual"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Portfolio Management"></div>
-        </div></div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title"><h2 data-i18n="services_title">خدمات إدارة المحافظ الاستثمارية</h2></div>
-            <div class="services-grid">
-                <div class="service-card"><i class="fas fa-chart-pie"></i><h3 data-i18n="s1">تنويع ذكي</h3><ul><li data-i18n="s1_list1">توزيع الأصول بين أسهم، سندات، أدوات دخل ثابت</li><li data-i18n="s1_list2">استثمارات عقارية وصناديق مؤشرات</li><li data-i18n="s1_list3">موازنة المخاطر حسب رغبتك</li></ul></div>
-                <div class="service-card"><i class="fas fa-shield-alt"></i><h3 data-i18n="s2">إدارة المخاطر</h3><ul><li data-i18n="s2_list1">نماذج القيمة المعرضة للخطر (VaR)</li><li data-i18n="s2_list2">تحليل السيناريوهات واختبارات التحمل</li><li data-i18n="s2_list3">استراتيجيات تحوط متطورة</li></ul></div>
-                <div class="service-card"><i class="fas fa-file-alt"></i><h3 data-i18n="s3">تقارير شفافة</h3><ul><li data-i18n="s3_list1">تقارير أداء شهرية مفصلة</li><li data-i18n="s3_list2">تحليل العائد والمخاطر</li><li data-i18n="s3_list3">إفصاح كامل عن التوزيعات</li></ul></div>
-                <div class="service-card"><i class="fas fa-clock"></i><h3 data-i18n="s4">متابعة لحظية</h3><ul><li data-i18n="s4_list1">مراقبة يومية للسوق</li><li data-i18n="s4_list2">تعديل فوري للمراكز</li><li data-i18n="s4_list3">تنبيهات بالأحداث الجوهرية</li></ul></div>
-                <div class="service-card"><i class="fas fa-user-tie"></i><h3 data-i18n="s5">استشارات مخصصة</h3><ul><li data-i18n="s5_list1">تصميم استراتيجية تناسب أهدافك</li><li data-i18n="s5_list2">تحليل قدرتك على تحمل المخاطر</li><li data-i18n="s5_list3">لقاءات دورية مع المستشار</li></ul></div>
-                <div class="service-card"><i class="fas fa-globe"></i><h3 data-i18n="s6">فرص عالمية</h3><ul><li data-i18n="s6_list1">استثمار في أسواق ناشئة ومتقدمة</li><li data-i18n="s6_list2">تنويع جغرافي لتقليل المخاطر</li><li data-i18n="s6_list3">عملات وأسواق سلع عالمية</li></ul></div>
-            </div>
+        <div class="floating-elements">
+            <div class="floating-element"></div><div class="floating-element"></div><div class="floating-element"></div>
         </div>
     </section>
+
+    <section class="about"><div class="container"><div class="about-content">
+        <div class="about-text">
+            <h2 data-i18n="detail_title">إدارة المحافظ الاستثمارية المتخصصة</h2>
+            <p data-i18n="detail_p1">تقدم <strong>رخاء للإستثمارات</strong> خدمة إدارة المحافظ الاستثمارية المصممة خصيصاً لتتناسب مع طبيعة السوق المصري وتطلعات المستثمرين. نعتمد على أحدث أدوات التحليل الكمي والنوعي، وندمج بين الخبرة المالية العميقة والتقنيات الإحصائية المتطورة لبناء محافظ تتسم بالتنوع والمرونة.</p>
+            <p data-i18n="detail_p2">فريقنا من المحللين الماليين وخبراء الأسواق يتابعون أداء المحافظ يومياً، ويُجرون التعديلات التكتيكية الفورية انسجاماً مع متغيرات السوق. نضع أهدافك المالية نصب أعيننا، سواء كنت تسعى لنمو طويل الأجل أو دخل دوري أو مزيج متوازن بينهما.</p>
+        </div>
+        <div class="about-visual"><img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="إدارة المحافظ"></div>
+    </div></div></section>
+
+    <section class="services"><div class="container">
+        <div class="section-title"><h2 data-i18n="services_title">خدمات إدارة المحافظ الاستثمارية</h2></div>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-chart-pie"></i><h3 data-i18n="s1">تنويع ذكي</h3><ul><li data-i18n="s1_l1">توزيع الأصول بين أسهم، سندات، أدوات دخل ثابت</li><li data-i18n="s1_l2">استثمارات عقارية وصناديق مؤشرات</li><li data-i18n="s1_l3">موازنة المخاطر حسب رغبتك</li></ul></div>
+            <div class="service-card"><i class="fas fa-shield-alt"></i><h3 data-i18n="s2">إدارة المخاطر</h3><ul><li data-i18n="s2_l1">نماذج القيمة المعرضة للخطر (VaR)</li><li data-i18n="s2_l2">تحليل السيناريوهات واختبارات التحمل</li><li data-i18n="s2_l3">استراتيجيات تحوط متطورة</li></ul></div>
+            <div class="service-card"><i class="fas fa-file-alt"></i><h3 data-i18n="s3">تقارير شفافة</h3><ul><li data-i18n="s3_l1">تقارير أداء شهرية مفصلة</li><li data-i18n="s3_l2">تحليل العائد والمخاطر</li><li data-i18n="s3_l3">إفصاح كامل عن التوزيعات</li></ul></div>
+            <div class="service-card"><i class="fas fa-clock"></i><h3 data-i18n="s4">متابعة لحظية</h3><ul><li data-i18n="s4_l1">مراقبة يومية للسوق</li><li data-i18n="s4_l2">تعديل فوري للمراكز</li><li data-i18n="s4_l3">تنبيهات بالأحداث الجوهرية</li></ul></div>
+            <div class="service-card"><i class="fas fa-user-tie"></i><h3 data-i18n="s5">استشارات مخصصة</h3><ul><li data-i18n="s5_l1">تصميم استراتيجية تناسب أهدافك</li><li data-i18n="s5_l2">تحليل قدرتك على تحمل المخاطر</li><li data-i18n="s5_l3">لقاءات دورية مع المستشار</li></ul></div>
+            <div class="service-card"><i class="fas fa-globe"></i><h3 data-i18n="s6">فرص عالمية</h3><ul><li data-i18n="s6_l1">استثمار في أسواق ناشئة ومتقدمة</li><li data-i18n="s6_l2">تنويع جغرافي لتقليل المخاطر</li><li data-i18n="s6_l3">عملات وأسواق سلع عالمية</li></ul></div>
+        </div>
+    </div></section>
 
     <section class="contact"><div class="container">
         <h3 data-i18n="cta_title">ابدأ رحلة استثمارك الواعي اليوم</h3>
         <p data-i18n="cta_desc">استشارة أولية مجانية – فريق الخبراء ينتظر تواصلك</p>
-        <a href="tel:+201214269207" class="btn" data-i18n="cta_btn">اتصل الآن: 01214269207</a>
+        <a href="tel:+201214269207" class="btn"><span data-i18n="cta_btn">اتصل الآن: 01214269207</span></a>
     </div></section>
 
-    <footer><div class="container"><div class="footer-content">
-        <div class="footer-about"><a href="index.html" class="footer-logo"><span data-i18n="footer_logo">رخاء<span> للاستثمارات</span></span></a><p data-i18n="footer_desc">شركة رائدة في مجال الاستثمارات والاستشارات المالية.</p><div class="social-links"><a href="http://www.linkedin.com/in/rakhaa-investments-505b533ab"><i class="fab fa-linkedin-in"></i></a><a href="https://x.com/investment38143"><i class="fab fa-twitter"></i></a><a href="https://www.facebook.com/Rakhaa.1999"><i class="fab fa-facebook-f"></i></a></div></div>
-        <div class="footer-services"><h3 class="footer-heading" data-i18n="footer_services_heading">خدماتنا</h3><ul class="footer-links"><li><a href="service-1.html"><span data-i18n="fs1">إدارة المحافظ الاستثمارية</span></a></li><li><a href="service-2.html"><span data-i18n="fs2">الخدمات المحاسبية والمالية</span></a></li><li><a href="service-3.html"><span data-i18n="fs3">تقييم المخاطر</span></a></li></ul></div>
-        <div class="footer-contact"><h3 class="footer-heading" data-i18n="footer_contact_heading">اتصل بنا</h3><ul class="footer-links"><li><a href="tel:+201214269207">01214269207</a></li><li><a href="mailto:rakhaa.investments@gmail.com">rakhaa.investments@gmail.com</a></li></ul></div>
-    </div><div class="copyright"><p data-i18n="copyright">جميع الحقوق محفوظة © 2026 رخاء للاستثمارات</p></div></div></footer>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about fade-in">
+                    <a href="index.html" class="footer-logo"><span data-i18n="footer_logo">رخاء<span> للاستثمارات</span></span></a>
+                    <p data-i18n="footer_desc">تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهاً استراتيجياً وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.</p>
+                    <div class="social-links">
+                        <a href="http://www.linkedin.com/in/rakhaa-investments-505b533ab"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com/investment38143"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/Rakhaa.1999"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/rakhaa.investments/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send/?phone=201224561951&text&type=phone_number&app_absent=0"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-services fade-in">
+                    <h3 class="footer-heading" data-i18n="footer_services_heading">خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="service-1.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs1">إدارة المحافظ الاستثمارية</span></a></li>
+                        <li><a href="service-3.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs2">تقييم المخاطر</span></a></li>
+                        <li><a href="service-6.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs3">عمليات الدمج والاستحواذ</span></a></li>
+                        <li><a href="service-5.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs4">إدارة الثروات</span></a></li>
+                        <li><a href="service-4.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs5">التحسين الضريبي</span></a></li>
+                        <li><a href="service-7.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs6">تحليل الأسواق العالمية</span></a></li>
+                        <li><a href="service-2.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs7">الخدمات المحاسبية والمالية</span></a></li>
+                        <li><a href="service-8.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs8">خدمات رجال الأعمال</span></a></li>
+                        <li><a href="Library.html"><i class="fas fa-chevron-left"></i> <span data-i18n="fs9">المكتبة</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-section fade-in">
+                    <h3 class="footer-heading" data-i18n="footer_links_heading">روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.egx.com.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl1">البورصة المصرية</span></a></li>
+                        <li><a href="https://eta.gov.eg/ar/home" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl2">مصلحة الضرائب المصرية</span></a></li>
+                        <li><a href="https://digital.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl3">منصة مصر الرقمية</span></a></li>
+                        <li><a href="https://www.cbe.org.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl4">البنك المركزي المصري</span></a></li>
+                        <li><a href="https://invoicing.eta.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl5">بوابة الفواتير الإلكترونية</span></a></li>
+                        <li><a href="https://www.investinegypt.gov.eg/" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl6">الهيئة العامة للاستثمار</span></a></li>
+                        <li><a href="https://www.nafeza.gov.eg/ar" target="_blank"><i class="fas fa-chevron-left"></i> <span data-i18n="fl7">نافذة</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p><span data-i18n="copyright">جميع الحقوق محفوظة © 2026 رخاء للاستثمارات والاستشارات المالية والاقتصادية.</span></p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const translations = {
@@ -169,33 +197,39 @@
                 logo:'رخاء<span> للاستثمارات</span>', nav_home:'الرئيسية', nav_services:'خدماتنا', nav_about:'من نحن', nav_contact:'اتصل بنا',
                 hero_title:'إدارة المحافظ الاستثمارية', hero_desc:'إدارة احترافية للمحافظ الاستثمارية في السوق المصري – نصنع معك عوائد استثنائية بتوازن ذكي بين المخاطرة والعائد.',
                 btn_consult:'اطلب الخدمة الآن', detail_title:'إدارة المحافظ الاستثمارية المتخصصة',
-                detail_p1:'تقدم <strong>رخاء للإستثمارات</strong> خدمة إدارة المحافظ الاستثمارية المصممة خصيصاً لتتناسب مع طبيعة السوق المصري. نعتمد على أحدث أدوات التحليل الكمي والنوعي لبناء محافظ تتسم بالتنوع والمرونة.',
-                detail_p2:'فريقنا من المحللين الماليين يتابعون أداء المحافظ يومياً ويُجرون التعديلات التكتيكية الفورية انسجاماً مع متغيرات السوق.',
+                detail_p1:'تقدم <strong>رخاء للإستثمارات</strong> خدمة إدارة المحافظ الاستثمارية المصممة خصيصاً لتتناسب مع طبيعة السوق المصري وتطلعات المستثمرين. نعتمد على أحدث أدوات التحليل الكمي والنوعي، وندمج بين الخبرة المالية العميقة والتقنيات الإحصائية المتطورة لبناء محافظ تتسم بالتنوع والمرونة.',
+                detail_p2:'فريقنا من المحللين الماليين وخبراء الأسواق يتابعون أداء المحافظ يومياً، ويُجرون التعديلات التكتيكية الفورية انسجاماً مع متغيرات السوق. نضع أهدافك المالية نصب أعيننا، سواء كنت تسعى لنمو طويل الأجل أو دخل دوري أو مزيج متوازن بينهما.',
                 services_title:'خدمات إدارة المحافظ الاستثمارية',
-                s1:'تنويع ذكي', s1_list1:'توزيع الأصول بين أسهم، سندات، أدوات دخل ثابت', s1_list2:'استثمارات عقارية وصناديق مؤشرات', s1_list3:'موازنة المخاطر حسب رغبتك',
-                s2:'إدارة المخاطر', s2_list1:'نماذج القيمة المعرضة للخطر (VaR)', s2_list2:'تحليل السيناريوهات واختبارات التحمل', s2_list3:'استراتيجيات تحوط متطورة',
-                s3:'تقارير شفافة', s3_list1:'تقارير أداء شهرية مفصلة', s3_list2:'تحليل العائد والمخاطر', s3_list3:'إفصاح كامل عن التوزيعات',
-                s4:'متابعة لحظية', s4_list1:'مراقبة يومية للسوق', s4_list2:'تعديل فوري للمراكز', s4_list3:'تنبيهات بالأحداث الجوهرية',
-                s5:'استشارات مخصصة', s5_list1:'تصميم استراتيجية تناسب أهدافك', s5_list2:'تحليل قدرتك على تحمل المخاطر', s5_list3:'لقاءات دورية مع المستشار',
-                s6:'فرص عالمية', s6_list1:'استثمار في أسواق ناشئة ومتقدمة', s6_list2:'تنويع جغرافي لتقليل المخاطر', s6_list3:'عملات وأسواق سلع عالمية',
+                s1:'تنويع ذكي', s1_l1:'توزيع الأصول بين أسهم، سندات، أدوات دخل ثابت', s1_l2:'استثمارات عقارية وصناديق مؤشرات', s1_l3:'موازنة المخاطر حسب رغبتك',
+                s2:'إدارة المخاطر', s2_l1:'نماذج القيمة المعرضة للخطر (VaR)', s2_l2:'تحليل السيناريوهات واختبارات التحمل', s2_l3:'استراتيجيات تحوط متطورة',
+                s3:'تقارير شفافة', s3_l1:'تقارير أداء شهرية مفصلة', s3_l2:'تحليل العائد والمخاطر', s3_l3:'إفصاح كامل عن التوزيعات',
+                s4:'متابعة لحظية', s4_l1:'مراقبة يومية للسوق', s4_l2:'تعديل فوري للمراكز', s4_l3:'تنبيهات بالأحداث الجوهرية',
+                s5:'استشارات مخصصة', s5_l1:'تصميم استراتيجية تناسب أهدافك', s5_l2:'تحليل قدرتك على تحمل المخاطر', s5_l3:'لقاءات دورية مع المستشار',
+                s6:'فرص عالمية', s6_l1:'استثمار في أسواق ناشئة ومتقدمة', s6_l2:'تنويع جغرافي لتقليل المخاطر', s6_l3:'عملات وأسواق سلع عالمية',
                 cta_title:'ابدأ رحلة استثمارك الواعي اليوم', cta_desc:'استشارة أولية مجانية – فريق الخبراء ينتظر تواصلك', cta_btn:'اتصل الآن: 01214269207',
-                footer_logo:'رخاء<span> للاستثمارات</span>', footer_desc:'شركة رائدة في مجال الاستثمارات والاستشارات المالية.', footer_services_heading:'خدماتنا', fs1:'إدارة المحافظ الاستثمارية', fs2:'الخدمات المحاسبية والمالية', fs3:'تقييم المخاطر', footer_contact_heading:'اتصل بنا', copyright:'جميع الحقوق محفوظة © 2026 رخاء للاستثمارات'
+                footer_logo:'رخاء<span> للاستثمارات</span>', footer_desc:'تقدم رخاء للاستثمارات والاستشارات المالية والاقتصادية توجيهاً استراتيجياً وحلول استثمارية للشركات والأفراد الذين يسعون لتحقيق نمو مستدام وأمن مالي.',
+                footer_services_heading:'خدماتنا', fs1:'إدارة المحافظ الاستثمارية', fs2:'تقييم المخاطر', fs3:'عمليات الدمج والاستحواذ', fs4:'إدارة الثروات', fs5:'التحسين الضريبي', fs6:'تحليل الأسواق العالمية', fs7:'الخدمات المحاسبية والمالية', fs8:'خدمات رجال الأعمال', fs9:'المكتبة',
+                footer_links_heading:'روابط مهمة', fl1:'البورصة المصرية', fl2:'مصلحة الضرائب المصرية', fl3:'منصة مصر الرقمية', fl4:'البنك المركزي المصري', fl5:'بوابة الفواتير الإلكترونية', fl6:'الهيئة العامة للاستثمار', fl7:'نافذة',
+                copyright:'جميع الحقوق محفوظة © 2026 رخاء للاستثمارات والاستشارات المالية والاقتصادية.'
             },
             en: {
                 logo:'Rakhaa<span> Investments</span>', nav_home:'Home', nav_services:'Services', nav_about:'About', nav_contact:'Contact',
                 hero_title:'Portfolio Management', hero_desc:'Professional portfolio management in the Egyptian market – we create exceptional returns with a smart balance of risk and reward.',
-                btn_consult:'Request Service', detail_title:'Specialized Portfolio Management',
-                detail_p1:'<strong>Rakhaa Investments</strong> offers portfolio management services specifically tailored to the Egyptian market. We utilize the latest quantitative and qualitative analysis tools to build diversified and flexible portfolios.',
-                detail_p2:'Our team of financial analysts monitors portfolio performance daily and makes immediate tactical adjustments in line with market changes.',
+                btn_consult:'Request Service Now', detail_title:'Specialized Portfolio Management',
+                detail_p1:'<strong>Rakhaa Investments</strong> offers portfolio management services specifically designed to fit the Egyptian market and investors\' aspirations. We use the latest quantitative and qualitative analysis tools, combining deep financial expertise with advanced statistical techniques to build diversified and flexible portfolios.',
+                detail_p2:'Our team of financial analysts and market experts monitor portfolio performance daily, making immediate tactical adjustments in line with market changes. We keep your financial goals in focus, whether you seek long-term growth, periodic income, or a balanced mix.',
                 services_title:'Portfolio Management Services',
-                s1:'Smart Diversification', s1_list1:'Asset allocation across stocks, bonds, fixed income', s1_list2:'Real estate investments and index funds', s1_list3:'Risk balancing according to preference',
-                s2:'Risk Management', s2_list1:'Value at Risk (VaR) models', s2_list2:'Scenario analysis and stress testing', s2_list3:'Advanced hedging strategies',
-                s3:'Transparent Reporting', s3_list1:'Detailed monthly performance reports', s3_list2:'Return and risk analysis', s3_list3:'Full disclosure of allocations',
-                s4:'Real-Time Monitoring', s4_list1:'Daily market surveillance', s4_list2:'Immediate position adjustments', s4_list3:'Alerts on material events',
-                s5:'Customized Consulting', s5_list1:'Strategy design tailored to your goals', s5_list2:'Risk tolerance analysis', s5_list3:'Periodic meetings with advisor',
-                s6:'Global Opportunities', s6_list1:'Investing in emerging and developed markets', s6_list2:'Geographic diversification to reduce risk', s6_list3:'Global currencies and commodities',
+                s1:'Smart Diversification', s1_l1:'Asset allocation across stocks, bonds, fixed income', s1_l2:'Real estate investments and index funds', s1_l3:'Risk balancing according to preference',
+                s2:'Risk Management', s2_l1:'Value at Risk (VaR) models', s2_l2:'Scenario analysis and stress testing', s2_l3:'Advanced hedging strategies',
+                s3:'Transparent Reporting', s3_l1:'Detailed monthly performance reports', s3_l2:'Return and risk analysis', s3_l3:'Full disclosure of allocations',
+                s4:'Real-Time Monitoring', s4_l1:'Daily market surveillance', s4_l2:'Immediate position adjustments', s4_l3:'Alerts on material events',
+                s5:'Customized Consulting', s5_l1:'Strategy design tailored to your goals', s5_l2:'Risk tolerance analysis', s5_l3:'Periodic meetings with advisor',
+                s6:'Global Opportunities', s6_l1:'Investing in emerging and developed markets', s6_l2:'Geographic diversification to reduce risk', s6_l3:'Global currencies and commodities',
                 cta_title:'Start Your Conscious Investment Journey Today', cta_desc:'Free initial consultation – our expert team awaits your call', cta_btn:'Call Now: 01214269207',
-                footer_logo:'Rakhaa<span> Investments</span>', footer_desc:'Leading firm in investment and financial consulting.', footer_services_heading:'Services', fs1:'Portfolio Management', fs2:'Accounting & Financial', fs3:'Risk Assessment', footer_contact_heading:'Contact Us', copyright:'All Rights Reserved © 2026 Rakhaa Investments'
+                footer_logo:'Rakhaa<span> Investments</span>', footer_desc:'Rakhaa Investments & Financial Consulting provides strategic guidance and investment solutions for companies and individuals seeking sustainable growth and financial security.',
+                footer_services_heading:'Services', fs1:'Portfolio Management', fs2:'Risk Assessment', fs3:'Mergers & Acquisitions', fs4:'Wealth Management', fs5:'Tax Optimization', fs6:'Global Market Analysis', fs7:'Accounting & Financial Services', fs8:'Business Services', fs9:'Library',
+                footer_links_heading:'Important Links', fl1:'Egyptian Stock Exchange', fl2:'Egyptian Tax Authority', fl3:'Digital Egypt Platform', fl4:'Central Bank of Egypt', fl5:'E-Invoicing Portal', fl6:'General Authority for Investment', fl7:'Nafeza',
+                copyright:'All Rights Reserved © 2026 Rakhaa Investments & Financial Consulting.'
             }
         };
         let currentLang = localStorage.getItem('rakhaa_lang') || 'ar';
@@ -206,12 +240,19 @@
             document.getElementById('langLabel').textContent = lang === 'ar' ? 'English' : 'العربية';
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) el.innerHTML = translations[lang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    if (key.includes('logo') || key.includes('detail_p1')) {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
             });
         }
         document.addEventListener('DOMContentLoaded', () => { applyLanguage(currentLang); });
         document.getElementById('langSwitch').addEventListener('click', () => { applyLanguage(currentLang === 'ar' ? 'en' : 'ar'); });
         document.getElementById('mobileToggle').addEventListener('click', function() { this.classList.toggle('active'); document.getElementById('mobileMenu').classList.toggle('active'); });
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 100); });
     </script>
 </body>
 </html>
