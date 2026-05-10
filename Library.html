@@ -64,7 +64,7 @@
         .doc-card { background:white; border-radius:20px; padding:30px; box-shadow:0 10px 30px rgba(12,45,94,0.08); border:1px solid rgba(201,169,110,0.15); transition:var(--fast-transition); display:flex; flex-direction:column; justify-content:space-between; }
         .doc-card:hover { transform:translateY(-8px); box-shadow:0 20px 40px rgba(12,45,94,0.2); border-color:var(--secondary); }
         .doc-card .doc-header { display:flex; align-items:center; gap:15px; margin-bottom:15px; }
-        .doc-icon { font-size:2rem; color:var(--secondary); background:rgba(201,169,110,0.1); width:60px; height:60px; border-radius:15px; display:flex; align-items:center; justify-content:center; }
+        .doc-icon { font-size:2rem; color:var(--secondary); background:rgba(201,169,110,0.1); width:60px; height:60px; border-radius:15px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
         .doc-card h4 { font-size:1.1rem; color:var(--primary); line-height:1.4; flex:1; }
         .doc-meta { display:flex; flex-wrap:wrap; gap:10px; margin:15px 0; font-size:0.85rem; color:var(--gray); align-items:center; }
         .lang-tag { padding:3px 12px; border-radius:12px; font-size:0.7rem; font-weight:700; }
@@ -74,6 +74,9 @@
         .btn-dl { background:var(--primary); color:white; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:700; font-size:0.9rem; display:inline-flex; align-items:center; justify-content:center; gap:8px; transition:var(--fast-transition); text-align:center; margin-top:auto; border:2px solid transparent; }
         .btn-dl:hover { background:var(--secondary); color:var(--dark); border-color:var(--secondary-dark); }
 
+        .section-title { text-align:center; margin-bottom:60px; }
+        .section-title h2 { font-size:2.8rem; color:var(--primary); margin-bottom:15px; }
+        .section-title p { color:var(--gray); max-width:700px; margin:0 auto; }
         .contact { padding:100px 0; background:linear-gradient(135deg,var(--primary),#0a1a30); color:white; text-align:center; }
         .contact h3 { font-size:2.4rem; margin-bottom:20px; }
         .contact .btn { background:white; color:var(--primary); }
@@ -81,13 +84,15 @@
         .footer-content { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:40px; margin-bottom:50px; }
         .footer-logo { font-size:32px; font-weight:900; color:white; text-decoration:none; }
         .footer-logo span { color:var(--secondary); }
-        .social-links a { width:45px; height:45px; background:rgba(255,255,255,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; margin-right:10px; }
+        .social-links { display:flex; gap:15px; }
+        .social-links a { width:45px; height:45px; background:rgba(255,255,255,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; text-decoration:none; transition:var(--fast-transition); }
+        .social-links a:hover { background:var(--accent); transform:translateY(-5px); color:var(--dark); }
         .footer-heading { font-size:1.5rem; margin-bottom:25px; position:relative; padding-bottom:10px; }
         .footer-heading:after { content:''; position:absolute; bottom:0; right:0; width:50px; height:2px; background:var(--secondary); }
         .footer-links { list-style:none; }
         .footer-links li { margin-bottom:15px; }
         .footer-links a { color:rgba(255,255,255,0.9); text-decoration:none; display:flex; align-items:center; gap:10px; }
-        .copyright { text-align:center; padding-top:30px; border-top:1px solid rgba(255,255,255,0.1); }
+        .copyright { text-align:center; padding-top:30px; border-top:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.7); }
         @media(max-width:992px){ .nav-links{display:none;} .mobile-toggle{display:block;} .hero h1{font-size:2.5rem;} }
     </style>
 </head>
@@ -119,8 +124,8 @@
             <h1 data-i18n="hero_title">المكتبة الإلكترونية</h1>
             <p data-i18n="hero_desc">منصتكم المتكاملة للاطلاع على أحدث القوانين والتشريعات والمراجع العلمية في المحاسبة والاقتصاد والاستثمار والتنمية</p>
             <div class="hero-stats">
-                <div class="hero-stat"><span class="number" data-i18n="stat_docs">12+</span><span class="label" data-i18n="stat_docs_label">وثيقة ومرجع</span></div>
-                <div class="hero-stat"><span class="number" data-i18n="stat_cats">4</span><span class="label" data-i18n="stat_cats_label">تصنيفات رئيسية</span></div>
+                <div class="hero-stat"><span class="number" data-i18n="stat_docs">17+</span><span class="label" data-i18n="stat_docs_label">وثيقة ومرجع</span></div>
+                <div class="hero-stat"><span class="number" data-i18n="stat_cats">5</span><span class="label" data-i18n="stat_cats_label">تصنيفات رئيسية</span></div>
                 <div class="hero-stat"><span class="number" data-i18n="stat_langs">2</span><span class="label" data-i18n="stat_langs_label">لغات</span></div>
             </div>
             <a href="#docs" class="btn"><i class="fas fa-arrow-down"></i> <span data-i18n="btn_browse">تصفح المكتبة</span></a>
@@ -144,6 +149,7 @@
                 <button class="filter-tab" data-filter="laws" data-i18n="tab_laws">قوانين وتشريعات</button>
                 <button class="filter-tab" data-filter="accounting" data-i18n="tab_accounting">محاسبة ومراجعة</button>
                 <button class="filter-tab" data-filter="economics" data-i18n="tab_economics">اقتصاد واستثمار</button>
+                <button class="filter-tab" data-filter="ip" data-i18n="tab_ip">ملكية فكرية</button>
                 <button class="filter-tab" data-filter="references" data-i18n="tab_references">مراجع علمية</button>
             </div>
         </div>
@@ -213,14 +219,14 @@
                 nav_home:'الرئيسية', nav_services:'خدماتنا', nav_about:'من نحن', nav_contact:'اتصل بنا', nav_library:'المكتبة',
                 hero_title:'المكتبة الإلكترونية',
                 hero_desc:'منصتكم المتكاملة للاطلاع على أحدث القوانين والتشريعات والمراجع العلمية في المحاسبة والاقتصاد والاستثمار والتنمية',
-                stat_docs:'12+', stat_docs_label:'وثيقة ومرجع',
-                stat_cats:'4', stat_cats_label:'تصنيفات رئيسية',
+                stat_docs:'17+', stat_docs_label:'وثيقة ومرجع',
+                stat_cats:'5', stat_cats_label:'تصنيفات رئيسية',
                 stat_langs:'2', stat_langs_label:'لغات',
                 btn_browse:'تصفح المكتبة',
                 docs_title:'المكتبة الإلكترونية',
                 docs_desc:'اختر التصنيف أو ابحث عن الوثيقة التي تريدها',
                 search_ph:'ابحث عن وثيقة...',
-                tab_all:'الكل', tab_laws:'قوانين وتشريعات', tab_accounting:'محاسبة ومراجعة', tab_economics:'اقتصاد واستثمار', tab_references:'مراجع علمية',
+                tab_all:'الكل', tab_laws:'قوانين وتشريعات', tab_accounting:'محاسبة ومراجعة', tab_economics:'اقتصاد واستثمار', tab_ip:'ملكية فكرية', tab_references:'مراجع علمية',
                 download_ar:'تحميل', download_en:'Download',
                 cta_title:'تحتاج استشارة متخصصة؟',
                 cta_desc:'فريقنا من الخبراء جاهز لمساعدتك في تفسير القوانين وتطبيقها على أعمالك.',
@@ -239,14 +245,14 @@
                 nav_home:'Home', nav_services:'Services', nav_about:'About', nav_contact:'Contact', nav_library:'Library',
                 hero_title:'Electronic Library',
                 hero_desc:'Your integrated platform to access the latest laws, regulations, and scientific references in accounting, economics, investment, and development',
-                stat_docs:'12+', stat_docs_label:'Documents & References',
-                stat_cats:'4', stat_cats_label:'Main Categories',
+                stat_docs:'17+', stat_docs_label:'Documents & References',
+                stat_cats:'5', stat_cats_label:'Main Categories',
                 stat_langs:'2', stat_langs_label:'Languages',
                 btn_browse:'Browse Library',
                 docs_title:'Electronic Library',
                 docs_desc:'Select a category or search for the document you need',
                 search_ph:'Search for a document...',
-                tab_all:'All', tab_laws:'Laws & Legislation', tab_accounting:'Accounting & Auditing', tab_economics:'Economics & Investment', tab_references:'Scientific References',
+                tab_all:'All', tab_laws:'Laws & Legislation', tab_accounting:'Accounting & Auditing', tab_economics:'Economics & Investment', tab_ip:'Intellectual Property', tab_references:'Scientific References',
                 download_ar:'Download (Ar)', download_en:'Download',
                 cta_title:'Need Specialized Consultation?',
                 cta_desc:'Our team of experts is ready to help you interpret laws and apply them to your business.',
@@ -263,18 +269,26 @@
         };
 
         const documents = [
+            // القوانين الأساسية
             { title_ar:'قانون التجارة المصري رقم ١٧ لسنة ١٩٩٩', title_en:'Commercial Law No. 17 of 1999', lang:'ar', cat:'laws', pages:'337', year:'1999', file:'1576752701.pdf' },
             { title_ar:'قانون البنك المركزي رقم ٨٨ لسنة ٢٠٠٣', title_en:'Central Bank Law No. 88 of 2003', lang:'ar', cat:'laws', pages:'رسمية', year:'2003', file:'1576753344.pdf' },
             { title_ar:'قانون التجارة المصري - Commercial Code', title_en:'Egyptian Commercial Code', lang:'en', cat:'laws', pages:'337', year:'1999', file:'1576696104.pdf' },
-            { title_ar:'قانون الملكية الفكرية', title_en:'Intellectual Property Law', lang:'en', cat:'laws', pages:'رسمية', year:'-', file:'1576695615.pdf' },
             { title_ar:'اللائحة التنفيذية لقانون الاستثمار', title_en:'Executive Regulations of Investment Law', lang:'ar', cat:'laws', pages:'154', year:'محدثة', file:'1576752189.pdf' },
-            { title_ar:'قانون حوافز الاستثمار رقم ٨', title_en:'Investment Incentives Law No. 8', lang:'ar', cat:'laws', pages:'رسمية', year:'1997', file:'1576752607.pdf' },
-            { title_ar:'الإشراف على التأمين', title_en:'Insurance Supervision Law', lang:'ar', cat:'laws', pages:'154', year:'-', file:'1576753124.pdf' },
-            { title_ar:'قانون العمل رقم ١٢', title_en:'Labour Law No. 12', lang:'ar', cat:'laws', pages:'154', year:'2003', file:'1576751803.pdf' },
+            { title_ar:'قانون حوافز الاستثمار رقم ٨ لسنة ١٩٩٧', title_en:'Investment Incentives Law No. 8 of 1997', lang:'ar', cat:'laws', pages:'رسمية', year:'1997', file:'1576752607.pdf' },
+            { title_ar:'قانون الإشراف والرقابة على التأمين', title_en:'Insurance Supervision Law', lang:'ar', cat:'laws', pages:'154', year:'-', file:'1576753124.pdf' },
+            { title_ar:'قانون العمل رقم ١٢ لسنة ٢٠٠٣', title_en:'Labour Law No. 12 of 2003', lang:'ar', cat:'laws', pages:'154', year:'2003', file:'1576751803.pdf' },
             { title_ar:'القانون المدني المصري', title_en:'Egyptian Civil Code', lang:'en', cat:'laws', pages:'170', year:'1948', file:'1576695424.pdf' },
             { title_ar:'قانون العمل - Labour Law', title_en:'Labour Law No. 12 of 2003', lang:'en', cat:'laws', pages:'71', year:'2003', file:'1576695976.pdf' },
+            // القوانين الجديدة
+            { title_ar:'قانون رقم ٥ لسنة ٢٠٢٥ - إنهاء المنازعات الضريبية', title_en:'Law No. 5 of 2025 - Tax Dispute Resolution', lang:'ar', cat:'laws', pages:'10', year:'2025', file:'Law_no.5.of_.2025.pdf' },
+            { title_ar:'قانون رقم ٧ لسنة ٢٠٢٥ - تعديل الإجراءات الضريبية الموحد', title_en:'Law No. 7 of 2025 - Amending Unified Tax Procedures', lang:'ar', cat:'laws', pages:'2', year:'2025', file:'Law_no.7.of_.2025.pdf' },
+            // الملكية الفكرية
+            { title_ar:'قانون حماية حقوق الملكية الفكرية', title_en:'Intellectual Property Rights Protection Law', lang:'ar', cat:'ip', pages:'63', year:'-', file:'1576695615 (1).pdf' },
+            { title_ar:'قانون الملكية الفكرية - Intellectual Property Law', title_en:'Intellectual Property Law', lang:'en', cat:'ip', pages:'رسمية', year:'-', file:'1576695615.pdf' },
+            // المحاسبة
             { title_ar:'معايير المحاسبة المصرية ٢٠٢٥', title_en:'Egyptian Accounting Standards 2025', lang:'ar', cat:'accounting', pages:'220', year:'2025', file:'#' },
             { title_ar:'دليل المراجعة الدولية', title_en:'International Auditing Guidelines', lang:'ar', cat:'accounting', pages:'180', year:'2024', file:'#' },
+            // الاقتصاد والمراجع
             { title_ar:'مبادئ التحليل الاقتصادي', title_en:'Principles of Economic Analysis', lang:'ar', cat:'economics', pages:'150', year:'2025', file:'#' },
             { title_ar:'دليل المستثمر الذكي', title_en:'Smart Investor Guide', lang:'ar', cat:'references', pages:'95', year:'2024', file:'#' }
         ];
@@ -301,7 +315,7 @@
                 const langLabel = doc.lang === 'ar' ? (currentLang==='ar'?'العربية':'Arabic') : 'English';
                 const downloadText = doc.lang === 'ar' ? t('download_ar') : t('download_en');
                 const pagesText = doc.pages === 'رسمية' ? (currentLang==='ar'?'رسمية':'Official') : doc.pages;
-                const yearText = doc.year === 'محدثة' ? (currentLang==='ar'?'محدثة':'Updated') : doc.year;
+                const yearText = doc.year === 'محدثة' ? (currentLang==='ar'?'محدثة':'Updated') : (doc.year === '-' ? '' : doc.year);
                 return `
                 <div class="doc-card">
                     <div class="doc-header">
@@ -312,7 +326,7 @@
                         <span><i class="far fa-file-alt"></i> ${pagesText} ${currentLang==='ar'?'صفحة':'pages'}</span>
                         <span class="lang-tag ${doc.lang}">${langLabel}</span>
                         <span class="tag-category">${t(`tab_${doc.cat}`)}</span>
-                        ${yearText !== '-' ? `<span><i class="far fa-calendar-alt"></i> ${yearText}</span>` : ''}
+                        ${yearText ? `<span><i class="far fa-calendar-alt"></i> ${yearText}</span>` : ''}
                     </div>
                     <a href="${doc.file}" download class="btn-dl"><i class="fas fa-download"></i> ${downloadText}</a>
                 </div>`;
