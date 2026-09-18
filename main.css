@@ -1271,8 +1271,8 @@ body.is-ltr .footer__h { letter-spacing: 0.18em; text-transform: uppercase; }
 /* ---------- 17. Custom cursor (desktop, fine pointer) ---------- */
 .cursor-dot, .cursor-ring {
   position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: 0;
+  top: 0;      /* كان inset-block-start: 0 */
+  left: 0;     /* كان inset-inline-start: 0  ← ده كان بيبقى right في RTL */
   z-index: 9999;
   pointer-events: none;
   border-radius: 50%;
