@@ -568,9 +568,8 @@ body.nav-open .lang-toggle { color: var(--ivory); border-color: rgba(245, 240, 2
   color: var(--gold);
   margin-block-end: clamp(1.5rem, 1rem + 1.4vw, 2.5rem);
 }
-.hero__title {
-  /* A full-sentence headline, so it sits below --t-hero to stay 3-4 lines. */
-  font-size: clamp(1.7rem, 1.05rem + 2.2vw, 3.15rem);
+body.is-rtl .hero__title {
+  font-size: clamp(1.55rem, 1rem + 2vw, 2.8rem);
   font-weight: 200;
   line-height: 1.22;
   max-width: 26ch;
